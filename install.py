@@ -13,7 +13,6 @@ def listFiles(path):
 	files = []
 	for file in os.listdir(path):
 		# Skip files in the ignored list
-		print((path + '/' + file)[len(cwd)+1:])
 		if (path + '/' + file)[len(cwd)+1:] in ignored:
 			continue
 		# Add files to our list
@@ -26,8 +25,10 @@ def listFiles(path):
 
 
 cwd = os.getcwd()
-print(cwd)
 for file in listFiles(cwd):
+	print(file)
 	homepath = os.environ['HOME'] + '/' + file[len(cwd)+1:]
+	print('    Removing existing file (if it exists)')
 	call(['rm', homepath])
+	print('    Creating symlink')
 	call(['ln', '-s', file, homepath])
