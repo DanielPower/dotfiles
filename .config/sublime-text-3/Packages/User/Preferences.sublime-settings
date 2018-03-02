@@ -1,4 +1,5 @@
 {
+	"auto_complete_commit_on_tab": true,
 	"color_scheme": "Packages/gruvbox/gruvbox (Dark) (Medium).tmTheme",
 	"font_size": 11,
 	"gruvbox_accent_green": true,
@@ -10,12 +11,11 @@
 	"gruvbox_statusbar_xs": true,
 	"gruvbox_tabs_xxs": true,
 	"hot_exit": false,
-	"tab_completion":false,
-	"auto_complete_commit_on_tab": true,
-	"shift_tab_unindent": false,
 	"ignored_packages":
 	[
 		"Vintage"
 	],
+	"shift_tab_unindent": false,
+	"tab_completion": false,
 	"theme": "gruvbox (Dark) (Medium).sublime-theme"
 }
