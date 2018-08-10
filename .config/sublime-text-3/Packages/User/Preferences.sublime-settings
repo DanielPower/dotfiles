@@ -1,8 +1,8 @@
 {
 	"auto_complete_commit_on_tab": true,
-	"color_scheme": "Packages/gruvbox/gruvbox (Dark) (Medium).tmTheme",
-	"font_size": 11,
+	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
 	"font_face": "fira mono",
+	"font_size": 11,
 	"gruvbox_accent_green": true,
 	"gruvbox_autocomplete_border": false,
 	"gruvbox_autocomplete_cramped": true,
