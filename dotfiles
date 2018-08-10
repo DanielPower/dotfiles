@@ -3,15 +3,14 @@ import sys
 import os
 from subprocess import call
 
+HOME = os.environ['HOME'] + '/'
+CWD = os.getcwd()
+DOTFILES = HOME + '.dotfiles/'
 
 ignored = [
 	'.git',
 	'dotfiles'
 ]
-
-HOME = os.environ['HOME'] + '/'
-CWD = os.getcwd()
-DOTFILES = HOME + '.dotfiles/'
 
 
 def install():
@@ -22,7 +21,9 @@ def install():
 
 
 def add(path):
+	print(path)
 	path = os.path.abspath(path)[len(HOME):]
+	print(path)
 	if os.path.isfile(HOME+path):
 		addFile(path)
 	elif os.path.isdir(HOME+path):
@@ -36,6 +37,7 @@ def add(path):
 def createPath(path):
 	print("Creating a path to " +path)
 	directories = path.split('/')
+	print(len(directories))
 	dirstring = ""
 	for directory in directories[:-1]:
 		dirstring += directory + '/'
@@ -81,16 +83,25 @@ def createSymlink(path, source):
 	call(['ln', '-s', source, path])
 
 
-try:
-	if sys.argv[1] == 'install':
-		install()
-	elif sys.argv[1] == 'add':
-		try:
-			add(sys.argv[2])
-		except IndexError:
-			print("Usage: dotfile add <file/directory>")
-except IndexError:
-	print("Missing argument")
+def showUsage():
 	print("Options:")
 	print("    install")
 	print("    add")
+
+
+if __name__ == "__main__":
+	try:
+		if sys.argv[1] == 'install':
+			install()
+		elif sys.argv[1] == 'add':
+			try:
+				add(sys.argv[2])
+			except IndexError:
+				print("Usage: dotfile add <file or directory>")
+		else:
+			print("Bad argument")
+			showUsage()
+	except IndexError:
+		print("Missing argument")
+		showUsage()
+		
