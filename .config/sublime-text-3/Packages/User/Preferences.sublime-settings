@@ -2,7 +2,7 @@
 	"auto_complete_commit_on_tab": true,
 	"color_scheme": "Packages/Theme - Monokai Pro/Monokai Pro (Filter Spectrum).tmTheme",
 	"font_face": "fira code",
-	"font_size": 11,
+	"font_size": 10,
 	"hot_exit": true,
 	"ignored_packages":
 	[
