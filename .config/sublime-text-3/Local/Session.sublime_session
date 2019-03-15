@@ -1,0 +1,601 @@
+{
+	"folder_history":
+	[
+		"/home/daniel/Dropbox/Programming/Active/gitfolio",
+		"/home/daniel/Dropbox/Documents/School/2019w/comp3301/comp3301-assignments/assignment1/src",
+		"/home/daniel/Dropbox/Documents/School/2019w/comp3301/comp3301-assignments/assignment2/src",
+		"/home/daniel/Desktop/foo",
+		"/home/daniel/Dropbox/Documents/School/2019w/comp3719/assign1",
+		"/home/daniel/Desktop/New Folder",
+		"/home/daniel/Dropbox/Programming/Active/BloodAlchemy"
+	],
+	"last_version": 3200,
+	"last_window_id": 9,
+	"log_indexing": false,
+	"settings":
+	{
+		"new_window_height": 1012.0,
+		"new_window_settings":
+		{
+			"auto_complete":
+			{
+				"selected_items":
+				[
+				]
+			},
+			"build_system_choices":
+			[
+				[
+					[
+						[
+							"Packages/LaTeXTools/LaTeX.sublime-build",
+							""
+						],
+						[
+							"Packages/LaTeXTools/LaTeX.sublime-build",
+							"Traditional"
+						],
+						[
+							"Packages/LaTeXTools/LaTeX.sublime-build",
+							"PdfLaTeX"
+						],
+						[
+							"Packages/LaTeXTools/LaTeX.sublime-build",
+							"XeLaTeX"
+						],
+						[
+							"Packages/LaTeXTools/LaTeX.sublime-build",
+							"LuaLaTeX"
+						],
+						[
+							"Packages/LaTeXTools/LaTeX.sublime-build",
+							"Basic Builder"
+						],
+						[
+							"Packages/LaTeXTools/LaTeX.sublime-build",
+							"Basic Builder - PdfLaTeX"
+						],
+						[
+							"Packages/LaTeXTools/LaTeX.sublime-build",
+							"Basic Builder - XeLaTeX"
+						],
+						[
+							"Packages/LaTeXTools/LaTeX.sublime-build",
+							"Basic Builder - LuaLaTeX"
+						],
+						[
+							"Packages/LaTeXTools/LaTeX.sublime-build",
+							"Script Builder"
+						]
+					],
+					[
+						"Packages/LaTeXTools/LaTeX.sublime-build",
+						"Basic Builder"
+					]
+				]
+			],
+			"build_varint": "",
+			"command_palette":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+					[
+						"preferenc",
+						"Preferences: Settings"
+					],
+					[
+						"destro",
+						"Origami: Destroy Current Pane"
+					],
+					[
+						"monokai",
+						"Monokai Pro: select theme"
+					],
+					[
+						"lint",
+						"SublimeLinter: Lint This View"
+					],
+					[
+						"install",
+						"Package Control: Install Package"
+					],
+					[
+						"latex",
+						"LaTeXTools: View PDF"
+					],
+					[
+						"instlal",
+						"Install Package Control"
+					]
+				],
+				"width": 0.0
+			},
+			"console":
+			{
+				"height": 162.0,
+				"history":
+				[
+				]
+			},
+			"distraction_free":
+			{
+				"menu_visible": true,
+				"show_minimap": false,
+				"show_open_files": false,
+				"show_tabs": false,
+				"side_bar_visible": false,
+				"status_bar_visible": false
+			},
+			"file_history":
+			[
+				"/home/daniel/.config/sublime-merge/Packages/User/Preferences.sublime-settings",
+				"/home/daniel/Desktop/Canada Post Ticket.txt",
+				"/var/crash/_usr_lib_x86_64-linux-gnu_xfce4_session_xfsm-shutdown-helper.0.crash",
+				"/etc/udev/rules.d/60-steam-input.rules",
+				"/home/daniel/Dropbox/Documents/School/2019w/comp3301/comp3301-assignments/assignment1/src/ImageHistogram.java",
+				"/home/daniel/.config/sublime-text-3/Packages/User/LaTeXTools.sublime-settings",
+				"/home/daniel/Dropbox/Documents/School/2019w/comp3719/assign1/assign1.tex",
+				"/home/daniel/Dropbox/Programming/Active/BloodAlchemy/main.lua",
+				"/home/daniel/.config/sublime-text-3/Packages/User/Theme - Monokai Pro.sublime-settings"
+			],
+			"find":
+			{
+				"height": 26.0
+			},
+			"find_in_files":
+			{
+				"height": 132.0,
+				"where_history":
+				[
+				]
+			},
+			"find_state":
+			{
+				"case_sensitive": false,
+				"find_history":
+				[
+				],
+				"highlight": true,
+				"in_selection": false,
+				"preserve_case": false,
+				"regex": false,
+				"replace_history":
+				[
+				],
+				"reverse": false,
+				"show_context": true,
+				"use_buffer2": true,
+				"whole_word": false,
+				"wrap": true
+			},
+			"incremental_find":
+			{
+				"height": 26.0
+			},
+			"input":
+			{
+				"height": 0.0
+			},
+			"menu_visible": true,
+			"output.SublimeLinter":
+			{
+				"height": 0.0
+			},
+			"output.find_results":
+			{
+				"height": 0.0
+			},
+			"output.latextools":
+			{
+				"height": 124.0
+			},
+			"pinned_build_system": "",
+			"replace":
+			{
+				"height": 48.0
+			},
+			"save_all_on_build": true,
+			"select_file":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_project":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_symbol":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"show_minimap": true,
+			"show_open_files": false,
+			"show_tabs": true,
+			"side_bar_visible": true,
+			"side_bar_width": 226.0,
+			"status_bar_visible": true,
+			"template_settings":
+			{
+			}
+		},
+		"new_window_width": 1920.0
+	},
+	"windows":
+	[
+		{
+			"auto_complete":
+			{
+				"selected_items":
+				[
+				]
+			},
+			"buffers":
+			[
+				{
+					"file": "/home/daniel/.config/gtk-3.0/gtk.css",
+					"settings":
+					{
+						"buffer_size": 123,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/daniel/.dotfiles/.config/gtk-3.0/bookmarks",
+					"settings":
+					{
+						"buffer_size": 85,
+						"line_ending": "Unix"
+					}
+				}
+			],
+			"build_system": "",
+			"build_system_choices":
+			[
+				[
+					[
+						[
+							"Packages/LaTeXTools/LaTeX.sublime-build",
+							""
+						],
+						[
+							"Packages/LaTeXTools/LaTeX.sublime-build",
+							"Traditional"
+						],
+						[
+							"Packages/LaTeXTools/LaTeX.sublime-build",
+							"PdfLaTeX"
+						],
+						[
+							"Packages/LaTeXTools/LaTeX.sublime-build",
+							"XeLaTeX"
+						],
+						[
+							"Packages/LaTeXTools/LaTeX.sublime-build",
+							"LuaLaTeX"
+						],
+						[
+							"Packages/LaTeXTools/LaTeX.sublime-build",
+							"Basic Builder"
+						],
+						[
+							"Packages/LaTeXTools/LaTeX.sublime-build",
+							"Basic Builder - PdfLaTeX"
+						],
+						[
+							"Packages/LaTeXTools/LaTeX.sublime-build",
+							"Basic Builder - XeLaTeX"
+						],
+						[
+							"Packages/LaTeXTools/LaTeX.sublime-build",
+							"Basic Builder - LuaLaTeX"
+						],
+						[
+							"Packages/LaTeXTools/LaTeX.sublime-build",
+							"Script Builder"
+						]
+					],
+					[
+						"Packages/LaTeXTools/LaTeX.sublime-build",
+						"Basic Builder"
+					]
+				]
+			],
+			"build_varint": "",
+			"command_palette":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+					[
+						"theme",
+						"UI: Select Theme"
+					],
+					[
+						"preferenc",
+						"Preferences: Settings"
+					],
+					[
+						"destro",
+						"Origami: Destroy Current Pane"
+					],
+					[
+						"monokai",
+						"Monokai Pro: select theme"
+					],
+					[
+						"lint",
+						"SublimeLinter: Lint This View"
+					],
+					[
+						"install",
+						"Package Control: Install Package"
+					],
+					[
+						"latex",
+						"LaTeXTools: View PDF"
+					],
+					[
+						"instlal",
+						"Install Package Control"
+					]
+				],
+				"width": 0.0
+			},
+			"console":
+			{
+				"height": 162.0,
+				"history":
+				[
+				]
+			},
+			"distraction_free":
+			{
+				"menu_visible": true,
+				"show_minimap": false,
+				"show_open_files": false,
+				"show_tabs": false,
+				"side_bar_visible": false,
+				"status_bar_visible": false
+			},
+			"expanded_folders":
+			[
+				"/home/daniel/Dropbox/Programming/Active/gitfolio"
+			],
+			"file_history":
+			[
+				"/home/daniel/.dotfiles/.bashrc",
+				"/etc/skel/.bashrc",
+				"/home/daniel/.hidden",
+				"/home/daniel/.dotfiles/.config/gtk-3.0/gtk.css",
+				"/home/daniel/.config/sublime-merge/Packages/User/Preferences.sublime-settings",
+				"/home/daniel/Desktop/Canada Post Ticket.txt",
+				"/var/crash/_usr_lib_x86_64-linux-gnu_xfce4_session_xfsm-shutdown-helper.0.crash",
+				"/etc/udev/rules.d/60-steam-input.rules",
+				"/home/daniel/Dropbox/Documents/School/2019w/comp3301/comp3301-assignments/assignment1/src/ImageHistogram.java",
+				"/home/daniel/.config/sublime-text-3/Packages/User/LaTeXTools.sublime-settings",
+				"/home/daniel/Dropbox/Documents/School/2019w/comp3719/assign1/assign1.tex",
+				"/home/daniel/Dropbox/Programming/Active/BloodAlchemy/main.lua",
+				"/home/daniel/.config/sublime-text-3/Packages/User/Theme - Monokai Pro.sublime-settings"
+			],
+			"find":
+			{
+				"height": 26.0
+			},
+			"find_in_files":
+			{
+				"height": 132.0,
+				"where_history":
+				[
+				]
+			},
+			"find_state":
+			{
+				"case_sensitive": false,
+				"find_history":
+				[
+				],
+				"highlight": true,
+				"in_selection": false,
+				"preserve_case": false,
+				"regex": false,
+				"replace_history":
+				[
+				],
+				"reverse": false,
+				"show_context": true,
+				"use_buffer2": true,
+				"whole_word": false,
+				"wrap": true
+			},
+			"folders":
+			[
+				{
+					"path": "/home/daniel/Dropbox/Programming/Active/gitfolio"
+				}
+			],
+			"groups":
+			[
+				{
+					"selected": 1,
+					"sheets":
+					[
+						{
+							"buffer": 0,
+							"file": "/home/daniel/.config/gtk-3.0/gtk.css",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 123,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"git_gutter_is_enabled": false,
+									"syntax": "Packages/CSS/CSS.sublime-syntax"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 1,
+							"type": "text"
+						},
+						{
+							"buffer": 1,
+							"file": "/home/daniel/.dotfiles/.config/gtk-3.0/bookmarks",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 85,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"git_gutter_is_enabled": true,
+									"syntax": "Packages/Text/Plain text.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 0,
+							"type": "text"
+						}
+					]
+				}
+			],
+			"incremental_find":
+			{
+				"height": 26.0
+			},
+			"input":
+			{
+				"height": 0.0
+			},
+			"layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			},
+			"menu_visible": true,
+			"output.SublimeLinter":
+			{
+				"height": 0.0
+			},
+			"output.find_results":
+			{
+				"height": 0.0
+			},
+			"output.latextools":
+			{
+				"height": 124.0
+			},
+			"pinned_build_system": "",
+			"position": "0,1,0,0,0,0,0,0,0,1920,1080",
+			"project": "",
+			"replace":
+			{
+				"height": 48.0
+			},
+			"save_all_on_build": true,
+			"select_file":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_project":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_symbol":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"selected_group": 0,
+			"settings":
+			{
+			},
+			"show_minimap": true,
+			"show_open_files": false,
+			"show_tabs": true,
+			"side_bar_visible": true,
+			"side_bar_width": 226.0,
+			"status_bar_visible": true,
+			"template_settings":
+			{
+			},
+			"window_id": 8,
+			"workspace_name": ""
+		}
+	],
+	"workspaces":
+	{
+		"recent_workspaces":
+		[
+		]
+	}
+}

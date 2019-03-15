@@ -1,1 +1,2 @@
-#xfce4-power-manager-plugin { padding: 3px; }
+#pulseaudio-button * { -gtk-icon-transform: scale(.5); }
+#xfce4-power-manager-plugin * { -gtk-icon-transform: scale(.5); }

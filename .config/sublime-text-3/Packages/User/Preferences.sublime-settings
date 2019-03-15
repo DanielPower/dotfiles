@@ -1,14 +1,8 @@
 {
-	"auto_complete_commit_on_tab": true,
-	"color_scheme": "Packages/Theme - Monokai Pro/Monokai Pro (Filter Spectrum).tmTheme",
-	"font_face": "fira code",
-	"font_size": 10,
-	"hot_exit": true,
+	"color_scheme": "Monokai Pro (Filter Spectrum).sublime-color-scheme",
 	"ignored_packages":
 	[
 		"Vintage"
 	],
-	"shift_tab_unindent": true,
-	"tab_completion": false,
 	"theme": "Monokai Pro (Filter Spectrum).sublime-theme"
 }
