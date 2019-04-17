@@ -4,5 +4,6 @@
 	[
 		"Vintage"
 	],
-	"theme": "Monokai Pro (Filter Spectrum).sublime-theme"
+	"theme": "Monokai Pro (Filter Spectrum).sublime-theme",
+	"hot_exit": false,
 }
