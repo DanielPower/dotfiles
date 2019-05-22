@@ -19,10 +19,10 @@
 	<directories/>
 </action>
 <action>
-	<icon>atom</icon>
-	<name>Open in Atom</name>
+	<icon>sublime-text</icon>
+	<name>Open in Sublime</name>
 	<unique-id>1480650722715216-5</unique-id>
-	<command>atom %f</command>
+	<command>subl %f</command>
 	<description></description>
 	<patterns>*</patterns>
 	<directories/>
