@@ -1,7 +1,11 @@
 export ZSH="/home/daniel/.oh-my-zsh"
 export DEFAULT_USER=$USER
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
+if [ $TERM != "linux" ]
+then
+    ZSH_THEME="agnoster"
+fi
+
 ZLE_RPROMPT_INDENT=0
 HYPHEN_INSENSITIVE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
