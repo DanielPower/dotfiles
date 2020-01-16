@@ -18,7 +18,3 @@ colorscheme gruvbox
 highlight Normal ctermbg=NONE guibg=NONE
 
 nnoremap <esc> :noh<return><esc>
-noremap ; l
-noremap l k
-noremap k j
-noremap j h
