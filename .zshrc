@@ -6,6 +6,8 @@ export EDITOR=nvim
 export VISUAL=nvim
 eval "$(pyenv virtualenv-init -)"
 
+alias ipm=/usr/lib/inkdrop/resources/app/ipm/bin/ipm
+
 if [ $TERM != "linux" ]
 then
     ZSH_THEME="powerlevel10k/powerlevel10k"
