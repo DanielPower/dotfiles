@@ -142,9 +142,9 @@ client.focused #FFFFFF #FFFFFF #FFFFFF #FFFFFF #A9DC76
 
 bar {
 	position top
-	status_command i3status
+	status_command i3blocks
 	tray_output primary
-	font pango:JetBrains Mono 10
+	font pango:JetBrains Mono Nerd Font Mono 10
 	colors {
 		background #2D2A2E
 	}
