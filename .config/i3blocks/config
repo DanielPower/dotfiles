@@ -1,0 +1,21 @@
+# i3blocks configuration file
+#
+# The i3blocks man page describes the usage of the binary,
+# and its website describes the configuration:
+#
+#     https://vivien.github.io/i3blocks
+
+
+# Global properties
+separator=true
+separator_block_width=15
+
+[power]
+command=scripts/battery.py
+interval=1
+color=#FFD866
+
+[time]
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=1
+color=#FCFCFA
