@@ -2,6 +2,7 @@ export ZSH="/home/daniel/.oh-my-zsh"
 export DEFAULT_USER=$USER
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 export EDITOR=nvim
 export VISUAL=nvim
 eval "$(pyenv virtualenv-init -)"
