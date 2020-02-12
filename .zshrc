@@ -6,7 +6,8 @@ export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 export EDITOR=nvim
 export VISUAL=nvim
 eval "$(pyenv virtualenv-init -)"
-eval "$(keychain --eval --quiet github gitlab)"
+# TODO figure out how to properly use keychain or an alternative
+# eval "$(keychain --eval --quiet github gitlab)"
 
 alias ipm=/usr/lib/inkdrop/resources/app/ipm/bin/ipm
 
