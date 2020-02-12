@@ -15,6 +15,16 @@ command=scripts/battery.py
 interval=1
 color=#FFD866
 
+[backlight]
+command=scripts/backlight.py
+interval=1
+color=#FC9867
+
+[volume]
+command=scripts/volume.py
+interval=1
+color=#AB9DF2
+
 [time]
 command=date '+%Y-%m-%d %H:%M:%S'
 interval=1
