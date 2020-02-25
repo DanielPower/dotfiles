@@ -20,6 +20,8 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec kitty
 
+bindsym Print exec flameshot gui
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
