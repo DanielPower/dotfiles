@@ -11,6 +11,8 @@ call plug#end()
 
 filetype plugin on
 
+colorscheme monokai_pro
+
 " Display whitespace wharacters
 set listchars+=space:·
 set listchars+=trail:·
@@ -22,8 +24,32 @@ set number
 set relativenumber
 set so=1000
 
+" Search and Replace
+set ignorecase
+set smartcase
+
+" Autoformat on save
 autocmd BufWritePre *.{js,c} Neoformat
 
-colorscheme monokai_pro
-
+" Clear search highlight on Esc
 nnoremap <esc> :noh<return><esc>
+
+
+" Git Checkout using fzf
+" Taken from https://github.com/stsewd/dotfiles/blob/7a9a8972c8a994abf42d87814980dc92cdce9a22/config/nvim/init.vim#L419-L434
+function! s:open_branch_fzf(line)
+  let l:branch = a:line
+  execute 'split | terminal git checkout ' . l:branch
+  call feedkeys('i', 'n')
+endfunction
+
+function! s:show_branches_fzf(bang)
+  let l:current = system('git symbolic-ref --short HEAD')
+  let l:current = substitute(l:current, '\n', '', 'g')
+  let l:current_scaped = substitute(l:current, '/', '\\/', 'g')
+  call fzf#vim#grep(
+    \ "git branch -r --no-color | sed -r -e 's/^[^/]*\\///' -e '/^" . l:current_scaped . "$/d' -e '/^HEAD/d' | sort -u", 0,
+    \ { 'sink': function('s:open_branch_fzf'), 'options': ['--no-multi', '--header='.l:current] }, a:bang)
+endfunction
+
+command! -bang -nargs=0 FzGCheckout call <SID>show_branches_fzf(<bang>0)
