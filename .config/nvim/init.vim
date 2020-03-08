@@ -7,6 +7,7 @@ Plug 'sbdchd/neoformat'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'glacambre/firenvim', { 'do': { -> firenvim#install(0) } }
 call plug#end()
 
 filetype plugin on
@@ -46,9 +47,8 @@ endfunction
 function! s:show_branches_fzf(bang)
   let l:current = system('git symbolic-ref --short HEAD')
   let l:current = substitute(l:current, '\n', '', 'g')
-  let l:current_scaped = substitute(l:current, '/', '\\/', 'g')
   call fzf#vim#grep(
-    \ "git branch -r --no-color | sed -r -e 's/^[^/]*\\///' -e '/^" . l:current_scaped . "$/d' -e '/^HEAD/d' | sort -u", 0,
+    \ "git branch -a", 0,
     \ { 'sink': function('s:open_branch_fzf'), 'options': ['--no-multi', '--header='.l:current] }, a:bang)
 endfunction
 
