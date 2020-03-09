@@ -2,6 +2,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'dense-analysis/ale'
+Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'sbdchd/neoformat'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
