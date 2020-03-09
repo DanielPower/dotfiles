@@ -13,6 +13,7 @@ call plug#end()
 
 filetype plugin on
 
+set termguicolors
 colorscheme monokai_pro
 
 " Display whitespace wharacters
