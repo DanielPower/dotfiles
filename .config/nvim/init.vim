@@ -36,7 +36,6 @@ autocmd BufWritePre *.{js,c} Neoformat
 " Clear search highlight on Esc
 nnoremap <esc> :noh<return><esc>
 
-
 " Git Checkout using fzf
 " Taken from https://github.com/stsewd/dotfiles/blob/7a9a8972c8a994abf42d87814980dc92cdce9a22/config/nvim/init.vim#L419-L434
 function! s:open_branch_fzf(line)
@@ -52,5 +51,17 @@ function! s:show_branches_fzf(bang)
     \ "git branch -a", 0,
     \ { 'sink': function('s:open_branch_fzf'), 'options': ['--no-multi', '--header='.l:current] }, a:bang)
 endfunction
+
+" Fuzzy Find on Ctrl-P
+function! s:gfiles()
+  let l:in_git = system('git rev-parse --is-inside-work-tree')
+  if l:in_git == "true\n"
+    :GFiles
+  else
+    :Files
+  endif
+endfunction
+
+map <C-p> :call <SID>gfiles()<return>
 
 command! -bang -nargs=0 FzGCheckout call <SID>show_branches_fzf(<bang>0)
