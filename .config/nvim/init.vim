@@ -1,21 +1,26 @@
 call plug#begin('~/.config/nvim/plugged')
-Plug 'editorconfig/editorconfig-vim'
 Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
-Plug 'sheerun/vim-polyglot'
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/denite.nvim'
-Plug 'preservim/nerdtree'
-Plug 'tpope/vim-fugitive'
-Plug 'dense-analysis/ale'
-Plug 'sbdchd/neoformat'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'sheerun/vim-polyglot' " Syntax Highlighting
+Plug 'editorconfig/editorconfig-vim' " Editorconfig support
+Plug 'sainnhe/sonokai' " Color Scheme
+Plug 'dense-analysis/ale' " Linting Engine
+Plug 'preservim/nerdtree' " File Tree
+Plug 'tpope/vim-fugitive' " Vim Integration
+Plug 'sbdchd/neoformat' " Autoformatter
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy find
+Plug 'junegunn/fzf.vim' " Fuzzy find
 call plug#end()
 
 filetype plugin on
 
 set termguicolors
-colorscheme monokai_pro
+set guifont="JetBrains Mono Regular"
+let g:sonokai_style = 'shusia'
+let g:sonokai_enable_italic = 1
+let g:sonokai_enable_italic_comment = 1
+colorscheme sonokai
 
 " Display whitespace wharacters
 set listchars+=space:·
@@ -26,14 +31,18 @@ set list
 " Line numbers
 set number
 set relativenumber
-set so=1000
+set so=10
+set cursorline
+
+" Better mouse scrolling
+set mouse=a
 
 " Search and Replace
 set ignorecase
 set smartcase
 
 " Autoformat on save
-autocmd BufWritePre *.{js,jsx,ts,tsx,c} Neoformat
+autocmd BufWritePre *.{js,jsx,ts,tsx,lua,c} Neoformat
 
 " Clear search highlight on Esc
 nnoremap <esc> :noh<return><esc>
@@ -54,6 +63,8 @@ function! s:show_branches_fzf(bang)
     \ { 'sink': function('s:open_branch_fzf'), 'options': ['--no-multi', '--header='.l:current] }, a:bang)
 endfunction
 
+command! -bang -nargs=0 Gcheckout call <SID>show_branches_fzf(<bang>0)
+
 " Fuzzy Find on Ctrl-P
 function! s:gfiles()
   let l:in_git = system('git rev-parse --is-inside-work-tree')
@@ -65,7 +76,5 @@ function! s:gfiles()
 endfunction
 
 map <C-p> :call <SID>gfiles()<return>
-
-command! -bang -nargs=0 FzGCheckout call <SID>show_branches_fzf(<bang>0)
 
 let g:deoplete#enable_at_startup = 1
