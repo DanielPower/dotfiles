@@ -1,27 +1,31 @@
 export ZSH="$HOME/.oh-my-zsh"
 export DEFAULT_USER=$USER
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 export PATH="$HOME/.bin:$PATH"
 export EDITOR=nvim
 export VISUAL=nvim
-eval "$(pyenv virtualenv-init -)"
 # TODO figure out how to properly use keychain or an alternative
 # eval "$(keychain --eval --quiet github gitlab)"
 
-alias ipm=/usr/lib/inkdrop/resources/app/ipm/bin/ipm
+# Macbook only
+function morning() {
+  displayplacer "id:215C6D27-7AFC-FB6A-DCAE-0761562F9D34 res:1440x900 color_depth:4 scaling:on origin:(0,0) degree:0" "id:CABC5EF8-8F1F-9683-A702-B301991DB372 res:1920x1080 hz:60 color_depth:8 scaling:off origin:(1440,-180) degree:0" "id:C0731C3E-39D1-CC66-C1B1-91B1E609FB22 res:1920x1080 hz:60 color_depth:8 scaling:off origin:(3360,-180) degree:0"
+}
+
+function gcheckout() {
+  git checkout $(git branch --all | fzf)
+}
 
 if [ $TERM != "linux" ]
 then
-    ZSH_THEME="powerlevel10k/powerlevel10k"
+  ZSH_THEME="powerlevel10k/powerlevel10k"
 fi
 
 ZLE_RPROMPT_INDENT=0
 HYPHEN_INSENSITIVE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-nvm pyenv)
 source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -75,3 +79,20 @@ fd() {
                   -o -type d -print 2> /dev/null | fzf +m) &&
   cd "$dir"
 }
+
+# Aliases
+# Todo.txt
+alias tl='todo.sh list'
+alias ta='todo.sh add'
+alias td='todo.sh do'
+
+# Git
+alias ga='git add'
+alias gc='git checkout'
+alias gs='git status'
+alias gc='git commit'
+alias gb='git branch'
+
+# Show todo list
+todo.sh list
+
