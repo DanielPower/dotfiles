@@ -25,7 +25,7 @@ ZLE_RPROMPT_INDENT=0
 HYPHEN_INSENSITIVE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-nvm pyenv)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting nvm pyenv)
 source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -81,10 +81,6 @@ fd() {
 }
 
 # Aliases
-# Todo.txt
-alias tl='todo.sh list'
-alias ta='todo.sh add'
-alias td='todo.sh do'
 
 # Git
 alias ga='git add'
@@ -92,7 +88,3 @@ alias gc='git checkout'
 alias gs='git status'
 alias gc='git commit'
 alias gb='git branch'
-
-# Show todo list
-todo.sh list
-

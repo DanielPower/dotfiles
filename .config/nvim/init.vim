@@ -1,5 +1,4 @@
 call plug#begin('~/.config/nvim/plugged')
-Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 Plug 'itchyny/lightline.vim' " Statusbar
 Plug 'sheerun/vim-polyglot' " Syntax Highlighting
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Integration
