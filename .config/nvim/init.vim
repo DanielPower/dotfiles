@@ -1,5 +1,4 @@
 call plug#begin('~/.config/nvim/plugged')
-Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 Plug 'itchyny/lightline.vim' " Statusbar
 Plug 'sheerun/vim-polyglot' " Syntax Highlighting
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Integration
@@ -13,6 +12,9 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy find
 Plug 'tpope/vim-sleuth' " Detect Indentation
 Plug 'junegunn/fzf.vim' " Fuzzy find
 call plug#end()
+
+"" Plugin Configurations
+source $HOME/.config/nvim/coc.vim
 
 filetype plugin on
 
@@ -43,6 +45,14 @@ nnoremap <silent> <C-Down> :resize -3<CR>
 " Change Split Direction
 map <Leader>th <C-w>t<C-w>H
 map <Leader>tk <C-w>t<C-w>K
+
+" Move Lines
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " Display whitespace wharacters
 set listchars+=space:·
