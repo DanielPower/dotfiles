@@ -13,7 +13,15 @@ function morning() {
 }
 
 function gcheckout() {
-  git checkout $(git branch --all | fzf)
+  git checkout $(git branch --l | fzf)
+}
+
+# Change Directory with fzf
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
 }
 
 if [ $TERM != "linux" ]
@@ -71,14 +79,6 @@ if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
 	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
 	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
 fi
-
-# Change Directory with fzf
-fd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
-}
 
 # Aliases
 # Todo.txt
