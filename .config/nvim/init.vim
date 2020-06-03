@@ -5,7 +5,6 @@ Plug 'itchyny/lightline.vim' " Statusbar
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy find
 Plug 'junegunn/fzf.vim' " Fuzzy find
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Integration
-Plug 'preservim/nerdtree' " File Tree
 Plug 'sainnhe/sonokai' " Color Scheme
 Plug 'sbdchd/neoformat' " Autoformatter
 Plug 'sheerun/vim-polyglot' " Syntax Highlighting
@@ -16,6 +15,8 @@ call plug#end()
 
 "" Plugin Configurations
 source $HOME/.config/nvim/coc.vim
+source $HOME/.config/nvim/lightline.vim
+source $HOME/.config/nvim/sonokai.vim
 source $HOME/.config/nvim/vimwiki.vim
 
 filetype plugin on
@@ -24,9 +25,6 @@ filetype plugin on
 set termguicolors
 set guifont="JetBrains Mono Regular"
 let mapleader=" "
-let g:sonokai_style = 'shusia'
-let g:sonokai_enable_italic = 1
-let g:sonokai_enable_italic_comment = 1
 colorscheme sonokai
 
 " Split Direction
@@ -87,33 +85,6 @@ autocmd BufWritePre *.{js,jsx,ts,tsx,lua,c} Neoformat
 
 " Clear search highlight on Esc
 nnoremap <esc> :noh<return><esc>
-
-" Lightline
-let g:lightline = {
-  \ 'colorscheme': 'sonokai',
-  \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'gitbranch', 'filename', 'readonly', 'modified' ] ],
-  \   'right': [ [ 'lineinfo' ],
-  \              [ 'percent' ] ],
-  \ },
-  \ 'component_function': {
-  \   'gitbranch': 'fugitive#head',
-  \ },
-  \ 'mode_map': {
-  \   'n': 'N',
-  \   'i': 'I',
-  \   'R': 'R',
-  \   'v': 'V',
-  \   'V': 'VL',
-  \   "\<C-v": 'VB',
-  \   'c': 'C',
-  \   's': 'S',
-  \   'S': 'SL',
-  \   "\<C-s>": 'SB',
-  \   't': 'T',
-  \ },
-\ }
 
 " Git Checkout using fzf
 " Taken from https://github.com/stsewd/dotfiles/blob/7a9a8972c8a994abf42d87814980dc92cdce9a22/config/nvim/init.vim#L419-L434
