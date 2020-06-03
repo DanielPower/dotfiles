@@ -3,9 +3,8 @@ Plug 'itchyny/lightline.vim' " Statusbar
 Plug 'sheerun/vim-polyglot' " Syntax Highlighting
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Integration
 Plug 'editorconfig/editorconfig-vim' " Editorconfig support
-Plug 'sainnhe/sonokai' " Color Scheme
-Plug 'dense-analysis/ale' " Linting Engine
-Plug 'preservim/nerdtree' " File Tree
+Plug 'vimwiki/vimwiki'
+Plug 'danielpower/sonokai' " Colorscheme
 Plug 'tpope/vim-fugitive' " Vim Integration
 Plug 'sbdchd/neoformat' " Autoformatter
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy find
@@ -24,7 +23,10 @@ set guifont="JetBrains Mono Regular"
 let g:sonokai_style = 'shusia'
 let g:sonokai_enable_italic = 1
 let g:sonokai_enable_italic_comment = 1
+let g:sonokai_invert_diff_highlight = 0
 colorscheme sonokai
+
+let mapleader = " "
 
 " Split Direction
 set splitbelow splitright
@@ -54,6 +56,9 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
+" Show Symbols
+nnoremap <C-s> :CocList symbols<CR>
+
 " Display whitespace wharacters
 set listchars+=space:·
 set listchars+=trail:·
@@ -80,7 +85,8 @@ set ignorecase
 set smartcase
 
 " Autoformat on save
-autocmd BufWritePre *.{js,jsx,ts,tsx,lua,c} Neoformat
+autocmd BufWritePre *.{js,ts,tsx,lua,c,py} Neoformat
+autocmd BufWritePre *.{jsx} Neoformat! javascript
 
 " Clear search highlight on Esc
 nnoremap <esc> :noh<return><esc>
