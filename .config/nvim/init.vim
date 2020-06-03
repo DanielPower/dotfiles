@@ -1,26 +1,29 @@
 call plug#begin('~/.config/nvim/plugged')
-Plug 'itchyny/lightline.vim' " Statusbar
-Plug 'sheerun/vim-polyglot' " Syntax Highlighting
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Integration
-Plug 'editorconfig/editorconfig-vim' " Editorconfig support
-Plug 'sainnhe/sonokai' " Color Scheme
 Plug 'dense-analysis/ale' " Linting Engine
-Plug 'preservim/nerdtree' " File Tree
-Plug 'tpope/vim-fugitive' " Vim Integration
-Plug 'sbdchd/neoformat' " Autoformatter
+Plug 'editorconfig/editorconfig-vim' " Editorconfig support
+Plug 'itchyny/lightline.vim' " Statusbar
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy find
-Plug 'tpope/vim-sleuth' " Detect Indentation
 Plug 'junegunn/fzf.vim' " Fuzzy find
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Integration
+Plug 'preservim/nerdtree' " File Tree
+Plug 'sainnhe/sonokai' " Color Scheme
+Plug 'sbdchd/neoformat' " Autoformatter
+Plug 'sheerun/vim-polyglot' " Syntax Highlighting
+Plug 'tpope/vim-fugitive' " Git Integration
+Plug 'tpope/vim-sleuth' " Detect Indentation
+Plug 'vimwiki/vimwiki' " Wiki
 call plug#end()
 
 "" Plugin Configurations
 source $HOME/.config/nvim/coc.vim
+source $HOME/.config/nvim/vimwiki.vim
 
 filetype plugin on
 
 " Appearance
 set termguicolors
 set guifont="JetBrains Mono Regular"
+let mapleader=" "
 let g:sonokai_style = 'shusia'
 let g:sonokai_enable_italic = 1
 let g:sonokai_enable_italic_comment = 1
