@@ -9,7 +9,7 @@ HISTFILE=$HOME/.zhistory
 SAVEHIST=1000
 
 # ZSH Plugins
-source $HOME/antigen.zsh
+source $HOME/.antigen.zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle lukechilds/zsh-nvm
