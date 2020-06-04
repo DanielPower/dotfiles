@@ -1,11 +1,11 @@
 call plug#begin('~/.config/nvim/plugged')
+Plug 'danielpower/sonokai' " Colorscheme
 Plug 'dense-analysis/ale' " Linting Engine
 Plug 'editorconfig/editorconfig-vim' " Editorconfig support
 Plug 'itchyny/lightline.vim' " Statusbar
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy find
 Plug 'junegunn/fzf.vim' " Fuzzy find
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Integration
-Plug 'sainnhe/sonokai' " Color Scheme
 Plug 'sbdchd/neoformat' " Autoformatter
 Plug 'sheerun/vim-polyglot' " Syntax Highlighting
 Plug 'tpope/vim-fugitive' " Git Integration
@@ -24,8 +24,9 @@ filetype plugin on
 " Appearance
 set termguicolors
 set guifont="JetBrains Mono Regular"
-let mapleader=" "
 colorscheme sonokai
+
+let mapleader = " "
 
 " Split Direction
 set splitbelow splitright
@@ -55,6 +56,9 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
+" Show Symbols
+nnoremap <C-s> :CocList symbols<CR>
+
 " Display whitespace wharacters
 set listchars+=space:·
 set listchars+=trail:·
@@ -81,7 +85,8 @@ set ignorecase
 set smartcase
 
 " Autoformat on save
-autocmd BufWritePre *.{js,jsx,ts,tsx,lua,c} Neoformat
+autocmd BufWritePre *.{js,ts,tsx,lua,c,py} Neoformat
+autocmd BufWritePre *.{jsx} Neoformat! javascript
 
 " Clear search highlight on Esc
 nnoremap <esc> :noh<return><esc>

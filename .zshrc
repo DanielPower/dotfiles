@@ -12,6 +12,8 @@ SAVEHIST=1000
 source $HOME/.antigen.zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle lukechilds/zsh-nvm
+antigen bundle pyenv
 antigen theme romkatv/powerlevel10k
 antigen apply
 
@@ -25,7 +27,11 @@ fd() {
 
 # Git Checkout with fzf
 function gcheckout() {
-  git checkout $(git branch --l | fzf)
+  local branches branch
+  branches=$(git for-each-ref --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
 # Vim Mode
