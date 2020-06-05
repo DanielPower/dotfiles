@@ -10,11 +10,6 @@
 separator=true
 separator_block_width=15
 
-[temperature]
-command=scripts/temperature.sh
-interval=1
-color=#FF6188
-
 [power]
 command=scripts/battery.py
 interval=1

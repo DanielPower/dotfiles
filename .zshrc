@@ -1,33 +1,38 @@
-export ZSH="$HOME/.oh-my-zsh"
 export DEFAULT_USER=$USER
 export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
-export PATH="$HOME/.bin:$PATH"
 export EDITOR=nvim
 export VISUAL=nvim
-# TODO figure out how to properly use keychain or an alternative
-# eval "$(keychain --eval --quiet github gitlab)"
-
-# Macbook only
-function morning() {
-  displayplacer "id:215C6D27-7AFC-FB6A-DCAE-0761562F9D34 res:1440x900 color_depth:4 scaling:on origin:(0,0) degree:0" "id:CABC5EF8-8F1F-9683-A702-B301991DB372 res:1920x1080 hz:60 color_depth:8 scaling:off origin:(1440,-180) degree:0" "id:C0731C3E-39D1-CC66-C1B1-91B1E609FB22 res:1920x1080 hz:60 color_depth:8 scaling:off origin:(3360,-180) degree:0"
-}
-
-function gcheckout() {
-  git checkout $(git branch --all | fzf)
-}
-
-if [ $TERM != "linux" ]
-then
-  ZSH_THEME="powerlevel10k/powerlevel10k"
-fi
-
 ZLE_RPROMPT_INDENT=0
 HYPHEN_INSENSITIVE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
+HISTFILE=$HOME/.zhistory
+SAVEHIST=1000
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting nvm pyenv)
-source $ZSH/oh-my-zsh.sh
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# ZSH Plugins
+source $HOME/.antigen.zsh
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle lukechilds/zsh-nvm
+antigen bundle pyenv
+antigen theme romkatv/powerlevel10k
+antigen apply
+
+# Change Directory with fzf
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+
+# Git Checkout with fzf
+function gcheckout() {
+  local branches branch
+  branches=$(git for-each-ref --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
 
 # Vim Mode
 export KEYTIMEOUT=1
@@ -72,19 +77,5 @@ if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
 	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
 fi
 
-# Change Directory with fzf
-fd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
-}
-
-# Aliases
-
-# Git
-alias ga='git add'
-alias gc='git checkout'
-alias gs='git status'
-alias gc='git commit'
-alias gb='git branch'
+# Powerlevel10k
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

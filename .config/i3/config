@@ -150,6 +150,5 @@ bar {
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-exec_always feh --bg-fill --geometry +0+0 ~/Pictures/spaceman.jpg
-exec_always picom
+exec_always feh --bg-fill --geometry +0+0 ~/Pictures/wallpaper.png
 exec_always nm-applet

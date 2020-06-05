@@ -1,30 +1,32 @@
 call plug#begin('~/.config/nvim/plugged')
-Plug 'itchyny/lightline.vim' " Statusbar
-Plug 'sheerun/vim-polyglot' " Syntax Highlighting
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Integration
-Plug 'editorconfig/editorconfig-vim' " Editorconfig support
-Plug 'sainnhe/sonokai' " Color Scheme
+Plug 'danielpower/sonokai' " Colorscheme
 Plug 'dense-analysis/ale' " Linting Engine
-Plug 'preservim/nerdtree' " File Tree
-Plug 'tpope/vim-fugitive' " Vim Integration
-Plug 'sbdchd/neoformat' " Autoformatter
+Plug 'editorconfig/editorconfig-vim' " Editorconfig support
+Plug 'itchyny/lightline.vim' " Statusbar
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy find
-Plug 'tpope/vim-sleuth' " Detect Indentation
 Plug 'junegunn/fzf.vim' " Fuzzy find
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Integration
+Plug 'sbdchd/neoformat' " Autoformatter
+Plug 'sheerun/vim-polyglot' " Syntax Highlighting
+Plug 'tpope/vim-fugitive' " Git Integration
+Plug 'tpope/vim-sleuth' " Detect Indentation
+Plug 'vimwiki/vimwiki' " Wiki
 call plug#end()
 
 "" Plugin Configurations
 source $HOME/.config/nvim/coc.vim
+source $HOME/.config/nvim/lightline.vim
+source $HOME/.config/nvim/sonokai.vim
+source $HOME/.config/nvim/vimwiki.vim
 
 filetype plugin on
 
 " Appearance
 set termguicolors
 set guifont="JetBrains Mono Regular"
-let g:sonokai_style = 'shusia'
-let g:sonokai_enable_italic = 1
-let g:sonokai_enable_italic_comment = 1
 colorscheme sonokai
+
+let mapleader = " "
 
 " Split Direction
 set splitbelow splitright
@@ -54,6 +56,9 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
+" Show Symbols
+nnoremap <C-s> :CocList symbols<CR>
+
 " Display whitespace wharacters
 set listchars+=space:·
 set listchars+=trail:·
@@ -80,37 +85,11 @@ set ignorecase
 set smartcase
 
 " Autoformat on save
-autocmd BufWritePre *.{js,jsx,ts,tsx,lua,c} Neoformat
+autocmd BufWritePre *.{js,ts,tsx,lua,c,py} Neoformat
+autocmd BufWritePre *.{jsx} Neoformat! javascript
 
 " Clear search highlight on Esc
 nnoremap <esc> :noh<return><esc>
-
-" Lightline
-let g:lightline = {
-  \ 'colorscheme': 'sonokai',
-  \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'gitbranch', 'filename', 'readonly', 'modified' ] ],
-  \   'right': [ [ 'lineinfo' ],
-  \              [ 'percent' ] ],
-  \ },
-  \ 'component_function': {
-  \   'gitbranch': 'fugitive#head',
-  \ },
-  \ 'mode_map': {
-  \   'n': 'N',
-  \   'i': 'I',
-  \   'R': 'R',
-  \   'v': 'V',
-  \   'V': 'VL',
-  \   "\<C-v": 'VB',
-  \   'c': 'C',
-  \   's': 'S',
-  \   'S': 'SL',
-  \   "\<C-s>": 'SB',
-  \   't': 'T',
-  \ },
-\ }
 
 " Git Checkout using fzf
 " Taken from https://github.com/stsewd/dotfiles/blob/7a9a8972c8a994abf42d87814980dc92cdce9a22/config/nvim/init.vim#L419-L434
@@ -124,7 +103,7 @@ function! s:show_branches_fzf(bang)
   let l:current = system('git symbolic-ref --short HEAD')
   let l:current = substitute(l:current, '\n', '', 'g')
   call fzf#vim#grep(
-    \ "git branch -a", 0,
+    \ "git branch -l", 0,
     \ { 'sink': function('s:open_branch_fzf'), 'options': ['--no-multi', '--header='.l:current] }, a:bang)
 endfunction
 
