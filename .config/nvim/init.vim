@@ -10,6 +10,7 @@ Plug 'sbdchd/neoformat' " Autoformatter
 Plug 'sheerun/vim-polyglot' " Syntax Highlighting
 Plug 'tpope/vim-fugitive' " Git Integration
 Plug 'tpope/vim-sleuth' " Detect Indentation
+Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki' " Wiki
 call plug#end()
 
