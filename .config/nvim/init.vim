@@ -1,12 +1,13 @@
 call plug#begin('~/.config/nvim/plugged')
+Plug 'embear/vim-localvimrc'
 Plug 'danielpower/sonokai' " Colorscheme
-Plug 'dense-analysis/ale' " Linting Engine
 Plug 'editorconfig/editorconfig-vim' " Editorconfig support
 Plug 'itchyny/lightline.vim' " Statusbar
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy find
 Plug 'junegunn/fzf.vim' " Fuzzy find
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Integration
 Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sbdchd/neoformat' " Autoformatter
 Plug 'sheerun/vim-polyglot' " Syntax Highlighting
 Plug 'tpope/vim-fugitive' " Git Integration
@@ -16,11 +17,14 @@ Plug 'vimwiki/vimwiki' " Wiki
 call plug#end()
 
 "" Plugin Configurations
+source $HOME/.config/nvim/vim-localvimrc.vim
 source $HOME/.config/nvim/coc.vim
+source $HOME/.config/nvim/fzf.vim
 source $HOME/.config/nvim/lightline.vim
 source $HOME/.config/nvim/nerdtree.vim
 source $HOME/.config/nvim/sonokai.vim
 source $HOME/.config/nvim/vimwiki.vim
+source $HOME/.config/nvim/snippets.vim
 
 filetype plugin on
 
@@ -93,33 +97,3 @@ autocmd BufWritePre *.{jsx} Neoformat! javascript
 
 " Clear search highlight on Esc
 nnoremap <esc> :noh<return><esc>
-
-" Git Checkout using fzf
-" Taken from https://github.com/stsewd/dotfiles/blob/7a9a8972c8a994abf42d87814980dc92cdce9a22/config/nvim/init.vim#L419-L434
-function! s:open_branch_fzf(line)
-  let l:branch = a:line
-  execute 'split | terminal git checkout ' . l:branch
-  call feedkeys('i', 'n')
-endfunction
-
-function! s:show_branches_fzf(bang)
-  let l:current = system('git symbolic-ref --short HEAD')
-  let l:current = substitute(l:current, '\n', '', 'g')
-  call fzf#vim#grep(
-    \ "git branch -l", 0,
-    \ { 'sink': function('s:open_branch_fzf'), 'options': ['--no-multi', '--header='.l:current] }, a:bang)
-endfunction
-
-command! -bang -nargs=0 Gcheckout call <SID>show_branches_fzf(<bang>0)
-
-" Fuzzy Find on Ctrl-P
-function! s:gfiles()
-  let l:in_git = system('git rev-parse --is-inside-work-tree')
-  if l:in_git == "true\n"
-    :GFiles
-  else
-    :Files
-  endif
-endfunction
-
-map <C-p> :call <SID>gfiles()<return>
