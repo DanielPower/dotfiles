@@ -17,7 +17,7 @@ Plug 'vimwiki/vimwiki' " Wiki
 call plug#end()
 
 "" Plugin Configurations
-source $HOME/.config/nvim/vim-localvimrc.vim
+source $HOME/.config/nvim/localvimrc.vim
 source $HOME/.config/nvim/coc.vim
 source $HOME/.config/nvim/fzf.vim
 source $HOME/.config/nvim/lightline.vim
