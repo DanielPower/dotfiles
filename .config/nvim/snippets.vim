@@ -1,1 +1,1 @@
-command Time i## <escape>:read !date<CR>
+/Users/daniel/.dotfiles/.config/nvim/snippets.vim
