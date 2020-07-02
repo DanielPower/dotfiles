@@ -6,8 +6,6 @@ Plug 'itchyny/lightline.vim' " Statusbar
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy find
 Plug 'junegunn/fzf.vim' " Fuzzy find
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Integration
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sbdchd/neoformat' " Autoformatter
 Plug 'sheerun/vim-polyglot' " Syntax Highlighting
 Plug 'tpope/vim-fugitive' " Git Integration
@@ -19,9 +17,9 @@ call plug#end()
 "" Plugin Configurations
 source $HOME/.config/nvim/localvimrc.vim
 source $HOME/.config/nvim/coc.vim
+source $HOME/.config/nvim/coc_explorer.vim
 source $HOME/.config/nvim/fzf.vim
 source $HOME/.config/nvim/lightline.vim
-source $HOME/.config/nvim/nerdtree.vim
 source $HOME/.config/nvim/sonokai.vim
 source $HOME/.config/nvim/vimwiki.vim
 source $HOME/.config/nvim/snippets.vim
