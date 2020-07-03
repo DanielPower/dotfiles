@@ -6,12 +6,12 @@ Plug 'itchyny/lightline.vim' " Statusbar
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy find
 Plug 'junegunn/fzf.vim' " Fuzzy find
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Integration
-Plug 'sbdchd/neoformat' " Autoformatter
 Plug 'sheerun/vim-polyglot' " Syntax Highlighting
 Plug 'tpope/vim-fugitive' " Git Integration
 Plug 'tpope/vim-sleuth' " Detect Indentation
 Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki' " Wiki
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 "" Plugin Configurations
@@ -88,10 +88,6 @@ set mouse=a
 " Search and Replace
 set ignorecase
 set smartcase
-
-" Autoformat on save
-autocmd BufWritePre *.{js,ts,tsx,lua,c,py} Neoformat
-autocmd BufWritePre *.{jsx} Neoformat! javascript
 
 " Clear search highlight on Esc
 nnoremap <esc> :noh<return><esc>
