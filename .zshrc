@@ -14,8 +14,8 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle lukechilds/zsh-nvm
 antigen bundle pyenv
-antigen theme romkatv/powerlevel10k
 antigen apply
+eval "$(starship init zsh)"
 
 # Change Directory with fzf
 fd() {

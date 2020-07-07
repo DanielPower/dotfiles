@@ -1,0 +1,19 @@
+add_newline = false
+prompt_order = [
+  "username",
+  "hostname",
+  "directory",
+  "git_branch",
+  "git_commit",
+  "git_status",
+  "package",
+  "dotnet",
+  "nodejs",
+  "python",
+  "rust",
+  "character",
+]
+
+rprompt_order = [
+  "username",
+]
