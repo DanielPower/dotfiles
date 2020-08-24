@@ -29,6 +29,7 @@ filetype plugin on
 " Appearance
 set termguicolors
 set guifont="JetBrains Mono Regular"
+set nowrap
 colorscheme sonokai
 
 let mapleader = " "
