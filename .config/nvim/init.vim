@@ -9,7 +9,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Integration
 Plug 'sheerun/vim-polyglot' " Syntax Highlighting
 Plug 'tpope/vim-fugitive' " Git Integration
 Plug 'tpope/vim-sleuth' " Detect Indentation
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 Plug 'tpope/vim-surround'
+Plug 'ron-rs/ron.vim'
 Plug 'vimwiki/vimwiki' " Wiki
 Plug 'tpope/vim-commentary'
 call plug#end()
@@ -24,12 +26,15 @@ source $HOME/.config/nvim/sonokai.vim
 source $HOME/.config/nvim/vimwiki.vim
 source $HOME/.config/nvim/snippets.vim
 
+let g:rustfmt_autosave = 1
+
 filetype plugin on
 
 " Appearance
 set termguicolors
 set guifont="JetBrains Mono Regular"
 colorscheme sonokai
+set nowrap
 
 let mapleader = " "
 
