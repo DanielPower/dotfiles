@@ -1,1 +1,1 @@
-let g:localvimrc_whitelist=$HOME . '/Development/\(gradient\|rottencode\)/.*'
+let g:localvimrc_whitelist=$HOME . '/Development/\(gradient\|okami\)/.*'

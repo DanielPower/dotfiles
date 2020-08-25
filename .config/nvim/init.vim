@@ -5,6 +5,7 @@ Plug 'editorconfig/editorconfig-vim' " Editorconfig support
 Plug 'itchyny/lightline.vim' " Statusbar
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy find
 Plug 'junegunn/fzf.vim' " Fuzzy find
+Plug 'stsewd/fzf-checkout.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Integration
 Plug 'sheerun/vim-polyglot' " Syntax Highlighting
 Plug 'tpope/vim-fugitive' " Git Integration
@@ -33,6 +34,7 @@ filetype plugin on
 " Appearance
 set termguicolors
 set guifont="JetBrains Mono Regular"
+set nowrap
 colorscheme sonokai
 set nowrap
 
@@ -65,6 +67,9 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
+
+" Git Checkout
+nnoremap <leader>gz :GCheckout<CR>
 
 " Show Symbols
 nnoremap <C-s> :CocList symbols<CR>
