@@ -1,5 +1,6 @@
 export DEFAULT_USER=$USER
 export EDITOR=nvim
+export PATH="$HOME/.bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=0
