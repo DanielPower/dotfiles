@@ -25,7 +25,6 @@ source $HOME/.config/nvim/fzf.vim
 source $HOME/.config/nvim/lightline.vim
 source $HOME/.config/nvim/sonokai.vim
 source $HOME/.config/nvim/vimwiki.vim
-source $HOME/.config/nvim/snippets.vim
 
 let g:rustfmt_autosave = 1
 
