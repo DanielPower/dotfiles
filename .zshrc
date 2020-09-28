@@ -20,14 +20,6 @@ antigen bundle mattberther/zsh-pyenv
 antigen theme denysdovhan/spaceship-prompt
 antigen apply
 
-# Change Directory with fzf
-fd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
-}
-
 # Prompt Configuration
 SPACESHIP_PROMPT_PREFIXES_SHOW=false
 SPACESHIP_EXIT_CODE_SHOW=true
@@ -44,14 +36,3 @@ SPACESHIP_RPROMPT_ORDER=(
   pyenv
   exit_code
 )
-
-# Git Checkout with fzf
-function gcheckout() {
-  local branches branch
-  branches=$(git for-each-ref --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
-  branch=$(echo "$branches" |
-           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
-  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
-}
-
-task next
