@@ -1,5 +1,4 @@
 call plug#begin('~/.config/nvim/plugged')
-Plug 'embear/vim-localvimrc'
 Plug 'danielpower/sonokai' " Colorscheme
 Plug 'editorconfig/editorconfig-vim' " Editorconfig support
 Plug 'itchyny/lightline.vim' " Statusbar
@@ -15,6 +14,9 @@ Plug 'tpope/vim-surround'
 Plug 'ron-rs/ron.vim'
 Plug 'vimwiki/vimwiki' " Wiki
 Plug 'tpope/vim-commentary'
+Plug 'christianchiarulli/nvcode-color-schemes.vim'
+" Plug 'nvim-treesitter/nvim-treesitter'
+" Plug 'neovim/nvim-lspconfig'
 call plug#end()
 
 "" Plugin Configurations
@@ -25,7 +27,27 @@ source $HOME/.config/nvim/fzf.vim
 source $HOME/.config/nvim/lightline.vim
 source $HOME/.config/nvim/sonokai.vim
 source $HOME/.config/nvim/vimwiki.vim
-source $HOME/.config/nvim/fzf_checkout.vim
+
+" lua << EOF
+" require'nvim_lsp'.tsserver.setup{}
+" require'nvim-treesitter.configs'.setup {
+"   ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+"   highlight = {
+"     enable = true,              -- false will disable the whole extension
+"     disable = { "c", "rust" },  -- list of language that will be disabled
+"   },
+" }
+" EOF
+
+" nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+" nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+" nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+" nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+" nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+" nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+" nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+" nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+" nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 
 let g:rustfmt_autosave = 1
 
@@ -73,9 +95,6 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 " Git Checkout
 nnoremap <leader>gz :GCheckout<CR>
 
-" Show Symbols
-nnoremap <C-s> :CocList symbols<CR>
-
 " Display whitespace wharacters
 set listchars+=space:·
 set listchars+=trail:·
@@ -100,6 +119,10 @@ set mouse=a
 " Search and Replace
 set ignorecase
 set smartcase
+
+" Escape exits terminal mode
+au TermOpen * tnoremap <buffer> <Esc> <C-\><C-n>
+au FileType fzf tunmap <buffer> <Esc>
 
 " Clear search highlight on Esc
 nnoremap <esc> :noh<return><esc>
