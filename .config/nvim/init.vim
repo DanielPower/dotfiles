@@ -1,5 +1,4 @@
 call plug#begin('~/.config/nvim/plugged')
-Plug 'embear/vim-localvimrc'
 Plug 'danielpower/sonokai' " Colorscheme
 Plug 'editorconfig/editorconfig-vim' " Editorconfig support
 Plug 'itchyny/lightline.vim' " Statusbar
@@ -38,6 +37,7 @@ source $HOME/.config/nvim/vimwiki.vim
 
 let g:rustfmt_autosave = 1
 
+filetype on
 filetype plugin on
 
 " Appearance
@@ -108,6 +108,10 @@ set mouse=a
 " Search and Replace
 set ignorecase
 set smartcase
+
+" Escape exits terminal mode
+au TermOpen * tnoremap <buffer> <Esc> <C-\><C-n>
+au FileType fzf tunmap <buffer> <Esc>
 
 " Clear search highlight on Esc
 nnoremap <esc> :noh<return><esc>
