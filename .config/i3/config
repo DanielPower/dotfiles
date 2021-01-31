@@ -134,8 +134,6 @@ bindsym $mod+r mode "resize"
 
 # Setup gaps
 for_window [class=".*"] border pixel 2
-gaps inner 10
-smart_gaps on
 client.focused #FFFFFF #FFFFFF #FFFFFF #FFFFFF #A9DC76
 
 bar {
