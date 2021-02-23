@@ -16,3 +16,7 @@ antigen bundle lukechilds/zsh-nvm
 antigen bundle mattberther/zsh-pyenv
 antigen bundle reobin/typewritten@main
 antigen apply
+
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+  XKB_DEFAULT_LAYOUT=us exec sway
+fi
