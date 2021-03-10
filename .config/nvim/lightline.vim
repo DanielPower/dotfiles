@@ -1,3 +1,4 @@
+set noshowmode
 let g:lightline = {
                   \ 'colorscheme': 'sonokai',
                   \ 'active': {

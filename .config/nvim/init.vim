@@ -9,7 +9,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Integration
 Plug 'sheerun/vim-polyglot' " Syntax Highlighting
 Plug 'tpope/vim-fugitive' " Git Integration
 Plug 'tpope/vim-sleuth' " Detect Indentation
-Plug 'evanleck/vim-svelte', {'branch': 'main'}
 Plug 'tpope/vim-surround'
 Plug 'ron-rs/ron.vim'
 Plug 'vimwiki/vimwiki' " Wiki
@@ -25,7 +24,6 @@ Plug 'fannheyward/coc-marketplace', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile'}
-Plug 'fannheyward/coc-deno', {'do': 'yarn install --frozen-lockfile'}
 call plug#end()
 
 "" Plugin Configurations
@@ -38,6 +36,10 @@ source $HOME/.config/nvim/sonokai.vim
 source $HOME/.config/nvim/vimwiki.vim
 
 let g:rustfmt_autosave = 1
+let g:svelte_preprocessors = ['typescript']
+let g:svelte_preprocessor_tags = [
+      \ { 'name': 'ts', 'tag': 'script', 'as': 'typescript' }
+      \ ]
 
 filetype on
 filetype plugin on

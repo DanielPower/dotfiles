@@ -12,11 +12,12 @@ ZLE_RPROMPT_INDENT=0
 source $HOME/.antigen/antigen.zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle lukechilds/zsh-nvm
-antigen bundle mattberther/zsh-pyenv
 antigen bundle reobin/typewritten@main
+antigen bundle jeffreytse/zsh-vi-mode
 antigen apply
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
   XKB_DEFAULT_LAYOUT=us exec sway
 fi
+
+eval "$(pyenv init -)"
