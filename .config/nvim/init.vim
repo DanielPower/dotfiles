@@ -1,40 +1,25 @@
 call plug#begin('~/.config/nvim/plugged')
-Plug 'danielpower/sonokai' " Colorscheme
 Plug 'editorconfig/editorconfig-vim' " Editorconfig support
-Plug 'itchyny/lightline.vim' " Statusbar
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy find
-Plug 'junegunn/fzf.vim' " Fuzzy find
-Plug 'stsewd/fzf-checkout.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Integration
-Plug 'sheerun/vim-polyglot' " Syntax Highlighting
+Plug 'hoob3rt/lualine.nvim'
+Plug 'joshdick/onedark.vim'
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive' " Git Integration
 Plug 'tpope/vim-sleuth' " Detect Indentation
 Plug 'tpope/vim-surround'
-Plug 'ron-rs/ron.vim'
-Plug 'vimwiki/vimwiki' " Wiki
-Plug 'tpope/vim-commentary'
-
-Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
-Plug 'coc-extensions/coc-svelte', {'do': 'yarn install --frozen-lockfile'}
-Plug 'weirongxu/coc-explorer', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
-Plug 'fannheyward/coc-marketplace', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile'}
 call plug#end()
 
 "" Plugin Configurations
-source $HOME/.config/nvim/localvimrc.vim
-source $HOME/.config/nvim/coc.vim
-source $HOME/.config/nvim/coc_explorer.vim
-source $HOME/.config/nvim/fzf.vim
-source $HOME/.config/nvim/lightline.vim
-source $HOME/.config/nvim/sonokai.vim
-source $HOME/.config/nvim/vimwiki.vim
+lua require('treesitter_setup')
+lua require('telescope_setup')
+lua require('lualine_setup')
+lua require('lspconfig_setup')
 
 let g:rustfmt_autosave = 1
 let g:svelte_preprocessors = ['typescript']
@@ -45,12 +30,14 @@ let g:svelte_preprocessor_tags = [
 filetype on
 filetype plugin on
 
+nnoremap <C-_> :NvimTreeToggle<CR>
+
 " Appearance
 set termguicolors
 set guifont="JetBrains Mono Regular"
 set nowrap
 set colorcolumn=88,100
-colorscheme sonokai
+colorscheme onedark
 set nowrap
 
 let mapleader = " "
@@ -83,9 +70,6 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-" Git Checkout
-nnoremap <leader>gz :GCheckout<CR>
-
 " Show Symbols
 nnoremap <C-s> :CocList symbols<CR>
 
@@ -113,10 +97,6 @@ set mouse=a
 " Search and Replace
 set ignorecase
 set smartcase
-
-" Escape exits terminal mode
-au TermOpen * tnoremap <buffer> <Esc> <C-\><C-n>
-au FileType fzf tunmap <buffer> <Esc>
 
 " Clear search highlight on Esc
 nnoremap <esc> :noh<return><esc>

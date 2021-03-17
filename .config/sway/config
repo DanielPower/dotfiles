@@ -123,3 +123,6 @@ bar {
 		background #2D2A2E
 	}
 }
+
+# Make polkit work
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
