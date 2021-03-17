@@ -15,6 +15,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle lukechilds/zsh-nvm
 antigen bundle mattberther/zsh-pyenv
 antigen bundle reobin/typewritten@main
+antigen bundle jeffreytse/zsh-vi-mode
 antigen apply
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then

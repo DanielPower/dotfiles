@@ -7,9 +7,11 @@ Plug 'junegunn/fzf.vim' " Fuzzy find
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Integration
 Plug 'sheerun/vim-polyglot' " Syntax Highlighting
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'tpope/vim-fugitive' " Git Integration
 Plug 'tpope/vim-sleuth' " Detect Indentation
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
+Plug 'joshdick/onedark.vim'
 Plug 'tpope/vim-surround'
 Plug 'ron-rs/ron.vim'
 Plug 'vimwiki/vimwiki' " Wiki
@@ -29,6 +31,8 @@ Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile'}
 Plug 'fannheyward/coc-deno', {'do': 'yarn install --frozen-lockfile'}
 call plug#end()
 
+let mapleader = " "
+
 "" Plugin Configurations
 source $HOME/.config/nvim/localvimrc.vim
 source $HOME/.config/nvim/coc.vim
@@ -37,6 +41,16 @@ source $HOME/.config/nvim/fzf.vim
 source $HOME/.config/nvim/lightline.vim
 source $HOME/.config/nvim/sonokai.vim
 source $HOME/.config/nvim/vimwiki.vim
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "c", "rust" },  -- list of language that will be disabled
+  },
+}
+EOF
 
 let g:rustfmt_autosave = 1
 
@@ -50,8 +64,6 @@ set nowrap
 set colorcolumn=88,100
 colorscheme sonokai
 set nowrap
-
-let mapleader = " "
 
 " Split Direction
 set splitbelow splitright
@@ -80,9 +92,6 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
-
-" Git Checkout
-nnoremap <leader>gz :GCheckout<CR>
 
 " Show Symbols
 nnoremap <C-s> :CocList symbols<CR>
