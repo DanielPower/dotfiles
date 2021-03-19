@@ -24,5 +24,5 @@ require("lspconfig").efm.setup({
       typescriptreact = { eslint, prettier },
     }
   },
-  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" }
+  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte" }
 })
