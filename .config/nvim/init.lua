@@ -4,6 +4,8 @@ require('telescope_setup')
 require('lualine_setup')
 require('lspconfig_setup')
 require('nvim_tree_setup')
+require('nvim_compe_setup')
+require('lspsaga_setup')
 
 -- Aliases
 local api = vim.api -- Nvim api
@@ -19,6 +21,7 @@ cmd "colorscheme onedark"
 cmd "set listchars+=space:·"
 cmd "set listchars+=space:·"
 cmd "set listchars+=tab:›-"
+cmd "autocmd BufWrite * :lua vim.lsp.buf.formatting()"
 g.mapleader = " "
 bo.expandtab = true
 bo.shiftwidth = 2

@@ -1,5 +1,6 @@
 export EDITOR=nvim
 export VISUAL=nvim
+export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
@@ -21,3 +22,4 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
 fi
 
 eval "$(pyenv init -)"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

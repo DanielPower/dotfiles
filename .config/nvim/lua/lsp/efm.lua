@@ -12,6 +12,17 @@ local prettier = {
   formatStdin = true,
 }
 
+local flake8 = {
+  lintCommand = "flake8 --stdin-display-name ${INPUT} =",
+  lintStdin = true,
+  lintFormats = { "%f:%l:%c: %m" },
+}
+
+local black = {
+  formatCommand = "black --quiet -",
+  formatStdin = true,
+}
+
 require("lspconfig").efm.setup({
   on_attach = on_attach,
   init_options = { documentFormatting = true },
@@ -22,7 +33,8 @@ require("lspconfig").efm.setup({
       javascriptreact = { eslint, prettier },
       typescript = { eslint, prettier },
       typescriptreact = { eslint, prettier },
+      python = { flake8, black },
     }
   },
-  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte" }
+  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte", "python" }
 })
