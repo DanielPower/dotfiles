@@ -21,7 +21,7 @@ cmd "colorscheme onedark"
 cmd "set listchars+=space:·"
 cmd "set listchars+=space:·"
 cmd "set listchars+=tab:›-"
-cmd "autocmd BufWrite * :lua vim.lsp.buf.formatting()"
+cmd "autocmd BufWrite * :lua vim.lsp.buf.formatting_sync()"
 g.mapleader = " "
 bo.expandtab = true
 bo.shiftwidth = 2
