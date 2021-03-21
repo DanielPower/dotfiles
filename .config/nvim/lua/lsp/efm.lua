@@ -23,18 +23,32 @@ local black = {
   formatStdin = true,
 }
 
+local languages = {
+  javascript = { eslint, prettier },
+  javascriptreact = { eslint, prettier },
+  typescript = { eslint, prettier },
+  typescriptreact = { eslint, prettier },
+  svelte = { prettier, eslint },
+  python = { flake8, black },
+  html = { prettier },
+}
+
+local filetype_set = {}
+for key, _ in pairs(languages) do
+  filetype_set[key] = true
+end
+
+local filetypes = {}
+for key, _ in pairs(filetype_set) do
+  table.insert(filetypes, key)
+end
+
 require("lspconfig").efm.setup({
   on_attach = on_attach,
   init_options = { documentFormatting = true },
   settings = {
-    rootMarkers = { "package.json", ".git/" },
-    languages = {
-      javascript = { eslint, prettier },
-      javascriptreact = { eslint, prettier },
-      typescript = { eslint, prettier },
-      typescriptreact = { eslint, prettier },
-      python = { flake8, black },
-    }
+    rootMarkers = { ".git/" },
+    languages = languages
   },
-  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte", "python" }
+  filetypes = filetypes
 })
