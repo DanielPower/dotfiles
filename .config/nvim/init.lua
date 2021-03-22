@@ -21,7 +21,6 @@ cmd "colorscheme onedark"
 cmd "set listchars+=space:·"
 cmd "set listchars+=space:·"
 cmd "set listchars+=tab:›-"
-cmd "autocmd BufWrite * :lua vim.lsp.buf.formatting_sync()"
 g.mapleader = " "
 bo.expandtab = true
 bo.shiftwidth = 2
@@ -55,3 +54,4 @@ api.nvim_set_keymap('n', '<A-k>', ':m .-2<CR>==', { noremap = true, silent = tru
 
 -- Clear search highlight on Esc
 api.nvim_set_keymap('n', '<esc>', ':noh<CR>', { noremap = true, silent = true })
+api.nvim_set_keymap('n', '<leader>f', ':lua vim.lsp.buf.formatting()<CR>', { noremap = true, silent = true })
