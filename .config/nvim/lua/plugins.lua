@@ -1,5 +1,5 @@
 return require('packer').startup(function()
-  use { 'wbthomason/packer.nvim' }
+  use 'wbthomason/packer.nvim'
   use 'editorconfig/editorconfig-vim' -- Editorconfig support
   use 'evanleck/vim-svelte'
   use 'glepnir/lspsaga.nvim'
