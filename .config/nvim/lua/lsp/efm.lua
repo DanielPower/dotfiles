@@ -47,7 +47,7 @@ require("lspconfig").efm.setup({
   on_attach = on_attach,
   init_options = { documentFormatting = true },
   settings = {
-    rootMarkers = { ".git/" },
+    rootMarkers = { ".git/", "package.json" },
     languages = languages
   },
   filetypes = filetypes
