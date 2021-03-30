@@ -9,7 +9,7 @@ import {
 const HOME = Deno.env.get("HOME") as string;
 const CWD = Deno.cwd();
 const DOTFILES = `${HOME}/.dotfiles`;
-const IGNORED = [".git", "dotfiles", "__pycache__"];
+const IGNORED = [".git", "dotfiles.ts", "__pycache__", ".gitignore"];
 
 const install = () => {
   console.log("Creating symlinks");
@@ -21,7 +21,7 @@ const install = () => {
 
 const listFiles = (
   basePath: string,
-  subPath: string | null = null,
+  subPath: string | null = null
 ): string[] => {
   const fullPath = subPath ? `${basePath}/${subPath}` : basePath;
   const files = [];
@@ -41,7 +41,7 @@ const listFiles = (
 const addPaths = (...paths: string[]): void => {
   paths.forEach((path) => {
     const subPath = getSubPath(path);
-    const fullPath = `${Deno.cwd()}/${subPath}`;
+    const fullPath = `${CWD}/${subPath}`;
     if (Deno.statSync(fullPath).isDirectory) {
       for (const file of Deno.readDirSync(fullPath)) {
         addPaths(`${fullPath}/${file.name}`);
@@ -62,7 +62,7 @@ const getSubPath = (path: string): string => {
   } else if (path.slice(0, 2) === "~/") {
     subPath = `${path.slice(2)}`;
   } else {
-    const fullPath = `${Deno.cwd()}/${path}`;
+    const fullPath = `${CWD}/${path}`;
     console.log(fullPath);
     if (!fullPath.startsWith(HOME)) {
       console.error(`Cannot add files outside of ${HOME}`);
