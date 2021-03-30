@@ -10,6 +10,11 @@
 separator=true
 separator_block_width=15
 
+[wifi]
+command=scripts/wifi.py
+interval=1
+color=#A9DC76
+
 [power]
 command=scripts/battery.py
 interval=1
