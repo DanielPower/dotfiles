@@ -1,4 +1,6 @@
-require('telescope').setup{
+local telescope = require('telescope')
+
+telescope.setup({
   defaults = {
     vimgrep_arguments = {
       'rg',
@@ -46,6 +48,8 @@ require('telescope').setup{
     -- Developer configurations: Not meant for general override
     buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
   }
-}
+})
+
+telescope.load_extension('fzy_native')
 
 vim.api.nvim_set_keymap('n', '<C-p>', '<cmd>Telescope find_files<cr>', {})
