@@ -14,7 +14,6 @@ return require('packer').startup(function()
   use 'nvim-lua/popup.nvim'
   use 'nvim-telescope/telescope.nvim'
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use 'romgrk/barbar.nvim'
   use 'tpope/vim-commentary'
   use 'tpope/vim-fugitive' -- Git Integration
   use 'tpope/vim-sleuth' -- Detect Indentation
