@@ -39,6 +39,7 @@ o.so = 10
 o.splitbelow = true
 o.splitright = true
 o.termguicolors = true
+wo.wrap = false
 wo.list = true
 
 -- Move Between and Close Splits
