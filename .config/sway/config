@@ -8,8 +8,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Media keys
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
@@ -23,7 +22,11 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec kitty
 
-bindsym Print exec grim -g "$(slurp)"
+# Screenshot region
+bindsym Shift+Print exec grim -g "$(slurp)"
+
+# Screenshot active window
+bindsym Alt+Print grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
 
 # kill focused window
 bindsym $mod+Shift+q kill
