@@ -7,6 +7,11 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
+# Media keys
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
 # Use xbacklight to adjust brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
@@ -17,7 +22,11 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec kitty
 
-bindsym Print exec grim -g "$(slurp)"
+# Screenshot region
+bindsym Shift+Print exec grim -g "$(slurp)"
+
+# Screenshot active window
+bindsym Alt+Print grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
 
 # kill focused window
 bindsym $mod+Shift+q kill
