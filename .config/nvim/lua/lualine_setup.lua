@@ -1,5 +1,6 @@
 require('lualine').setup{
   options = {
+    theme = 'tokyonight',
     section_separators = {nil, nil},
     component_separators = {'|', '|'},
   },

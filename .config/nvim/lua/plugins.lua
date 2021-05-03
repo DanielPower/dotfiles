@@ -1,5 +1,4 @@
 return require('packer').startup(function()
-  use 'danielpower/sonokai'
   use 'editorconfig/editorconfig-vim' -- Editorconfig support
   use 'glepnir/lspsaga.nvim'
   use 'hoob3rt/lualine.nvim'
@@ -10,7 +9,6 @@ return require('packer').startup(function()
     requires = { 'kyazdani42/nvim-web-devicons' },
   }
   use 'neovim/nvim-lspconfig'
-  use 'christianchiarulli/nvcode-color-schemes.vim'
   use 'wbthomason/packer.nvim'
   use { 
     'nvim-telescope/telescope.nvim',
@@ -23,4 +21,5 @@ return require('packer').startup(function()
     requires = { 'tpope/vim-rhubarb' }
   }
   use "terrortylor/nvim-comment"
+  use 'folke/tokyonight.nvim'
 end)

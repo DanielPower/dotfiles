@@ -18,8 +18,7 @@ local bo = vim.bo -- Buffer-scoped options
 local wo = vim.wo -- Window-scoped options
 
 -- Options
-g.sonokai_style = "shusia"
-cmd "colorscheme sonokai"
+cmd "colorscheme tokyonight"
 cmd "set listchars+=space:·"
 cmd "set listchars+=space:·"
 cmd "set listchars+=tab:›-"
