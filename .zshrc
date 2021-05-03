@@ -8,6 +8,7 @@ HISTFILE=$HOME/.zhistory
 HYPHEN_INSENSITIVE="true"
 SAVEHIST=1000
 ZLE_RPROMPT_INDENT=0
+TYPEWRITTEN_PROMPT_LAYOUT="pure"
 
 # ZSH Plugins
 source $HOME/.antigen/antigen.zsh
