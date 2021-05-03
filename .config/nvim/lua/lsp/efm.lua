@@ -1,7 +1,7 @@
 local on_attach = require('lsp.on_attach')
 
 local eslint = {
-  lintCommand = "npx eslint -f unix --stdin --stdin-filename ${INPUT}",
+  lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
   lintStdin = true,
   lintFormats = { "%f:%l:%c: %m" },
   lintIgnoreExitCode = true,
@@ -13,7 +13,7 @@ local prettier = {
 }
 
 local flake8 = {
-  lintCommand = "flake8 --stdin-display-name ${INPUT} =",
+  lintCommand = "flake8 --stdin-display-name ${INPUT} -",
   lintStdin = true,
   lintFormats = { "%f:%l:%c: %m" },
 }
@@ -46,9 +46,9 @@ end
 require("lspconfig").efm.setup({
   on_attach = on_attach,
   init_options = { documentFormatting = true },
-  settings = {
-    rootMarkers = { ".git/", "package.json" },
-    languages = languages
+  settings = { 
+    rootMarkers = {"package.json"},
+    languages = languages,
   },
   filetypes = filetypes
 })

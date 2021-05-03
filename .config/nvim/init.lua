@@ -5,6 +5,7 @@ require('lualine_setup')
 require('lspconfig_setup')
 require('nvim_tree_setup')
 require('nvim_compe_setup')
+require('nvim_comment_setup')
 require('lspsaga_setup')
 
 -- Aliases
@@ -17,7 +18,7 @@ local bo = vim.bo -- Buffer-scoped options
 local wo = vim.wo -- Window-scoped options
 
 -- Options
-cmd "colorscheme onedark"
+cmd "colorscheme tokyonight"
 cmd "set listchars+=space:·"
 cmd "set listchars+=space:·"
 cmd "set listchars+=tab:›-"
