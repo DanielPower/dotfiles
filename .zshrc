@@ -1,9 +1,11 @@
 export EDITOR=nvim
 export VISUAL=nvim
 export NVM_DIR="$HOME/.nvm"
+export GOPATH="$HOME/.go"
 export PATH="$HOME/.bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
+export PATH="$HOME/.go/bin:$PATH"
 HISTFILE=$HOME/.zhistory
 HYPHEN_INSENSITIVE="true"
 SAVEHIST=1000
@@ -21,6 +23,3 @@ antigen apply
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
   XKB_DEFAULT_LAYOUT=us exec sway
 fi
-
-eval "$(pyenv init -)"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
