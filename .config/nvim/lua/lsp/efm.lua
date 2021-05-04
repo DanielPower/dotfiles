@@ -1,7 +1,7 @@
 local on_attach = require('lsp.on_attach')
 
 local eslint = {
-  lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
+  lintCommand = "eslint -f unix --stdin --stdin-filename ${INPUT}",
   lintStdin = true,
   lintFormats = { "%f:%l:%c: %m" },
   lintIgnoreExitCode = true,
@@ -44,9 +44,10 @@ for key, _ in pairs(filetype_set) do
 end
 
 return {
+  cmd = {vim.fn.stdpath('data').."/lspinstall/efm/efm-langserver", "-logfile", vim.fn.stdpath('data').."/efm.log"},
   on_attach = on_attach,
   init_options = { documentFormatting = true },
-  settings = { 
+  settings = {
     rootMarkers = {"package.json"},
     languages = languages,
   },
