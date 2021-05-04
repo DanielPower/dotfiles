@@ -23,4 +23,11 @@ return require('packer').startup(function()
   use 'terrortylor/nvim-comment'
   use 'folke/tokyonight.nvim'
   use 'kabouzeid/nvim-lspinstall'
+  use {
+    "folke/lsp-trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup({})
+    end
+  }
 end)
