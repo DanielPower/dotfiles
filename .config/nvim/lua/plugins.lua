@@ -20,6 +20,7 @@ return require('packer').startup(function()
     'tpope/vim-fugitive',
     requires = { 'tpope/vim-rhubarb' }
   }
-  use "terrortylor/nvim-comment"
+  use 'terrortylor/nvim-comment'
   use 'folke/tokyonight.nvim'
+  use 'kabouzeid/nvim-lspinstall'
 end)

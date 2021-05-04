@@ -43,7 +43,7 @@ for key, _ in pairs(filetype_set) do
   table.insert(filetypes, key)
 end
 
-require("lspconfig").efm.setup({
+return {
   on_attach = on_attach,
   init_options = { documentFormatting = true },
   settings = { 
@@ -51,4 +51,4 @@ require("lspconfig").efm.setup({
     languages = languages,
   },
   filetypes = filetypes
-})
+}

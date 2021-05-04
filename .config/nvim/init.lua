@@ -2,10 +2,10 @@ require('plugins')
 require('treesitter_setup')
 require('telescope_setup')
 require('lualine_setup')
-require('lspconfig_setup')
 require('nvim_tree_setup')
 require('nvim_compe_setup')
 require('nvim_comment_setup')
+require('nvim_lspinstall_setup')
 require('lspsaga_setup')
 
 -- Aliases

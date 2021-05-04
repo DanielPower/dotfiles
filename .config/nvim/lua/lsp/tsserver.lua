@@ -1,6 +1,6 @@
 local on_attach = require('lsp.on_attach')
 
-require('lspconfig').tsserver.setup({
+return {
   on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false
     on_attach(client, bufnr)
@@ -8,4 +8,4 @@ require('lspconfig').tsserver.setup({
   settings = {
     rootMarkers = { "package.json" },
   },
-})
+}
