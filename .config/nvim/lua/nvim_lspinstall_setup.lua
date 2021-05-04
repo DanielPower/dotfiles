@@ -3,14 +3,40 @@ local lspConfig = require('lspconfig')
 local efmConfig = require('lsp.efm')
 local svelteConfig = require('lsp.svelte')
 local tsserverConfig = require('lsp.tsserver')
+local luaConfig = require('lsp.lua')
 
-local configs = {
-  efm = efmConfig,
-  svelte = svelteConfig,
-  tsserver = tsserverConfig,
+-- Install missing language servers
+local required_servers = {
+  "bash",
+  "css",
+  "graphql",
+  "html",
+  "json",
+  "lua",
+  "python",
+  "rust",
+  "svelte",
+  "typescript",
+  "vim",
+  "yaml",
+  "efm",
 }
 
+local installed_servers = require'lspinstall'.installed_servers()
+for _, server in pairs(required_servers) do
+  if not vim.tbl_contains(installed_servers, server) then
+    require'lspinstall'.install_server(server)
+  end
+end
+
 local function setup_servers()
+  local configs = {
+    efm = efmConfig,
+    svelte = svelteConfig,
+    tsserver = tsserverConfig,
+    sumneko_lua = luaConfig,
+  }
+
   lspInstall.setup()
   local servers = lspInstall.installed_servers()
   for _, server in pairs(servers) do
