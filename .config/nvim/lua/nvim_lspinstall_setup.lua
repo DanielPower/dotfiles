@@ -1,9 +1,6 @@
 local lspInstall = require('lspinstall')
 local lspConfig = require('lspconfig')
-local efmConfig = require('lsp.efm')
-local svelteConfig = require('lsp.svelte')
-local tsserverConfig = require('lsp.tsserver')
-local luaConfig = require('lsp.lua')
+local configs = require('lsp')
 
 -- Install missing language servers
 local required_servers = {
@@ -30,13 +27,6 @@ for _, server in pairs(required_servers) do
 end
 
 local function setup_servers()
-  local configs = {
-    efm = efmConfig,
-    svelte = svelteConfig,
-    tsserver = tsserverConfig,
-    sumneko_lua = luaConfig,
-  }
-
   lspInstall.setup()
   local servers = lspInstall.installed_servers()
   for _, server in pairs(servers) do
@@ -48,7 +38,7 @@ end
 setup_servers()
 
 -- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-require'lspinstall'.post_install_hook = function ()
+require('lspinstall').post_install_hook = function ()
   setup_servers() -- reload installed servers
   vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 end

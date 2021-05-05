@@ -1,7 +1,7 @@
 local on_attach = require('lsp.on_attach')
 
 local eslint = {
-  lintCommand = "eslint -f unix --stdin --stdin-filename ${INPUT}",
+  lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
   lintStdin = true,
   lintFormats = { "%f:%l:%c: %m" },
   lintIgnoreExitCode = true,
