@@ -1,17 +1,8 @@
 require('plugins')
-require('treesitter_setup')
-require('telescope_setup')
-require('lualine_setup')
-require('nvim_tree_setup')
-require('nvim_compe_setup')
-require('nvim_comment_setup')
-require('nvim_lspinstall_setup')
-require('lspsaga_setup')
 
 -- Aliases
 local api = vim.api -- Nvim api
 local cmd = vim.cmd  -- Execute vim commands
-local fn = vim.fn -- Vim functions
 local g = vim.g -- Global variables
 local o = vim.o -- Global options
 local bo = vim.bo -- Buffer-scoped options

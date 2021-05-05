@@ -5,7 +5,7 @@ require('lualine').setup{
     component_separators = {'|', '|'},
   },
   sections = {
-    lualine_a = {{ 
+    lualine_a = {{
         'mode',
         format = function(value)
           return(string.sub(value, 1, 1))
@@ -13,12 +13,12 @@ require('lualine').setup{
     }},
     lualine_b = {
       'branch',
-      'filename', 
+      'filename',
       {'diagnostics', sources={'nvim_lsp'}},
     },
     lualine_c = {},
     lualine_x = {},
     lualine_y = {},
-    lualine_z = {},
+    lualine_z = {'location'},
   }
 }

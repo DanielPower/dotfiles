@@ -28,7 +28,7 @@ local languages = {
   javascriptreact = { eslint, prettier },
   typescript = { eslint, prettier },
   typescriptreact = { eslint, prettier },
-  svelte = { prettier, eslint },
+  svelte = { eslint, prettier },
   python = { flake8, black },
   html = { prettier },
 }

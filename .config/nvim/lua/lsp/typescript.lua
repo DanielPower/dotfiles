@@ -5,7 +5,4 @@ return {
     client.resolved_capabilities.document_formatting = false
     on_attach(client, bufnr)
   end,
-  settings = {
-    rootMarkers = { "package.json" },
-  },
 }
