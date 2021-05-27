@@ -8,7 +8,7 @@ local eslint = {
 }
 
 local prettier = {
-  formatCommand = "prettier --find-config-path --stdin-filepath ${INPUT}",
+  formatCommand = "prettierd ${INPUT}",
   formatStdin = true,
 }
 

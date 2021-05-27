@@ -14,12 +14,12 @@ cmd "set listchars+=space:·"
 cmd "set listchars+=space:·"
 cmd "set listchars+=tab:›-"
 cmd "set shortmess+=I"
+cmd("set ts=4")
+cmd("set sw=4")
+cmd("set expandtab")
 g.mapleader = " "
-bo.expandtab = true
-bo.shiftwidth = 2
 bo.smartindent = true
-bo.tabstop = 2
-o.colorcolumn = '88,100'
+wo.colorcolumn = '88,100'
 o.cursorline = true
 o.hidden = true
 o.ignorecase = true

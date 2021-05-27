@@ -18,10 +18,6 @@ return require('packer').startup(function(use)
     config = function() require('setup.nvim_compe') end,
   }
   use {
-    'glepnir/lspsaga.nvim',
-    config = function() require('setup.lspsaga') end,
-  }
-  use {
     'kabouzeid/nvim-lspinstall',
     config = function() require('setup.nvim_lspinstall') end,
   }
@@ -31,7 +27,7 @@ return require('packer').startup(function(use)
     config = function() require('setup.treesitter') end,
   }
   use {
-    'kyazdani42/nvim-tree.lua',
+    'sindrets/nvim-tree.lua',
     requires = { 'kyazdani42/nvim-web-devicons' },
     config = function() require('setup.nvim_tree') end,
   }
