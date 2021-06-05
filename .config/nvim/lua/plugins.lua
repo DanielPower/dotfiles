@@ -27,7 +27,7 @@ return require('packer').startup(function(use)
     config = function() require('setup.treesitter') end,
   }
   use {
-    'sindrets/nvim-tree.lua',
+    'kyazdani42/nvim-tree.lua',
     requires = { 'kyazdani42/nvim-web-devicons' },
     config = function() require('setup.nvim_tree') end,
   }
