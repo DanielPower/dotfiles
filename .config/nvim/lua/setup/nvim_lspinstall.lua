@@ -1,6 +1,7 @@
 local lspInstall = require('lspinstall')
 local lspConfig = require('lspconfig')
 local configs = require('lsp')
+local on_attach = require('lsp.on_attach')
 
 -- Install missing language servers
 local required_servers = {
@@ -17,6 +18,7 @@ local required_servers = {
   "vim",
   "yaml",
   "efm",
+  "go",
 }
 
 local installed_servers = require'lspinstall'.installed_servers()
@@ -31,6 +33,10 @@ local function setup_servers()
   local servers = lspInstall.installed_servers()
   for _, server in pairs(servers) do
     local config = configs[server] or {}
+    -- Use default on_attach if none specified in language server config
+    if not config.on_attach then
+      config.on_attach = on_attach
+    end
     lspConfig[server].setup(config)
   end
 end
