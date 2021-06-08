@@ -27,7 +27,7 @@ return require('packer').startup(function(use)
     config = function() require('setup.treesitter') end,
   }
   use {
-    'sindrets/nvim-tree.lua',
+    'kyazdani42/nvim-tree.lua',
     requires = { 'kyazdani42/nvim-web-devicons' },
     config = function() require('setup.nvim_tree') end,
   }
@@ -46,7 +46,7 @@ return require('packer').startup(function(use)
   }
   use {
     'folke/lsp-trouble.nvim',
-    requires = 'kyazdani42/nvim-web-devicons',
+    requires = { 'kyazdani42/nvim-web-devicons' },
     config = function() require('trouble').setup() end,
   }
   use {
