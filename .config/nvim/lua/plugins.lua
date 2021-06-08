@@ -49,4 +49,12 @@ return require('packer').startup(function(use)
     requires = 'kyazdani42/nvim-web-devicons',
     config = function() require('trouble').setup() end,
   }
+  use {
+    'hrsh7th/vim-vsnip',
+    requires = {
+      'hrsh7th/vim-vsnip-integ',
+      'rafamadriz/friendly-snippets',
+      'mlaursen/vim-react-snippets',
+    }
+  }
 end)
