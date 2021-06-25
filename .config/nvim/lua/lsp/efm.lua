@@ -31,6 +31,7 @@ local languages = {
   svelte = { eslint, prettier },
   python = { flake8, black },
   html = { prettier },
+  yaml = { prettier },
 }
 
 local filetype_set = {}

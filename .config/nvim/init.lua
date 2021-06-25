@@ -3,10 +3,8 @@ require('plugins')
 -- Aliases
 local api = vim.api -- Nvim api
 local cmd = vim.cmd  -- Execute vim commands
-local g = vim.g -- Global variables
-local o = vim.o -- Global options
-local bo = vim.bo -- Buffer-scoped options
-local wo = vim.wo -- Window-scoped options
+local opt = vim.opt
+local g = vim.g
 
 -- Options
 cmd "colorscheme tokyonight"
@@ -15,30 +13,25 @@ cmd "set listchars+=space:·"
 cmd "set listchars+=tab:›-"
 cmd "set shortmess+=I"
 g.mapleader = " "
-bo.smartindent = true
-bo.expandtab = true
-bo.shiftwidth = 2
-bo.tabstop = 4
-bo.smartindent = true
-o.expandtab = true
-o.shiftwidth = 2
-o.tabstop = 4
-o.smartindent = true
-o.colorcolumn = '88,100'
-o.cursorline = true
-o.hidden = true
-o.ignorecase = true
-o.mouse = 'a'
-wo.number = true
-wo.relativenumber = true
-o.smartcase = true
-o.smarttab = true
-o.so = 10
-o.splitbelow = true
-o.splitright = true
-o.termguicolors = true
-wo.wrap = false
-wo.list = true
+opt.colorcolumn = '88,100'
+opt.cursorline = true
+opt.expandtab = true
+opt.hidden = true
+opt.ignorecase = true
+opt.list = true
+opt.mouse = 'a'
+opt.number = true
+opt.relativenumber = true
+opt.shiftwidth = 2
+opt.smartcase = true
+opt.smartindent = true
+opt.smarttab = true
+opt.so = 10
+opt.splitbelow = true
+opt.splitright = true
+opt.tabstop = 4
+opt.termguicolors = true
+opt.wrap = false
 
 -- Move Between and Close Splits
 api.nvim_set_keymap('n', '<C-h>', ':wincmd h<CR>', { noremap = true, silent = true })
