@@ -3,15 +3,11 @@ require('plugins')
 -- Aliases
 local api = vim.api -- Nvim api
 local cmd = vim.cmd  -- Execute vim commands
-local opt = vim.opt
+local opt = vim.opt -- Helper for vim configurations
 local g = vim.g
 
 -- Options
 cmd "colorscheme tokyonight"
-cmd "set listchars+=space:·"
-cmd "set listchars+=space:·"
-cmd "set listchars+=tab:›-"
-cmd "set shortmess+=I"
 g.mapleader = " "
 opt.colorcolumn = '88,100'
 opt.cursorline = true
@@ -19,10 +15,13 @@ opt.expandtab = true
 opt.hidden = true
 opt.ignorecase = true
 opt.list = true
+opt.listchars = { space = '·', tab = '›-' }
 opt.mouse = 'a'
 opt.number = true
 opt.relativenumber = true
 opt.shiftwidth = 2
+opt.shortmess = "ifnIoOxTFlt"
+opt.showmode = false
 opt.smartcase = true
 opt.smartindent = true
 opt.smarttab = true
