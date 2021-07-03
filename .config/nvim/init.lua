@@ -10,6 +10,7 @@ local g = vim.g
 cmd "colorscheme tokyonight"
 g.mapleader = " "
 opt.colorcolumn = '88,100'
+opt.completeopt = { 'menuone' , 'noselect' }
 opt.cursorline = true
 opt.expandtab = true
 opt.hidden = true
@@ -20,7 +21,7 @@ opt.mouse = 'a'
 opt.number = true
 opt.relativenumber = true
 opt.shiftwidth = 2
-opt.shortmess = "ifnIoOxTFlt"
+opt.shortmess = "ifnIoOxTFltc"
 opt.showmode = false
 opt.smartcase = true
 opt.smartindent = true

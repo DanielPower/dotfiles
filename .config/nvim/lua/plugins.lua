@@ -4,6 +4,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-sleuth'
   use 'neovim/nvim-lspconfig'
   use 'folke/tokyonight.nvim'
+  use 'L3MON4D3/LuaSnip'
   use {
     'terrortylor/nvim-comment',
     config = function() require('setup.nvim_comment') end,
@@ -47,13 +48,5 @@ return require('packer').startup(function(use)
     'folke/lsp-trouble.nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
     config = function() require('trouble').setup() end,
-  }
-  use {
-    'hrsh7th/vim-vsnip',
-    requires = {
-      'hrsh7th/vim-vsnip-integ',
-      'rafamadriz/friendly-snippets',
-      'mlaursen/vim-react-snippets',
-    }
   }
 end)
