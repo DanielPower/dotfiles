@@ -4,7 +4,11 @@ return require('packer').startup(function(use)
   use 'tpope/vim-sleuth'
   use 'neovim/nvim-lspconfig'
   use 'folke/tokyonight.nvim'
-  use 'L3MON4D3/LuaSnip'
+  use {
+    'L3MON4D3/LuaSnip',
+    requires = { "rafamadriz/friendly-snippets" },
+    config = function() require('setup.luasnip') end,
+  }
   use {
     'terrortylor/nvim-comment',
     config = function() require('setup.nvim_comment') end,
