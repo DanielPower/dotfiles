@@ -1,5 +1,6 @@
 local compe = require('compe')
 local luasnip = require('luasnip')
+local keymap = require('utils.keymap')
 
 compe.setup({
     enabled = true,
@@ -24,35 +25,35 @@ compe.setup({
     };
 })
 
-local t = function(str)
+local termcode = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
 function TabComplete()
   if vim.fn.pumvisible() == 1 then
-    return t("<C-n>")
+    return termcode "<C-n>"
   elseif luasnip.expand_or_jumpable() then
     luasnip.jump(1)
     return ""
   end
-  return t("<Tab>")
+  return termcode "<Tab>"
 end
 
 function ShiftTabComplete()
   if vim.fn.pumvisible() == 1 then
-    return t("<C-p>")
+    return termcode "<C-p>"
   elseif luasnip.expand_or_jumpable() then
     luasnip.jump(-1)
     return ""
   end
-  return t("<S-Tab>")
+  return termcode "<S-Tab>"
 end
 
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.TabComplete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.TabComplete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.ShiftTabComplete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.ShiftTabComplete()", {expr = true})
+keymap("i", "<Tab>", TabComplete, {expr = true})
+keymap("s", "<Tab>", TabComplete, {expr = true})
+keymap("i", "<S-Tab>", ShiftTabComplete, {expr = true})
+keymap("s", "<S-Tab>", ShiftTabComplete, {expr = true})
 
-vim.api.nvim_set_keymap("i", "<C-Space>", "compe#complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<CR>", "compe#confirm('<CR>')", {expr = true})
-vim.api.nvim_set_keymap("i", "<C-e>", "compe#close('<C-e>')", {expr = true})
+keymap("i", "<C-Space>", "compe#complete()", {expr = true})
+keymap("i", "<CR>", "compe#confirm('<CR>')", {expr = true})
+keymap("i", "<C-e>", "compe#close('<C-e>')", {expr = true})
