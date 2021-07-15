@@ -49,11 +49,8 @@ function ShiftTabComplete()
   return termcode "<S-Tab>"
 end
 
-keymap("i", "<Tab>", TabComplete, {expr = true})
-keymap("s", "<Tab>", TabComplete, {expr = true})
-keymap("i", "<S-Tab>", ShiftTabComplete, {expr = true})
-keymap("s", "<S-Tab>", ShiftTabComplete, {expr = true})
-
+keymap({"i", "s", "n"}, "<Tab>", TabComplete, {expr = true})
+keymap({"i", "s", "n"}, "<S-Tab>", ShiftTabComplete, {expr = true})
 keymap("i", "<C-Space>", "compe#complete()", {expr = true})
 keymap("i", "<CR>", "compe#confirm('<CR>')", {expr = true})
 keymap("i", "<C-e>", "compe#close('<C-e>')", {expr = true})
