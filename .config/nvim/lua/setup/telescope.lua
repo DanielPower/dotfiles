@@ -16,20 +16,26 @@ telescope.setup({
     entry_prefix = "  ",
     initial_mode = "insert",
     selection_strategy = "reset",
-    sorting_strategy = "descending",
-    layout_strategy = "horizontal",
+    sorting_strategy = "ascending",
+    layout_strategy = "vertical",
     layout_config = {
       horizontal = {
         mirror = false,
       },
       vertical = {
-        mirror = false,
+        mirror = true,
       },
     },
     file_sorter =  require'telescope.sorters'.get_fuzzy_file,
     file_ignore_patterns = {},
+    path_display = function(opts, path)
+      local segments = {}
+      for segment in string.gmatch(path, "([^/]+)") do
+        table.insert(segments, segment)
+      end
+      return segments[#segments].." "..path
+    end,
     generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
-    shorten_path = true,
     winblend = 0,
     border = {},
     borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
@@ -48,3 +54,4 @@ telescope.setup({
 telescope.load_extension('fzy_native')
 
 vim.api.nvim_set_keymap('n', '<C-p>', '<cmd>Telescope find_files<cr>', {})
+vim.api.nvim_set_keymap('n', '<C-t>', '<cmd>Telescope<cr>', {})

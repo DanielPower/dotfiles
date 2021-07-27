@@ -5,8 +5,19 @@ return require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'
   use 'folke/tokyonight.nvim'
   use {
+    'mfussenegger/nvim-dap',
+    config = function() require('setup.nvim_dap') end,
+    requires = {
+      'mfussenegger/nvim-dap-python',
+      'tjdevries/astronauta.nvim',
+    },
+  }
+  use {
     'L3MON4D3/LuaSnip',
-    requires = { "rafamadriz/friendly-snippets" },
+    requires = {
+      'rafamadriz/friendly-snippets',
+      'mlaursen/vim-react-snippets',
+    },
     config = function() require('setup.luasnip') end,
   }
   use {
