@@ -21,7 +21,7 @@ local required_servers = {
   "go",
 }
 
-local installed_servers = require'lspinstall'.installed_servers()
+local installed_servers = require('lspinstall').installed_servers()
 for _, server in pairs(required_servers) do
   if not vim.tbl_contains(installed_servers, server) then
     require'lspinstall'.install_server(server)
@@ -48,3 +48,12 @@ require('lspinstall').post_install_hook = function ()
   setup_servers() -- reload installed servers
   vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 end
+
+-- Provide a user function to reinstall all servers
+function lsp_reinstall_servers()
+  for _, server in pairs(required_servers) do
+    require('lspinstall').install_server(server)
+  end
+end
+
+vim.cmd("command! LspReinstallAll :lua lsp_reinstall_servers()")
