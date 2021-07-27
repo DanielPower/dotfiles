@@ -5,6 +5,14 @@ return require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'
   use 'folke/tokyonight.nvim'
   use {
+    'vimwiki/vimwiki',
+    config = function() require('setup.vimwiki') end,
+  }
+  use {
+    'pwntester/octo.nvim',
+    config = function() require'octo'.setup() end,
+  }
+  use {
     'mfussenegger/nvim-dap',
     config = function() require('setup.nvim_dap') end,
     requires = {
