@@ -4,6 +4,15 @@ return require('packer').startup(function(use)
   use 'tpope/vim-sleuth'
   use 'neovim/nvim-lspconfig'
   use 'folke/tokyonight.nvim'
+  use 'vim-test/vim-test'
+  use {
+    'folke/which-key.nvim',
+    config = function() require('setup.whichkey') end,
+  }
+  use {
+    'mhartington/formatter.nvim',
+    config = function() require('setup.formatter') end,
+  }
   use {
     'vimwiki/vimwiki',
     config = function() require('setup.vimwiki') end,
@@ -19,6 +28,9 @@ return require('packer').startup(function(use)
       'mfussenegger/nvim-dap-python',
       'tjdevries/astronauta.nvim',
     },
+  }
+  use {
+    'rcarriga/nvim-dap-ui'
   }
   use {
     'L3MON4D3/LuaSnip',

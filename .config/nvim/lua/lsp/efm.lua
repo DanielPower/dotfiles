@@ -24,11 +24,11 @@ local black = {
 }
 
 local languages = {
-  javascript = { eslint, prettier },
-  javascriptreact = { eslint, prettier },
-  typescript = { eslint, prettier },
-  typescriptreact = { eslint, prettier },
-  svelte = { eslint, prettier },
+  javascript = { eslint },
+  javascriptreact = { eslint },
+  typescript = { eslint },
+  typescriptreact = { eslint },
+  svelte = { eslint },
   python = { flake8, black },
   html = { prettier },
   yaml = { prettier },
