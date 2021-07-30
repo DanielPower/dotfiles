@@ -14,6 +14,14 @@ local black = function()
 	}
 end
 
+local isort = function()
+	return {
+		exe = "isort",
+		args = { "-" },
+		stdin = true,
+	}
+end
+
 local stylua = function()
 	return {
 		exe = "stylua",
@@ -29,9 +37,10 @@ require("formatter").setup({
 		javascriptreact = { prettier },
 		typescript = { prettier },
 		typescriptreact = { prettier },
+		scss = { prettier },
 		json = { prettier },
 		lua = { stylua },
-		python = { black },
+		python = { isort, black },
 	},
 })
 
@@ -39,7 +48,7 @@ vim.api.nvim_exec(
 	[[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.jsx,*.ts,*.tsx,*.lua,*.json,*.py FormatWrite
+  autocmd BufWritePost *.js,*.jsx,*.ts,*.tsx,*.lua,*.json,*.py,*.scss FormatWrite
 augroup END
 ]],
 	true
