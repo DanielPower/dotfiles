@@ -4,7 +4,12 @@ return require("packer").startup(function(use)
 	use("tpope/vim-sleuth")
 	use("neovim/nvim-lspconfig")
 	use("folke/tokyonight.nvim")
-	use("vim-test/vim-test")
+	use({
+		"vim-test/vim-test",
+		config = function()
+			require("setup.test")
+		end,
+	})
 	use({
 		"folke/which-key.nvim",
 		config = function()
