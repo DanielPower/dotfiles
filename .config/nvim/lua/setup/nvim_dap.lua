@@ -1,8 +1,8 @@
+local wk = require("which-key")
 local dap = require("dap")
 local dap_python = require("dap-python")
 local dap_vscode = require("dap.ext.vscode")
 local dap_ui = require("dapui")
-local keymap = require("astronauta.keymap")
 
 local python_bin
 if os.getenv("PYENV_VIRTUAL_ENV") then
@@ -11,20 +11,63 @@ else
 	python_bin = "/usr/bin/python"
 end
 
-dap_ui.setup()
+dap_ui.setup({
+	open_on_start = false,
+})
 dap_python.setup(python_bin)
 dap_python.test_runner = "pytest"
 dap_vscode.load_launchjs()
 
-keymap.nnoremap({
-	"<leader>b",
-	function()
-		dap.toggle_breakpoint()
-	end,
+wk.register({
+	name = "Debug",
+	u = {
+		function()
+			dap_ui.toggle()
+		end,
+		"Toggle UI",
+	},
+	c = {
+		function()
+			dap.continue()
+		end,
+		"Continue",
+	},
+	b = {
+		function()
+			dap.toggle_breakpoint()
+		end,
+		"Toggle Breakpoint",
+	},
+	q = {
+		function()
+			dap.close()
+		end,
+		"Close Debugger",
+	},
+}, {
+	prefix = "<leader>d",
 })
-keymap.nnoremap({
-	"<leader>td",
-	function()
-		dap_python.test_method()
-	end,
+
+wk.register({
+	name = "Step",
+	o = {
+		function()
+			dap.step_over()
+		end,
+		"Step Over",
+	},
+	i = {
+		function()
+			dap.step_into()
+		end,
+		"Step Into",
+	},
+	u = {
+		function()
+			dap.step_out()
+		end,
+		"Step Out",
+	},
+}, {
+	prefix = "<leader>ds",
 })

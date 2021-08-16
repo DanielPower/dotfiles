@@ -9,7 +9,7 @@ DOTFILES = HOME + '.dotfiles/'
 
 ignored = [
 	'.git',
-	'dotfiles'
+	'dotfiles',
 ]
 
 
