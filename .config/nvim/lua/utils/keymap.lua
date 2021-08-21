@@ -1,3 +1,8 @@
+-- This is a hacky function that uses global scoped callbacks in order to
+-- create keybinds that accept lua callbacks and work with expr.
+-- I hope to delete this at some point, but for now this is used for
+-- nvim_compe
+
 return function(mode_list, key, callback, options)
 	if type(mode_list) == "string" then
 		mode_list = { mode_list }
