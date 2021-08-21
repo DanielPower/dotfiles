@@ -12,7 +12,12 @@ else
 end
 
 dap_ui.setup({
-	open_on_start = false,
+	sidebar = {
+		open_on_start = false,
+	},
+	tray = {
+		open_on_start = false,
+	},
 })
 dap_python.setup(python_bin)
 dap_python.test_runner = "pytest"
