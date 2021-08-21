@@ -46,11 +46,3 @@ api.nvim_set_keymap("n", "<A-k>", ":m .-2<CR>==", { noremap = true, silent = tru
 
 -- Clear search highlight on Esc
 api.nvim_set_keymap("n", "<esc>", ":noh<CR>", { noremap = true, silent = true })
-
--- LSP Diagnostics
-api.nvim_set_keymap(
-	"n",
-	"<leader>x",
-	":LspTrouble<CR>",
-	{ noremap = true, silent = true }
-)
