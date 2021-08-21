@@ -37,7 +37,7 @@ return require("packer").startup(function(use)
 	use({
 		"mfussenegger/nvim-dap",
 		config = function()
-			require("setup.nvim_dap")
+			require("setup.dap")
 		end,
 		requires = {
 			"mfussenegger/nvim-dap-python",
@@ -60,7 +60,7 @@ return require("packer").startup(function(use)
 	use({
 		"terrortylor/nvim-comment",
 		config = function()
-			require("setup.nvim_comment")
+			require("setup.comment")
 		end,
 	})
 	use({
@@ -72,13 +72,13 @@ return require("packer").startup(function(use)
 	use({
 		"hrsh7th/nvim-compe",
 		config = function()
-			require("setup.nvim_compe")
+			require("setup.compe")
 		end,
 	})
 	use({
 		"kabouzeid/nvim-lspinstall",
 		config = function()
-			require("setup.nvim_lspinstall")
+			require("setup.lspinstall")
 		end,
 	})
 	use({
@@ -92,7 +92,7 @@ return require("packer").startup(function(use)
 		"kyazdani42/nvim-tree.lua",
 		requires = { "kyazdani42/nvim-web-devicons" },
 		config = function()
-			require("setup.nvim_tree")
+			require("setup.tree")
 		end,
 	})
 	use({
