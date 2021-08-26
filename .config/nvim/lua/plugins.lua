@@ -1,54 +1,51 @@
 return require("packer").startup(function(use)
-	use("wbthomason/packer.nvim")
+	use("wbthomason/packer.nvim") -- Plugin Management
 	use("editorconfig/editorconfig-vim") -- Editorconfig support
-	use("tpope/vim-sleuth")
-	use("neovim/nvim-lspconfig")
-	use("folke/tokyonight.nvim")
+	use("tpope/vim-sleuth") -- Indentation auto-detection
+	use("neovim/nvim-lspconfig") -- LSP Configuration
+	use("folke/tokyonight.nvim") -- Colorscheme
 	use({
-		"vim-test/vim-test",
+		"vim-test/vim-test", -- Unit Testing
 		config = function()
 			require("setup.test")
 		end,
 	})
 	use({
-		"folke/which-key.nvim",
+		"folke/which-key.nvim", -- Keybind management and UI
 		config = function()
 			require("setup.whichkey")
 		end,
 	})
 	use({
-		"mhartington/formatter.nvim",
+		"mhartington/formatter.nvim", -- Auto formatting
 		config = function()
 			require("setup.formatter")
 		end,
 	})
 	use({
-		"vimwiki/vimwiki",
+		"vimwiki/vimwiki", -- Personal wiki
 		config = function()
 			require("setup.vimwiki")
 		end,
 	})
 	use({
-		"pwntester/octo.nvim",
+		"pwntester/octo.nvim", -- Github integration
 		config = function()
 			require("octo").setup()
 		end,
 	})
 	use({
-		"mfussenegger/nvim-dap",
+		"mfussenegger/nvim-dap", -- Debugging
 		config = function()
 			require("setup.dap")
 		end,
 		requires = {
 			"mfussenegger/nvim-dap-python",
-			"tjdevries/astronauta.nvim",
+			"rcarriga/nvim-dap-ui",
 		},
 	})
 	use({
-		"rcarriga/nvim-dap-ui",
-	})
-	use({
-		"L3MON4D3/LuaSnip",
+		"L3MON4D3/LuaSnip", -- Snippets
 		requires = {
 			"rafamadriz/friendly-snippets",
 			"mlaursen/vim-react-snippets",
@@ -58,60 +55,60 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use({
-		"terrortylor/nvim-comment",
+		"terrortylor/nvim-comment", -- Comment lines and ranges
 		config = function()
 			require("setup.comment")
 		end,
 	})
 	use({
-		"hoob3rt/lualine.nvim",
+		"hoob3rt/lualine.nvim", -- Statusbar
 		config = function()
 			require("setup.lualine")
 		end,
 	})
 	use({
-		"hrsh7th/nvim-compe",
+		"hrsh7th/nvim-compe", -- Completion
 		config = function()
 			require("setup.compe")
 		end,
 	})
 	use({
-		"kabouzeid/nvim-lspinstall",
+		"kabouzeid/nvim-lspinstall", -- Installer for language servers
 		config = function()
 			require("setup.lspinstall")
 		end,
 	})
 	use({
-		"nvim-treesitter/nvim-treesitter",
+		"nvim-treesitter/nvim-treesitter", -- Used for highlighting and indentation
 		run = ":TSUpdate",
 		config = function()
 			require("setup.treesitter")
 		end,
 	})
 	use({
-		"kyazdani42/nvim-tree.lua",
-		requires = { "kyazdani42/nvim-web-devicons" },
+		"kyazdani42/nvim-tree.lua", -- File tree
+		requires = { "kyazdani42/nvim-web-devicons" }, -- Pretty icons
 		config = function()
 			require("setup.tree")
 		end,
 	})
 	use({
-		"nvim-telescope/telescope.nvim",
+		"nvim-telescope/telescope.nvim", -- Fuzzy find + UI
 		requires = {
 			"nvim-lua/popup.nvim",
 			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope-fzy-native.nvim",
+			"nvim-telescope/telescope-fzy-native.nvim", -- Native fuzzy finder (improves performance)
 		},
 		config = function()
 			require("setup.telescope")
 		end,
 	})
 	use({
-		"tpope/vim-fugitive",
-		requires = "tpope/vim-rhubarb",
+		"tpope/vim-fugitive", -- Git integration
+		requires = "tpope/vim-rhubarb", -- Additional Github features for fugitive
 	})
 	use({
-		"folke/lsp-trouble.nvim",
+		"folke/lsp-trouble.nvim", -- Linter/Diagnostic UI
 		requires = { "kyazdani42/nvim-web-devicons" },
 		config = function()
 			require("setup.trouble")
