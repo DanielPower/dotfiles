@@ -33,6 +33,9 @@ opt.tabstop = 2
 opt.termguicolors = true
 opt.wrap = false
 
+-- Escape terminal mode
+api.nvim_set_keymap("t", "<C-o>", [[<C-\><C-n>]], { noremap = true, silent = true })
+
 -- Move Between and Close Splits
 api.nvim_set_keymap("n", "<C-h>", ":wincmd h<CR>", { noremap = true, silent = true })
 api.nvim_set_keymap("n", "<C-j>", ":wincmd j<CR>", { noremap = true, silent = true })
