@@ -4,6 +4,7 @@ export VISUAL=nvim
 export NVM_DIR="$HOME/.nvm"
 export GOPATH="$HOME/.go"
 export PATH="$HOME/.bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 export PATH="$HOME/.go/bin:$PATH"
