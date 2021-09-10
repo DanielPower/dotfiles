@@ -1,50 +1,39 @@
+local saga_action = require("lspsaga.action")
+local saga_codeaction = require("lspsaga.codeaction")
+local saga_diagnostic = require("lspsaga.diagnostic")
+local saga_hover = require("lspsaga.hover")
+local saga_provider = require("lspsaga.provider")
+local saga_rename = require("lspsaga.rename")
+local saga_signaturehelp = require("lspsaga.signaturehelp")
+local wk = require("which-key")
+
 return function(_, bufnr)
-	local function buf_set_keymap(...)
-		vim.api.nvim_buf_set_keymap(bufnr, ...)
-	end
-	local function buf_set_option(...)
-		vim.api.nvim_buf_set_option(bufnr, ...)
-	end
-
-	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
-
-	-- Mappings.
-	local opts = { noremap = true, silent = true }
-	buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-	buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
-	buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
-	buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-	buf_set_keymap("n", "<space>k", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-	buf_set_keymap(
-		"n",
-		"<space>wa",
-		"<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>",
-		opts
-	)
-	buf_set_keymap(
-		"n",
-		"<space>wr",
-		"<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>",
-		opts
-	)
-	buf_set_keymap(
-		"n",
-		"<space>wl",
-		"<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",
-		opts
-	)
-	buf_set_keymap("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-	buf_set_keymap("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-	buf_set_keymap("n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-	buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-	buf_set_keymap(
-		"n",
-		"<space>e",
-		"<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",
-		opts
-	)
-	buf_set_keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
-	buf_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
-	buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
-	buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+	wk.register({
+		["<leader>K"] = { saga_signaturehelp.signature_help, "Show signature help" },
+		["<leader>ca"] = { saga_codeaction.code_action, "Code actions" },
+		["<leader>cd"] = { saga_diagnostic.show_line_diagnostics, "Show line diagnostics" },
+		["<leader>pd"] = { saga_provider.preview_definition, "Preview definition" },
+		["<leader>rr"] = { saga_rename.rename, "Rename symbol" },
+		["K"] = { saga_hover.render_hover_doc, "Show definition" },
+		["f"] = { vim.lsp.buf.formatting },
+		["gD"] = { vim.lsp.buf.declaration, "Go to declaration" },
+		["gd"] = { vim.lsp.buf.definition, "Go to definition" },
+		["gi"] = { vim.lsp.buf.implementation, "Go to implementation" },
+		["gr"] = { saga_provider.lsp_finder, "Find references" },
+		["<C-f>"] = {
+			function()
+				saga_action.smart_scroll_with_saga(1)
+			end,
+			"Scroll up",
+		},
+		["<C-b>"] = {
+			function()
+				saga_action.smart_scroll_with_saga(-1)
+			end,
+			"Scroll down",
+		},
+	}, {
+		buffer = bufnr,
+	})
 end
