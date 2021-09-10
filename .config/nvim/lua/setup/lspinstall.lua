@@ -1,5 +1,5 @@
-local lspInstall = require("lspinstall")
-local lspConfig = require("lspconfig")
+local lsp_install = require("lspinstall")
+local lsp_config = require("lspconfig")
 local configs = require("lsp")
 local on_attach = require("lsp.on_attach")
 
@@ -29,15 +29,15 @@ for _, server in pairs(required_servers) do
 end
 
 local function setup_servers()
-	lspInstall.setup()
-	local servers = lspInstall.installed_servers()
+	lsp_install.setup()
+	local servers = lsp_install.installed_servers()
 	for _, server in pairs(servers) do
 		local config = configs[server] or {}
 		-- Use default on_attach if none specified in language server config
 		if not config.on_attach then
 			config.on_attach = on_attach
 		end
-		lspConfig[server].setup(config)
+		lsp_config[server].setup(config)
 	end
 end
 
