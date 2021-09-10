@@ -67,9 +67,14 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use({
-		"hrsh7th/nvim-compe", -- Completion
+		"hrsh7th/nvim-cmp", -- Completion
+		requires = {
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-nvim-lsp",
+			"saadparwaiz1/cmp_luasnip",
+		},
 		config = function()
-			require("setup.compe")
+			require("setup.cmp")
 		end,
 	})
 	use({
