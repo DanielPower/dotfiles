@@ -5,6 +5,7 @@ return require("packer").startup(function(use)
 	use("neovim/nvim-lspconfig") -- LSP Configuration
 	use("folke/tokyonight.nvim") -- Colorscheme
 	use("glepnir/lspsaga.nvim") -- LSP Utilities
+	use("easymotion/vim-easymotion") -- Quick navigation by characters
 	use({
 		"vim-test/vim-test", -- Unit Testing
 		config = function()
