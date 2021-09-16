@@ -1,4 +1,3 @@
-local on_attach = require("lsp.on_attach")
 local util = require("lspconfig.util")
 
 return {
@@ -22,4 +21,12 @@ return {
 			or util.find_git_ancestor(fname)
 			or util.path.dirname(fname)
 	end,
+	settings = {
+		python = {
+			analysis = {
+				useLibraryCodeForTypes = true,
+				typeCheckingMode = "off",
+			},
+		},
+	},
 }
