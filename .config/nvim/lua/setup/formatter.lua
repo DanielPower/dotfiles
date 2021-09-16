@@ -1,3 +1,5 @@
+local whichkey = require("which-key")
+
 local prettier = function()
 	return {
 		exe = "prettier",
@@ -53,3 +55,7 @@ augroup END
 ]],
 	true
 )
+
+whichkey.register({
+	["<leader>f"] = { ":FormatWrite<CR>", "Format" },
+}, { silent = true })
