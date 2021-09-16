@@ -49,3 +49,18 @@ api.nvim_set_keymap("n", "<A-k>", ":m .-2<CR>==", { noremap = true, silent = tru
 
 -- Clear search highlight on Esc
 api.nvim_set_keymap("n", "<esc>", ":noh<CR>", { noremap = true, silent = true })
+
+-- Buffer navigation
+api.nvim_set_keymap("n", "<leader>bn", ":bnext<CR>", { noremap = true, silent = true })
+api.nvim_set_keymap(
+	"n",
+	"<leader>bp",
+	":bprevious<CR>",
+	{ noremap = true, silent = true }
+)
+api.nvim_set_keymap(
+	"n",
+	"<leader>bd",
+	":bdelete<CR>",
+	{ noremap = true, silent = true }
+)
