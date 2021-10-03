@@ -7,6 +7,13 @@ return require("packer").startup(function(use)
 	use("tami5/lspsaga.nvim") -- LSP Utilities
 	use("easymotion/vim-easymotion") -- Quick navigation by characters
 	use({
+		"nvim-neorg/neorg",
+		config = function()
+			require("setup.neorg")
+		end,
+		requires = { "nvim-lua/plenary.nvim" },
+	})
+	use({
 		"vim-test/vim-test", -- Unit Testing
 		config = function()
 			require("setup.test")
