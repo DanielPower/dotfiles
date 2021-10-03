@@ -4,7 +4,7 @@ return require("packer").startup(function(use)
 	use("tpope/vim-sleuth") -- Indentation auto-detection
 	use("neovim/nvim-lspconfig") -- LSP Configuration
 	use("folke/tokyonight.nvim") -- Colorscheme
-	use("glepnir/lspsaga.nvim") -- LSP Utilities
+	use("tami5/lspsaga.nvim") -- LSP Utilities
 	use("easymotion/vim-easymotion") -- Quick navigation by characters
 	use({
 		"vim-test/vim-test", -- Unit Testing
