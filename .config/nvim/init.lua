@@ -9,6 +9,7 @@ local g = vim.g
 -- Options
 cmd("colorscheme tokyonight")
 g.mapleader = " "
+opt.clipboard = "unnamedplus"
 opt.colorcolumn = "88,100"
 opt.completeopt = { "menuone", "noselect" }
 opt.cursorline = true
@@ -33,34 +34,27 @@ opt.tabstop = 2
 opt.termguicolors = true
 opt.wrap = false
 
+local opts = { noremap = true, silent = true }
+
 -- Escape terminal mode
-api.nvim_set_keymap("t", "<C-o>", [[<C-\><C-n>]], { noremap = true, silent = true })
+api.nvim_set_keymap("t", "<C-o>", [[<C-\><C-n>]], opts)
 
 -- Move Between and Close Splits
-api.nvim_set_keymap("n", "<C-h>", ":wincmd h<CR>", { noremap = true, silent = true })
-api.nvim_set_keymap("n", "<C-j>", ":wincmd j<CR>", { noremap = true, silent = true })
-api.nvim_set_keymap("n", "<C-k>", ":wincmd k<CR>", { noremap = true, silent = true })
-api.nvim_set_keymap("n", "<C-l>", ":wincmd l<CR>", { noremap = true, silent = true })
-api.nvim_set_keymap("n", "<C-C>", ":close<CR>", { noremap = true, silent = true })
+api.nvim_set_keymap("n", "<C-h>", ":wincmd h<CR>", opts)
+api.nvim_set_keymap("n", "<C-j>", ":wincmd j<CR>", opts)
+api.nvim_set_keymap("n", "<C-k>", ":wincmd k<CR>", opts)
+api.nvim_set_keymap("n", "<C-l>", ":wincmd l<CR>", opts)
+api.nvim_set_keymap("n", "<C-C>", ":close<CR>", opts)
 
 -- Move Lines
-api.nvim_set_keymap("n", "<A-j>", ":m .+1<CR>==", { noremap = true, silent = true })
-api.nvim_set_keymap("n", "<A-k>", ":m .-2<CR>==", { noremap = true, silent = true })
+api.nvim_set_keymap("n", "<A-j>", ":m .+1<CR>==", opts)
+api.nvim_set_keymap("n", "<A-k>", ":m .-2<CR>==", opts)
 
 -- Clear search highlight on Esc
-api.nvim_set_keymap("n", "<esc>", ":noh<CR>", { noremap = true, silent = true })
+api.nvim_set_keymap("n", "<esc>", ":noh<CR>", opts)
 
 -- Buffer navigation
-api.nvim_set_keymap("n", "<leader>bn", ":bnext<CR>", { noremap = true, silent = true })
-api.nvim_set_keymap(
-	"n",
-	"<leader>bp",
-	":bprevious<CR>",
-	{ noremap = true, silent = true }
-)
-api.nvim_set_keymap(
-	"n",
-	"<leader>bd",
-	":bdelete<CR>",
-	{ noremap = true, silent = true }
-)
+api.nvim_set_keymap("n", "<leader>bn", ":bnext<CR>", opts)
+api.nvim_set_keymap("n", "<leader>bp", ":bprevious<CR>", opts)
+api.nvim_set_keymap("n", "<leader>bd", ":bdelete<CR>", opts)
+api.nvim_set_keymap("n", "<leader>bb", ":Telescope buffers<CR>", opts)
