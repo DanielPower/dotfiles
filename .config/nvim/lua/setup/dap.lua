@@ -11,14 +11,7 @@ else
 	python_bin = "/usr/bin/python"
 end
 
-dap_ui.setup({
-	sidebar = {
-		open_on_start = false,
-	},
-	tray = {
-		open_on_start = false,
-	},
-})
+dap_ui.setup({})
 dap_python.setup(python_bin)
 dap_python.test_runner = "pytest"
 dap_vscode.load_launchjs()
