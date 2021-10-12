@@ -1,3 +1,4 @@
+local saga = require("lspsaga")
 local saga_action = require("lspsaga.action")
 local saga_codeaction = require("lspsaga.codeaction")
 local saga_diagnostic = require("lspsaga.diagnostic")
@@ -6,6 +7,8 @@ local saga_provider = require("lspsaga.provider")
 local saga_rename = require("lspsaga.rename")
 local saga_signaturehelp = require("lspsaga.signaturehelp")
 local wk = require("which-key")
+
+saga.init_lsp_saga()
 
 return function(_, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
