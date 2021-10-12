@@ -1,3 +1,7 @@
+vim.g.nvim_tree_ignore = { ".git", "node_modules" }
+vim.g.nvim_tree_indent_markers = 1
+vim.g.nvim_tree_quit_on_open = 1
+
 require("nvim-tree").setup({
 	-- disables netrw completely
 	disable_netrw = true,
