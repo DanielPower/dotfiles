@@ -4,8 +4,11 @@ return require("packer").startup(function(use)
 	use("tpope/vim-sleuth") -- Indentation auto-detection
 	use("neovim/nvim-lspconfig") -- LSP Configuration
 	use("folke/tokyonight.nvim") -- Colorscheme
-	use("tami5/lspsaga.nvim") -- LSP Utilities
 	use("easymotion/vim-easymotion") -- Quick navigation by characters
+	use({
+		"tami5/lspsaga.nvim",
+		commit = "276822b611b26be2e52a31d8eef1ccce30b819a5",
+	}) -- LSP Utilities
 	use({
 		"nvim-neorg/neorg",
 		config = function()
