@@ -4,6 +4,7 @@ return require("packer").startup(function(use)
 	use("tpope/vim-sleuth") -- Indentation auto-detection
 	use("neovim/nvim-lspconfig") -- LSP Configuration
 	use("folke/tokyonight.nvim") -- Colorscheme
+	use("tami5/lspsaga.nvim") -- LSP Utilities
 	use("easymotion/vim-easymotion") -- Quick navigation by characters
 	use({
 		"tami5/lspsaga.nvim",
@@ -114,7 +115,7 @@ return require("packer").startup(function(use)
 		requires = {
 			"nvim-lua/popup.nvim",
 			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope-fzy-native.nvim", -- Native fuzzy finder (improves performance)
+			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }, -- Native fuzzy finder (improves performance)
 		},
 		config = function()
 			require("setup.telescope")
