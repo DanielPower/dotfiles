@@ -1,61 +1,59 @@
-local whichkey = require("which-key")
+return function()
+	local whichkey = require("which-key")
 
-local prettier = function()
-	return {
-		exe = "prettier",
-		args = { "--stdin-filepath", vim.api.nvim_buf_get_name(0) },
-		stdin = true,
-	}
-end
+	local prettier = function()
+		return {
+			exe = "prettier",
+			args = { "--stdin-filepath", vim.api.nvim_buf_get_name(0) },
+			stdin = true,
+		}
+	end
 
-local black = function()
-	return {
-		exe = "black",
-		args = { "--quiet", "-" },
-		stdin = true,
-	}
-end
+	local black = function()
+		return {
+			exe = "black",
+			args = { "--quiet", "-" },
+			stdin = true,
+		}
+	end
 
-local isort = function()
-	return {
-		exe = "isort",
-		args = { "-" },
-		stdin = true,
-	}
-end
+	local isort = function()
+		return {
+			exe = "isort",
+			args = { "-" },
+			stdin = true,
+		}
+	end
 
-local stylua = function()
-	return {
-		exe = "stylua",
-		args = { "-" },
-		stdin = true,
-	}
-end
+	local stylua = function()
+		return {
+			exe = "stylua",
+			args = { "-" },
+			stdin = true,
+		}
+	end
 
-require("formatter").setup({
-	logging = false,
-	filetype = {
-		javascript = { prettier },
-		javascriptreact = { prettier },
-		typescript = { prettier },
-		typescriptreact = { prettier },
-		scss = { prettier },
-		json = { prettier },
-		lua = { stylua },
-		python = { isort, black },
-	},
-})
+	require("formatter").setup({
+		logging = false,
+		filetype = {
+			javascript = { prettier },
+			javascriptreact = { prettier },
+			typescript = { prettier },
+			typescriptreact = { prettier },
+			scss = { prettier },
+			json = { prettier },
+			lua = { stylua },
+			python = { isort, black },
+		},
+	})
 
-vim.api.nvim_exec(
-	[[
+	vim.api.nvim_exec(
+		[[
 augroup FormatAutogroup
   autocmd!
   autocmd BufWritePost *.js,*.jsx,*.ts,*.tsx,*.lua,*.json,*.py,*.scss FormatWrite
 augroup END
 ]],
-	true
-)
-
-whichkey.register({
-	["<leader>f"] = { ":FormatWrite<CR>", "Format" },
-}, { silent = true })
+		true
+	)
+end

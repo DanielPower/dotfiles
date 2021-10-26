@@ -1,1 +1,3 @@
-require("luasnip/loaders/from_vscode").load()
+return function()
+	require("luasnip/loaders/from_vscode").load()
+end

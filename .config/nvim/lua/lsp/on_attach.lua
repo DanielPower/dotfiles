@@ -19,7 +19,6 @@ return function(_, bufnr)
 		["<leader>pd"] = { saga_provider.preview_definition, "Preview definition" },
 		["<leader>rr"] = { saga_rename.rename, "Rename symbol" },
 		["K"] = { saga_hover.render_hover_doc, "Show definition" },
-		["f"] = { vim.lsp.buf.formatting },
 		["gD"] = { vim.lsp.buf.declaration, "Go to declaration" },
 		["gd"] = { vim.lsp.buf.definition, "Go to definition" },
 		["gi"] = { vim.lsp.buf.implementation, "Go to implementation" },

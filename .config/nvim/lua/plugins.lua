@@ -1,7 +1,7 @@
 local config = function(path)
-	return function()
-		require("setup." .. path)
-	end
+	-- Can't return an inline function because of https://github.com/wbthomason/packer.nvim/issues/655
+	-- Until then, every setup file needs to be wrapped ina  function
+	return require("setup." .. path)
 end
 
 return require("packer").startup(function(use)
@@ -38,9 +38,7 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"pwntester/octo.nvim", -- Github integration
-		config = function()
-			require("octo").setup()
-		end,
+		config = config("octo"),
 	})
 	use({
 		"mfussenegger/nvim-dap", -- Debugging
