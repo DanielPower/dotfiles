@@ -8,12 +8,11 @@ return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim") -- Plugin Management
 	use("editorconfig/editorconfig-vim") -- Editorconfig support
 	use("tpope/vim-sleuth") -- Indentation auto-detection
-	use("neovim/nvim-lspconfig") -- LSP Configuration
 	use("folke/tokyonight.nvim") -- Colorscheme
 	use("easymotion/vim-easymotion") -- Quick navigation by characters
 	use({
 		"tami5/lspsaga.nvim",
-		commit = "276822b611b26be2e52a31d8eef1ccce30b819a5",
+		branch = "nvim51",
 	}) -- LSP Utilities
 	use({
 		"nvim-neorg/neorg",
@@ -31,10 +30,6 @@ return require("packer").startup(function(use)
 	use({
 		"mhartington/formatter.nvim", -- Auto formatting
 		config = config("formatter"),
-	})
-	use({
-		"vimwiki/vimwiki", -- Personal wiki
-		config = config("vimwiki"),
 	})
 	use({
 		"pwntester/octo.nvim", -- Github integration
@@ -75,6 +70,7 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"kabouzeid/nvim-lspinstall", -- Installer for language servers
+		requires = "neovim/nvim-lspconfig",
 		config = config("lspinstall"),
 	})
 	use({
@@ -99,10 +95,5 @@ return require("packer").startup(function(use)
 	use({
 		"tpope/vim-fugitive", -- Git integration
 		requires = "tpope/vim-rhubarb", -- Additional Github features for fugitive
-	})
-	use({
-		"folke/lsp-trouble.nvim", -- Linter/Diagnostic UI
-		requires = { "kyazdani42/nvim-web-devicons" },
-		config = config("trouble"),
 	})
 end)
