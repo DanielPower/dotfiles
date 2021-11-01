@@ -9,8 +9,8 @@ return function()
 			lualine_a = {
 				{
 					"mode",
-					format = function(value)
-						return (string.sub(value, 1, 1))
+					fmt = function(mode)
+						return mode:sub(1, 1)
 					end,
 				},
 			},
