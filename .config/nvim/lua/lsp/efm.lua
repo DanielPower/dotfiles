@@ -7,20 +7,10 @@ local eslint = {
 	lintIgnoreExitCode = true,
 }
 
-local prettier = {
-	formatCommand = "prettierd ${INPUT}",
-	formatStdin = true,
-}
-
 local flake8 = {
 	lintCommand = "flake8 --stdin-display-name ${INPUT} -",
 	lintStdin = true,
 	lintFormats = { "%f:%l:%c: %m" },
-}
-
-local black = {
-	formatCommand = "black --quiet -",
-	formatStdin = true,
 }
 
 local languages = {
@@ -29,9 +19,7 @@ local languages = {
 	typescript = { eslint },
 	typescriptreact = { eslint },
 	svelte = { eslint },
-	python = { flake8, black },
-	html = { prettier },
-	yaml = { prettier },
+	python = { flake8 },
 }
 
 local filetype_set = {}

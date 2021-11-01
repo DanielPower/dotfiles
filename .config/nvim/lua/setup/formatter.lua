@@ -44,6 +44,8 @@ return function()
 			json = { prettier },
 			lua = { stylua },
 			python = { isort, black },
+			html = { prettier },
+			yaml = { prettier },
 		},
 	})
 
@@ -51,7 +53,7 @@ return function()
 		[[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.jsx,*.ts,*.tsx,*.lua,*.json,*.py,*.scss FormatWrite
+  autocmd BufWritePost *.js,*.jsx,*.ts,*.tsx,*.lua,*.json,*.py,*.scss,*.html,*.yaml,*.yml FormatWrite
 augroup END
 ]],
 		true
