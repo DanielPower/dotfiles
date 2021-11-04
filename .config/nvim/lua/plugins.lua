@@ -69,9 +69,9 @@ return require("packer").startup(function(use)
 		config = config("cmp"),
 	})
 	use({
-		"kabouzeid/nvim-lspinstall", -- Installer for language servers
+		"williamboman/nvim-lsp-installer", -- Installer for language servers
 		requires = "neovim/nvim-lspconfig",
-		config = config("lspinstall"),
+		config = config("lsp_installer"),
 	})
 	use({
 		"nvim-treesitter/nvim-treesitter", -- Used for highlighting and indentation
