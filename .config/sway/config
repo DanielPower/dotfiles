@@ -113,6 +113,7 @@ bindsym $mod+Mod1+l move workspace to output right
 output DP-1 pos 0 0
 output DP-2 pos 2560 0
 output DP-3 pos 5120 0
+input type:tablet_tool map_to_output DP-2
 
 # reload the configuration file
 bindsym $mod+Shift+r exec "swaymsg reload"
@@ -126,7 +127,7 @@ client.focused #FFFFFF #FFFFFF #FFFFFF #FFFFFF #A9DC76
 bar {
 	position top
 	status_command i3blocks
-	font pango:Hack 10
+	font ComicCodeLigatures Nerd Font Mono 11
 	colors {
 		background #2D2A2E
 	}
@@ -134,3 +135,4 @@ bar {
 
 # Make polkit work
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec systemctl --user import-environment

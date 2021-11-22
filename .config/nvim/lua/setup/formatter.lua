@@ -33,6 +33,14 @@ return function()
 		}
 	end
 
+	local gofmt = function()
+		return {
+			exe = "gofmt",
+			args = {},
+			stdin = true,
+		}
+	end
+
 	require("formatter").setup({
 		logging = false,
 		filetype = {
@@ -46,6 +54,7 @@ return function()
 			python = { isort, black },
 			html = { prettier },
 			yaml = { prettier },
+			go = { gofmt },
 		},
 	})
 
@@ -53,7 +62,7 @@ return function()
 		[[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.jsx,*.ts,*.tsx,*.lua,*.json,*.py,*.scss,*.html,*.yaml,*.yml FormatWrite
+  autocmd BufWritePost *.js,*.jsx,*.ts,*.tsx,*.lua,*.json,*.py,*.scss,*.html,*.yaml,*.yml,*.go FormatWrite
 augroup END
 ]],
 		true
