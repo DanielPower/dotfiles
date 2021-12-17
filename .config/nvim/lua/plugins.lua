@@ -10,10 +10,11 @@ return require("packer").startup(function(use)
 	use("tpope/vim-sleuth") -- Indentation auto-detection
 	use("folke/tokyonight.nvim") -- Colorscheme
 	use("easymotion/vim-easymotion") -- Quick navigation by characters
+	use("tami5/lspsaga.nvim") -- LSP Utilities
 	use({
-		"tami5/lspsaga.nvim",
-		branch = "nvim51",
-	}) -- LSP Utilities
+		"iamcco/markdown-preview.nvim",
+		run = "mkdp#util#install()",
+	})
 	use({
 		"nvim-neorg/neorg",
 		config = config("neorg"),

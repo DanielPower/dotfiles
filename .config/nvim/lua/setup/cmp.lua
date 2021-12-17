@@ -48,7 +48,7 @@ return function()
 			["<S-Tab>"] = cmp.mapping(shift_tab_mapping, { "i", "s" }),
 			["<CR>"] = cmp.mapping.confirm({
 				behavior = cmp.ConfirmBehavior.Replace,
-				select = true,
+				select = false,
 			}),
 		},
 		sources = {

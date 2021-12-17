@@ -11,7 +11,7 @@ cmd("colorscheme tokyonight")
 g.mapleader = " "
 opt.clipboard = "unnamedplus"
 opt.colorcolumn = "88,100"
-opt.completeopt = { "menuone", "noselect" }
+opt.completeopt = { "menu", "menuone", "noselect" }
 opt.cursorline = true
 opt.expandtab = true
 opt.hidden = true
