@@ -17,7 +17,7 @@ return function()
 			lualine_b = {
 				"branch",
 				"filename",
-				{ "diagnostics", sources = { "nvim_lsp" } },
+				{ "diagnostics", sources = { "nvim_diagnostic" } },
 			},
 			lualine_c = {},
 			lualine_x = {},
