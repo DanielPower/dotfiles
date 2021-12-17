@@ -116,9 +116,12 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Mod1+h move workspace to output left
 bindsym $mod+Mod1+l move workspace to output right
 
+# By chance no conflicts between systems
+# Refactor this into a local config anyway
 output DP-1 pos 0 0
 output DP-2 pos 2560 0
 output DP-3 pos 5120 0
+output eDP-1 scale 1.2
 input type:tablet_tool map_to_output DP-2
 
 # reload the configuration file
@@ -133,7 +136,7 @@ client.focused #FFFFFF #FFFFFF #FFFFFF #FFFFFF #A9DC76
 bar {
 	position top
 	status_command i3blocks
-	font ComicCodeLigatures Nerd Font Mono 11
+	font FantasquSansMono Nerd Font 11
 	colors {
 		background #2D2A2E
 	}

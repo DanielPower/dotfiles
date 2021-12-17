@@ -32,11 +32,6 @@ antigen bundle reobin/typewritten@main
 antigen bundle jeffreytse/zsh-vi-mode
 antigen apply
 
-# Sway Window Manager
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-  XKB_DEFAULT_LAYOUT=us exec sway
-fi
-
 if [[ -f "$HOME/.local.zsh" ]]; then
   source "$HOME/.local.zsh"
 fi
