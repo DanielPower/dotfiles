@@ -22,11 +22,17 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec kitty
 
+# Screenshot all monitors
+# bindsym Print exec grim "$(xdg-user-dir PICTURES)/Screenshots/$(date +'%s.png')"
+
 # Screenshot region
-bindsym Shift+Print exec grim -g "$(slurp)"
+bindsym Shift+Print exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/Screenshots/$(date +"%s.png")
+
+# Screenshot active monitor
+bindsym Ctrl+Print exec grim -o "$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')" $(xdg-user-dir PICTURES)/Screenshots/$(date +"%s.png")
 
 # Screenshot active window
-bindsym Alt+Print grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
+# bindsym Alt+Print exec grim -g "$(swaymsg -t get_tree | jq -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"')" $(xdg-user-dir PICTURES)/Screenshots/$(date +'%s.png')
 
 # kill focused window
 bindsym $mod+Shift+q kill
