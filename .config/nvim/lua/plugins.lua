@@ -10,15 +10,11 @@ return require("packer").startup(function(use)
 	use("tpope/vim-sleuth") -- Indentation auto-detection
 	use("folke/tokyonight.nvim") -- Colorscheme
 	use("easymotion/vim-easymotion") -- Quick navigation by characters
+	use("tpope/vim-fugitive") -- Git integration
 	use("tami5/lspsaga.nvim") -- LSP Utilities
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = "mkdp#util#install()",
-	})
-	use({
-		"nvim-neorg/neorg",
-		config = config("neorg"),
-		requires = { "nvim-lua/plenary.nvim" },
 	})
 	use({
 		"vim-test/vim-test", -- Unit Testing
@@ -31,10 +27,6 @@ return require("packer").startup(function(use)
 	use({
 		"mhartington/formatter.nvim", -- Auto formatting
 		config = config("formatter"),
-	})
-	use({
-		"pwntester/octo.nvim", -- Github integration
-		config = config("octo"),
 	})
 	use({
 		"mfussenegger/nvim-dap", -- Debugging
@@ -92,9 +84,5 @@ return require("packer").startup(function(use)
 			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }, -- Native fuzzy finder (improves performance)
 		},
 		config = config("telescope"),
-	})
-	use({
-		"tpope/vim-fugitive", -- Git integration
-		requires = "tpope/vim-rhubarb", -- Additional Github features for fugitive
 	})
 end)
