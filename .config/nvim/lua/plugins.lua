@@ -1,10 +1,15 @@
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim") -- Plugin Management
 	use("editorconfig/editorconfig-vim") -- Editorconfig support
-	use("tpope/vim-sleuth") -- Indentation auto-detection
+	use("Darazaki/indent-o-matic") -- Indentation auto-detection
 	use("folke/tokyonight.nvim") -- Colorscheme
-	use("easymotion/vim-easymotion") -- Quick navigation by characters
 	use("tpope/vim-fugitive") -- Git integration
+	use({
+		"phaazon/hop.nvim",
+		config = function()
+			require("setup.hop")
+		end,
+	}) -- Quick navigation by characters
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = "mkdp#util#install()",
