@@ -1,9 +1,3 @@
-local config = function(path)
-	-- Can't return an inline function because of https://github.com/wbthomason/packer.nvim/issues/655
-	-- Until then, every setup file needs to be wrapped ina  function
-	return require("setup." .. path)
-end
-
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim") -- Plugin Management
 	use("editorconfig/editorconfig-vim") -- Editorconfig support
@@ -11,70 +5,80 @@ return require("packer").startup(function(use)
 	use("folke/tokyonight.nvim") -- Colorscheme
 	use("easymotion/vim-easymotion") -- Quick navigation by characters
 	use("tpope/vim-fugitive") -- Git integration
-	use("tami5/lspsaga.nvim") -- LSP Utilities
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = "mkdp#util#install()",
 	})
 	use({
 		"vim-test/vim-test", -- Unit Testing
-		config = config("test"),
+		config = function()
+			require("setup.test")
+		end,
 	})
 	use({
 		"folke/which-key.nvim", -- Keybind management and UI
-		config = config("whichkey"),
+		config = function()
+			require("setup.whichkey")
+		end,
 	})
 	use({
 		"mhartington/formatter.nvim", -- Auto formatting
-		config = config("formatter"),
+		config = function()
+			require("setup.formatter")
+		end,
 	})
 	use({
 		"mfussenegger/nvim-dap", -- Debugging
-		config = config("dap"),
+		config = function()
+			require("setup.dap")
+		end,
 		requires = {
 			"mfussenegger/nvim-dap-python",
 			"rcarriga/nvim-dap-ui",
 		},
 	})
 	use({
-		"L3MON4D3/LuaSnip", -- Snippets
-		requires = {
-			"rafamadriz/friendly-snippets",
-			"mlaursen/vim-react-snippets",
-		},
-		config = config("luasnip"),
-	})
-	use({
 		"terrortylor/nvim-comment", -- Comment lines and ranges
-		config = config("comment"),
+		config = function()
+			require("setup.comment")
+		end,
 	})
 	use({
 		"hoob3rt/lualine.nvim", -- Statusbar
-		config = config("lualine"),
+		config = function()
+			require("setup.lualine")
+		end,
 	})
 	use({
 		"hrsh7th/nvim-cmp", -- Completion
 		requires = {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-nvim-lsp",
-			"saadparwaiz1/cmp_luasnip",
 		},
-		config = config("cmp"),
+		config = function()
+			require("setup.cmp")
+		end,
 	})
 	use({
 		"williamboman/nvim-lsp-installer", -- Installer for language servers
 		requires = "neovim/nvim-lspconfig",
-		config = config("lsp_installer"),
+		config = function()
+			require("setup.lsp_installer")
+		end,
 	})
 	use({
 		"nvim-treesitter/nvim-treesitter", -- Used for highlighting and indentation
 		run = ":TSUpdate",
-		config = config("treesitter"),
+		config = function()
+			require("setup.treesitter")
+		end,
 	})
 	use({
 		"kyazdani42/nvim-tree.lua", -- File tree
 		requires = { "kyazdani42/nvim-web-devicons" }, -- Pretty icons
-		config = config("tree"),
+		config = function()
+			require("setup.tree")
+		end,
 	})
 	use({
 		"nvim-telescope/telescope.nvim", -- Fuzzy find + UI
@@ -83,6 +87,8 @@ return require("packer").startup(function(use)
 			"nvim-lua/plenary.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }, -- Native fuzzy finder (improves performance)
 		},
-		config = config("telescope"),
+		config = function()
+			require("setup.telescope")
+		end,
 	})
 end)
