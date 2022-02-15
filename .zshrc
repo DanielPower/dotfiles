@@ -14,6 +14,10 @@ export PATH="/usr/local/sbin:$PATH" # Brew
 export NVM_LAZY_LOAD=true
 export NVM_LAZY_LOAD_EXTRA_COMMANDS=('nvim')
 
+# Aliases
+alias :G=git
+alias tt="task add due:today"
+
 # ZSH Options
 setopt HISTIGNORESPACE
 HISTFILE=$HOME/.zhistory
@@ -35,3 +39,5 @@ antigen apply
 if [[ -f "$HOME/.local.zsh" ]]; then
   source "$HOME/.local.zsh"
 fi
+
+task due
