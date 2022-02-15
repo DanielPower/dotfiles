@@ -1,6 +1,5 @@
 return function()
 	vim.g.nvim_tree_indent_markers = 1
-	vim.g.nvim_tree_quit_on_open = 1
 
 	require("nvim-tree").setup({
 		disable_netrw = true,
@@ -33,13 +32,35 @@ return function()
 			dotfiles = false,
 			custom = { ".git", "node_modules" },
 		},
+		git = {
+			enable = true,
+			ignore = true,
+			timeout = 500,
+		},
 		view = {
 			width = 30,
+			height = 30,
+			hide_root_folter = false,
 			side = "left",
-			auto_resize = true,
+			auto_resize = false,
 			mappings = {
 				custom_only = false,
 				list = {},
+			},
+			number = false,
+			relativenumber = false,
+			signcolumn = "yes",
+		},
+		trash = {
+			cmd = "trash",
+			require_confirm = true,
+		},
+		actions = {
+			change_dir = {
+				global = false,
+			},
+			open_file = {
+				quit_on_open = true,
 			},
 		},
 	})
