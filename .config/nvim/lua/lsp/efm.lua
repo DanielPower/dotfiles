@@ -26,6 +26,7 @@ return {
 		"-logfile",
 		vim.fn.stdpath("data") .. "/efm.log",
 	},
+	root_dir = require("lspconfig").util.root_pattern({ "." }),
 	on_attach = on_attach,
 	init_options = { documentFormatting = true },
 	settings = {
