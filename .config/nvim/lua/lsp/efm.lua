@@ -1,13 +1,40 @@
 local on_attach = require("lsp.on_attach")
 
+local prettier = {
+	formatCommand = "prettierd ${INPUT}",
+	formatStdin = true,
+}
+
 local flake8 = {
 	lintCommand = "flake8 --stdin-display-name ${INPUT} -",
 	lintStdin = true,
 	lintFormats = { "%f:%l:%c: %m" },
 }
 
+local black = {
+	formatCommand = "black --quiet =",
+	formatStdin = true,
+}
+
+local isort = {
+	formatCommand = "isort -",
+	formatStdin = true,
+}
+
+local stylua = {
+	formatCommand = "stylua -",
+	formatStdin = true,
+}
+
 local languages = {
-	python = { flake8 },
+	javascript = { prettier },
+	javascriptreact = { prettier },
+	typescript = { prettier },
+	typescriptreact = { prettier },
+	python = { flake8, isort, black },
+	html = { prettier },
+	yaml = { prettier },
+	lua = { stylua },
 }
 
 local filetype_set = {}

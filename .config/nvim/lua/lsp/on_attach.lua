@@ -17,7 +17,7 @@ vim.diagnostic.config({
 	severity_sort = false,
 })
 
-return function(_, bufnr)
+return function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	wk.register({
 		["<leader>K"] = { vim.lsp.buf.signature_help, "Show signature help" },
@@ -32,4 +32,12 @@ return function(_, bufnr)
 	}, {
 		buffer = bufnr,
 	})
+	if client.resolved_capabilities.document_formatting then
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			callback = function()
+				vim.lsp.buf.formatting_sync()
+			end,
+			buffer = bufnr,
+		})
+	end
 end

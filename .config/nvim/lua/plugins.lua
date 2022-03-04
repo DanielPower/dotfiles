@@ -27,12 +27,6 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use({
-		"mhartington/formatter.nvim", -- Auto formatting
-		config = function()
-			require("setup.formatter")
-		end,
-	})
-	use({
 		"mfussenegger/nvim-dap", -- Debugging
 		config = function()
 			require("setup.dap")
@@ -59,6 +53,8 @@ return require("packer").startup(function(use)
 		requires = {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-nvim-lsp",
+			"L3MON4D3/LuaSnip",
+			"saadparwaiz1/cmp_luasnip",
 		},
 		config = function()
 			require("setup.cmp")
