@@ -63,8 +63,8 @@ require("nvim-tree").setup({
 	renderer = {
 		indent_markers = {
 			enable = true,
-		}
-	}
+		},
+	},
 })
 
 vim.api.nvim_set_keymap("n", "<C-_>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
