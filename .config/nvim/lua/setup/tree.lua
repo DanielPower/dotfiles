@@ -1,5 +1,3 @@
-vim.g.nvim_tree_indent_markers = 1
-
 require("nvim-tree").setup({
 	disable_netrw = true,
 	hijack_netrw = true,
@@ -62,6 +60,11 @@ require("nvim-tree").setup({
 			quit_on_open = true,
 		},
 	},
+	renderer = {
+		indent_markers = {
+			enable = true,
+		}
+	}
 })
 
 vim.api.nvim_set_keymap("n", "<C-_>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
