@@ -5,12 +5,6 @@ return require("packer").startup(function(use)
 	use("folke/tokyonight.nvim") -- Colorscheme
 	use("tpope/vim-fugitive") -- Git integration
 	use({
-		"phaazon/hop.nvim",
-		config = function()
-			require("setup.hop")
-		end,
-	}) -- Quick navigation by characters
-	use({
 		"iamcco/markdown-preview.nvim",
 		run = "mkdp#util#install()",
 	})
