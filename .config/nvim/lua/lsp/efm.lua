@@ -12,12 +12,12 @@ local flake8 = {
 }
 
 local black = {
-	formatCommand = "black --quiet =",
+	formatCommand = "black --quiet -",
 	formatStdin = true,
 }
 
 local isort = {
-	formatCommand = "isort -",
+	formatCommand = "isort --quiet -",
 	formatStdin = true,
 }
 
