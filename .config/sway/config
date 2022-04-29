@@ -142,6 +142,9 @@ bar {
 	}
 }
 
+# Window rules
+for_window [instance="Godot_Engine"] floating enable
+
 # Make polkit work
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec systemctl --user import-environment
