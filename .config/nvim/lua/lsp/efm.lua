@@ -1,5 +1,3 @@
-local on_attach = require("lsp.on_attach")
-
 local prettier = {
 	formatCommand = "prettierd ${INPUT}",
 	formatStdin = true,
@@ -32,7 +30,6 @@ local languages = {
 	typescript = { prettier },
 	typescriptreact = { prettier },
 	python = { flake8, isort, black },
-	html = { prettier },
 	yaml = { prettier },
 	lua = { stylua },
 }
@@ -48,13 +45,13 @@ for key, _ in pairs(filetype_set) do
 end
 
 return {
+	ensure_installed = true,
 	cmd = {
 		vim.fn.stdpath("data") .. "/lsp_servers/efm/efm-langserver",
 		"-logfile",
 		vim.fn.stdpath("data") .. "/efm.log",
 	},
 	root_dir = require("lspconfig").util.root_pattern({ "." }),
-	on_attach = on_attach,
 	init_options = { documentFormatting = true },
 	settings = {
 		languages = languages,

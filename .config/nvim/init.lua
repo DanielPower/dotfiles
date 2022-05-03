@@ -9,6 +9,7 @@ local g = vim.g
 -- Options
 cmd("colorscheme tokyonight")
 g.mapleader = " "
+g.python3_host_prog = "/home/daniel/.pyenv/versions/neovim/bin/python3"
 opt.clipboard = "unnamedplus"
 opt.colorcolumn = "88,100"
 opt.completeopt = { "menu", "menuone", "noselect" }
