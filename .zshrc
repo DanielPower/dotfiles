@@ -1,6 +1,7 @@
 # Path Environment Variables
 export EDITOR=nvim
 export VISUAL=nvim
+export DIFFPROG="nvim -d"
 export NVM_DIR="$HOME/.nvm"
 export GOPATH="$HOME/.go"
 export PATH="$HOME/.bin:$PATH"
