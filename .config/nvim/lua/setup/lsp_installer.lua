@@ -1,5 +1,5 @@
 local lsp_installer = require("nvim-lsp-installer")
-local path = require("nvim-lsp-installer.path")
+local path = require("nvim-lsp-installer.core.path")
 local lspconfig = require("lspconfig")
 local lsp_servers = require("lsp")
 local on_attach = require("lsp.on_attach")
