@@ -6,4 +6,7 @@ return {
 	beancount = require("lsp.beancount"),
 	gopls = {},
 	html = {},
+	cssls = {},
+	svelte = {},
+	rust_analyzer = {},
 }
