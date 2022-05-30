@@ -9,4 +9,5 @@ return {
 	cssls = {},
 	svelte = {},
 	rust_analyzer = {},
+	jsonls = {},
 }

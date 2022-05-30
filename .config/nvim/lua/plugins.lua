@@ -4,6 +4,7 @@ return require("packer").startup(function(use)
 	use("Darazaki/indent-o-matic") -- Indentation auto-detection
 	use("folke/tokyonight.nvim") -- Colorscheme
 	use("tpope/vim-fugitive") -- Git integration
+	use("chaimleib/vim-renpy")
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = "mkdp#util#install()",

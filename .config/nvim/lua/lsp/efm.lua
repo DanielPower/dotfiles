@@ -24,6 +24,15 @@ local stylua = {
 	formatStdin = true,
 }
 
+local renpy_lint = {
+	lintCommand = "renpy . lint",
+	lintStdin = true,
+	lintFormats = {
+		'File "%f", line %l: %m',
+		"%f:%l %m",
+	},
+}
+
 local languages = {
 	javascript = { prettier },
 	javascriptreact = { prettier },
@@ -32,6 +41,7 @@ local languages = {
 	python = { flake8, isort, black },
 	yaml = { prettier },
 	lua = { stylua },
+	renpy = { renpy_lint },
 }
 
 local filetype_set = {}
