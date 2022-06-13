@@ -10,4 +10,6 @@ return {
 	svelte = {},
 	rust_analyzer = {},
 	jsonls = {},
+	bashls = {},
+	eslint = {},
 }
