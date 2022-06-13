@@ -1,3 +1,4 @@
 --glob=!.git
 --colors=line:none
 --smart-case
+--hidden
