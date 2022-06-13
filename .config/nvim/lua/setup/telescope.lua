@@ -64,7 +64,7 @@ wk.register({
 	},
 	b = {
 		function()
-			builtin.buffers()
+			builtin.buffers({ sort_mru = true })
 		end,
 		"Find buffers",
 	},
