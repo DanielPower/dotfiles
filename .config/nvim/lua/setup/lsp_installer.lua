@@ -5,10 +5,8 @@ local lsp_servers = require("lsp")
 local on_attach = require("lsp.on_attach")
 
 local lsp_server_keys = {}
-for key, config in pairs(lsp_servers) do
-	if config.ensure_installed then
-		table.insert(lsp_server_keys, key)
-	end
+for key in pairs(lsp_servers) do
+	table.insert(lsp_server_keys, key)
 end
 
 lsp_installer.setup({
