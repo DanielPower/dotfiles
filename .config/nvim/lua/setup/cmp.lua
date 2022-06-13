@@ -1,4 +1,5 @@
 local cmp = require("cmp")
+local cmp_git = require("cmp_git")
 local luasnip = require("luasnip")
 
 local has_words_before = function()
@@ -28,6 +29,8 @@ local shift_tab_mapping = function(fallback)
 	end
 end
 
+cmp_git.setup()
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -51,4 +54,28 @@ cmp.setup({
 		{ name = "buffer" },
 		{ name = "luasnip" },
 	},
+})
+
+cmp.setup.filetype("gitcommit", {
+	sources = cmp.config.sources({
+		{ name = "git" },
+	}, {
+		{ name = "buffer" },
+	}),
+})
+
+cmp.setup.cmdline("/", {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = {
+		{ name = "buffer" },
+	},
+})
+
+cmp.setup.cmdline(":", {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = cmp.config.sources({
+		{ name = "path" },
+	}, {
+		{ name = "cmdline" },
+	}),
 })
