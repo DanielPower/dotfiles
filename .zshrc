@@ -1,19 +1,3 @@
-<<<<<<< Updated upstream
-# Path Environment Variables
-export EDITOR=nvim
-export VISUAL=nvim
-export DIFFPROG="nvim -d"
-export NVM_DIR="$HOME/.nvm"
-export GOPATH="$HOME/.go"
-export PATH="$HOME/.bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
-export PATH="$HOME/.go/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH" # Brew
-
-=======
->>>>>>> Stashed changes
 # XDG Dirs
 export XDG_DESKTOP_DIR="$HOME/Desktop"
 export XDG_DOCUMENTS_DIR="$HOME/Documents"
@@ -31,6 +15,7 @@ export XDG_STATE_HOME="$HOME/.local/state"
 # Path Environment Variables
 export EDITOR=nvim
 export VISUAL=nvim
+export DIFFPROG="nvim -d"
 export NVM_DIR="$HOME/.nvm"
 export GOPATH="$HOME/.go"
 export PATH="$HOME/.bin:$PATH"
