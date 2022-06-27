@@ -32,10 +32,10 @@ return function(client, bufnr)
 	}, {
 		buffer = bufnr,
 	})
-	if client.resolved_capabilities.document_formatting then
+	if client.server_capabilities.documentFormattingProvider then
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			callback = function()
-				vim.lsp.buf.formatting_sync()
+				vim.lsp.buf.format()
 			end,
 			buffer = bufnr,
 		})
