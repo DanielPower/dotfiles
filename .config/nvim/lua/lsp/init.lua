@@ -11,5 +11,6 @@ return {
 	rust_analyzer = {},
 	sumneko_lua = require("lsp.sumneko_lua"),
 	svelte = {},
+	taplo = {},
 	tsserver = require("lsp.tsserver"),
 }
