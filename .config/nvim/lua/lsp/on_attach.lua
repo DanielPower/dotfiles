@@ -28,14 +28,15 @@ return function(client, bufnr)
 		["gD"] = { vim.lsp.buf.declaration, "Go to declaration" },
 		["gd"] = { vim.lsp.buf.definition, "Go to definition" },
 		["gi"] = { vim.lsp.buf.implementation, "Go to implementation" },
+		["gt"] = { vim.lsp.buf.type_definition, "Go to type definition" },
 		["gr"] = { tsBuiltin.lsp_references, "Find references" },
 	}, {
 		buffer = bufnr,
 	})
-	if client.resolved_capabilities.document_formatting then
+	if client.server_capabilities.documentFormattingProvider then
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			callback = function()
-				vim.lsp.buf.formatting_sync()
+				vim.lsp.buf.format()
 			end,
 			buffer = bufnr,
 		})

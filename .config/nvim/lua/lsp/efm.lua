@@ -55,7 +55,6 @@ for key, _ in pairs(filetype_set) do
 end
 
 return {
-	ensure_installed = true,
 	cmd = {
 		vim.fn.stdpath("data") .. "/lsp_servers/efm/efm-langserver",
 		"-logfile",
