@@ -8,7 +8,6 @@ return {
 	html = {},
 	jsonls = {},
 	pyright = require("lsp.pyright"),
-	rust_analyzer = {},
 	sumneko_lua = require("lsp.sumneko_lua"),
 	svelte = {},
 	taplo = {},

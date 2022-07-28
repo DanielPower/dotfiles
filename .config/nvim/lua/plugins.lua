@@ -6,6 +6,12 @@ return require("packer").startup(function(use)
 	use("tpope/vim-fugitive") -- Git integration
 	use("chaimleib/vim-renpy")
 	use({
+		"simrat39/rust-tools.nvim",
+		config = function()
+			require("setup.rust_tools")
+		end,
+	})
+	use({
 		"iamcco/markdown-preview.nvim",
 		run = "mkdp#util#install()",
 	})
