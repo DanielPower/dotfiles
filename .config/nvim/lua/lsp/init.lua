@@ -1,15 +1,7 @@
 return {
-	bashls = {},
 	beancount = require("lsp.beancount"),
-	cssls = {},
 	efm = require("lsp.efm"),
-	eslint = {},
-	gopls = {},
-	html = {},
-	jsonls = {},
 	pyright = require("lsp.pyright"),
 	sumneko_lua = require("lsp.sumneko_lua"),
-	svelte = {},
-	taplo = {},
 	tsserver = require("lsp.tsserver"),
 }

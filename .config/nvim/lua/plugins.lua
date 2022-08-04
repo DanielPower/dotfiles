@@ -5,11 +5,16 @@ return require("packer").startup(function(use)
 	use("folke/tokyonight.nvim") -- Colorscheme
 	use("tpope/vim-fugitive") -- Git integration
 	use("chaimleib/vim-renpy")
+	use("simrat39/rust-tools.nvim")
 	use({
-		"simrat39/rust-tools.nvim",
+		"williamboman/mason.nvim",
 		config = function()
-			require("setup.rust_tools")
+			require("setup.mason")
 		end,
+		requires = {
+			"williamboman/mason-lspconfig.nvim",
+			"neovim/nvim-lspconfig",
+		},
 	})
 	use({
 		"iamcco/markdown-preview.nvim",
@@ -60,13 +65,6 @@ return require("packer").startup(function(use)
 		},
 		config = function()
 			require("setup.cmp")
-		end,
-	})
-	use({
-		"williamboman/nvim-lsp-installer", -- Installer for language servers
-		requires = "neovim/nvim-lspconfig",
-		config = function()
-			require("setup.lsp_installer")
 		end,
 	})
 	use({
