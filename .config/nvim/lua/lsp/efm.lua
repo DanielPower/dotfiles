@@ -56,7 +56,7 @@ end
 
 return {
 	cmd = {
-		vim.fn.stdpath("data") .. "/lsp_servers/efm/efm-langserver",
+		vim.fn.stdpath("data") .. "/mason/bin/efm-langserver",
 		"-logfile",
 		vim.fn.stdpath("data") .. "/efm.log",
 	},
