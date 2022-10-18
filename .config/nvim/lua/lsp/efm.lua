@@ -42,6 +42,8 @@ local languages = {
 	yaml = { prettier },
 	lua = { stylua },
 	renpy = { renpy_lint },
+	scss = { prettier },
+	css = { prettier },
 }
 
 local filetype_set = {}
