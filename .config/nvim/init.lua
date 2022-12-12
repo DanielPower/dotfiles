@@ -34,6 +34,8 @@ opt.splitright = true
 opt.tabstop = 2
 opt.termguicolors = true
 opt.wrap = false
+opt.laststatus = 3
+opt.winbar = "%f"
 
 local opts = { noremap = true, silent = true }
 

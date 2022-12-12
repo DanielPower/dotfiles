@@ -15,7 +15,6 @@ require("lualine").setup({
 		},
 		lualine_b = {
 			"branch",
-			"filename",
 			{ "diagnostics", sources = { "nvim_diagnostic" } },
 		},
 		lualine_c = {},
