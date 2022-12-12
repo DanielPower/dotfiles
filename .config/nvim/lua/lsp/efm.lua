@@ -1,5 +1,5 @@
 local prettier = {
-	formatCommand = "prettierd ${INPUT}",
+	formatCommand = vim.fn.stdpath("data") .. "/mason/bin/prettierd ${INPUT}",
 	formatStdin = true,
 }
 
