@@ -3,9 +3,32 @@ return require("packer").startup(function(use)
 	use("editorconfig/editorconfig-vim") -- Editorconfig support
 	use("Darazaki/indent-o-matic") -- Indentation auto-detection
 	use("folke/tokyonight.nvim") -- Colorscheme
-	use("tpope/vim-fugitive") -- Git integration
-	use("chaimleib/vim-renpy")
-	use("simrat39/rust-tools.nvim")
+	use({
+		"tpope/vim-fugitive",
+		opt = true,
+		cmd = {
+			"G",
+			"Git",
+			"Gdiffsplit",
+			"Gvdiffsplit",
+			"Gedit",
+			"Gsplit",
+			"Gread",
+			"Gwrite",
+			"Ggrep",
+			"Glgrep",
+			"Gmove",
+			"Gdelete",
+			"Gremove",
+			"Gbrowse",
+			"Glog",
+		},
+	}) -- Git integration
+	use({
+		"simrat39/rust-tools.nvim",
+		opt = true,
+		ft = { "rust" },
+	})
 	use({
 		"williamboman/mason.nvim",
 		config = function()
@@ -15,10 +38,6 @@ return require("packer").startup(function(use)
 			"williamboman/mason-lspconfig.nvim",
 			"neovim/nvim-lspconfig",
 		},
-	})
-	use({
-		"iamcco/markdown-preview.nvim",
-		run = "mkdp#util#install()",
 	})
 	use({
 		"vim-test/vim-test", -- Unit Testing
