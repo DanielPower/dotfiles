@@ -34,6 +34,6 @@ antigen bundle jeffreytse/zsh-vi-mode
 
 export PATH="$HOME/.local/bin:$PATH"
 
-[ -f "$HOME/.local.zsh" ] && source "$HOME/.local.zsh"
+[[ -f "$HOME/.local.zsh" ]] && source "$HOME/.local.zsh"
 
 antigen apply
