@@ -31,6 +31,7 @@ antigen bundle zdharma-continuum/fast-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle reobin/typewritten@main
 antigen bundle jeffreytse/zsh-vi-mode
+antigen bundle mattberther/zsh-pyenv
 
 export PATH="$HOME/.local/bin:$PATH"
 
