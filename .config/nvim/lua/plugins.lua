@@ -3,6 +3,7 @@ return require("packer").startup(function(use)
 	use("editorconfig/editorconfig-vim") -- Editorconfig support
 	use("Darazaki/indent-o-matic") -- Indentation auto-detection
 	use("folke/tokyonight.nvim") -- Colorscheme
+	use("simrat39/rust-tools.nvim")
 	use({
 		"tpope/vim-fugitive",
 		opt = true,
@@ -24,11 +25,6 @@ return require("packer").startup(function(use)
 			"Glog",
 		},
 	}) -- Git integration
-	use({
-		"simrat39/rust-tools.nvim",
-		opt = true,
-		ft = { "rust" },
-	})
 	use({
 		"williamboman/mason.nvim",
 		config = function()
