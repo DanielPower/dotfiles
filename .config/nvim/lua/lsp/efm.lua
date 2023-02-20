@@ -44,6 +44,8 @@ local languages = {
 	renpy = { renpy_lint },
 	scss = { prettier },
 	css = { prettier },
+	json = { prettier },
+	graphql = { prettier },
 }
 
 local filetype_set = {}

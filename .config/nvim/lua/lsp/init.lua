@@ -6,4 +6,5 @@ return {
 	sumneko_lua = require("lsp.sumneko_lua"),
 	tsserver = require("lsp.tsserver"),
 	graphql = {},
+	jsonls = require("lsp.jsonls"),
 }

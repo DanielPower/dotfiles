@@ -35,7 +35,7 @@ opt.tabstop = 2
 opt.termguicolors = true
 opt.wrap = false
 opt.laststatus = 3
-opt.winbar = "%f"
+opt.winbar = "%{&modified?'[+] ':''}%f"
 
 local opts = { noremap = true, silent = true }
 

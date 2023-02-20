@@ -26,6 +26,8 @@ return function(client, bufnr)
 		["<leader>K"] = { vim.lsp.buf.signature_help, "Show signature help" },
 		["<leader>ca"] = { vim.lsp.buf.code_action, "Code actions" },
 		["<leader>cd"] = { vim.diagnostic.open_float, "Show line diagnostics" },
+		["<leader>ck"] = { vim.diagnostic.goto_prev, "Previous diagnostic" },
+		["<leader>cj"] = { vim.diagnostic.goto_next, "Next diagnostic" },
 		["<leader>rr"] = { vim.lsp.buf.rename, "Rename symbol" },
 		["K"] = { vim.lsp.buf.hover, "Show definition" },
 		["gD"] = { vim.lsp.buf.declaration, "Go to declaration" },

@@ -4,6 +4,7 @@ return require("packer").startup(function(use)
 	use("Darazaki/indent-o-matic") -- Indentation auto-detection
 	use("folke/tokyonight.nvim") -- Colorscheme
 	use("simrat39/rust-tools.nvim")
+	use("arkav/lualine-lsp-progress")
 	use({
 		"tpope/vim-fugitive",
 		opt = true,
