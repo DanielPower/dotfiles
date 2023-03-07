@@ -33,6 +33,18 @@ antigen bundle reobin/typewritten@main
 antigen bundle jeffreytse/zsh-vi-mode
 antigen bundle mattberther/zsh-pyenv
 
+# Autosuggestion Navigation
+function zvm_after_lazy_keybindings() {
+  zvm_bindkey vicmd "^[[A" history-beginning-search-backward
+  zvm_bindkey vicmd "k" history-beginning-search-backward
+  zvm_bindkey vicmd "^[[B" history-beginning-search-forward
+  zvm_bindkey vicmd "j" history-beginning-search-forward
+}
+function zvm_after_init() {
+  bindkey "^[[A" history-beginning-search-backward
+  bindkey "^[[B" history-beginning-search-forward
+}
+
 export PATH="$HOME/.local/bin:$PATH"
 
 [[ -f "$HOME/.local.zsh" ]] && source "$HOME/.local.zsh"
