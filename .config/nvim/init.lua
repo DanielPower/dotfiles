@@ -5,6 +5,7 @@ local api = vim.api -- Nvim api
 local cmd = vim.cmd -- Execute vim commands
 local opt = vim.opt -- Helper for vim configurations
 local g = vim.g
+local o = vim.o
 
 -- Options
 cmd("colorscheme tokyonight")
@@ -36,6 +37,10 @@ opt.termguicolors = true
 opt.wrap = false
 opt.laststatus = 3
 opt.winbar = "%{&modified?'[+] ':''}%f"
+o.foldcolumn = "0"
+o.foldlevel = 99
+o.foldlevelstart = 99
+o.foldenable = true
 
 local opts = { noremap = true, silent = true }
 

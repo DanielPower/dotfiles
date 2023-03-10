@@ -6,6 +6,15 @@ return require("packer").startup(function(use)
 	use("simrat39/rust-tools.nvim")
 	use("arkav/lualine-lsp-progress")
 	use({
+		"kevinhwang91/nvim-ufo",
+		config = function()
+			require("setup.ufo")
+		end,
+		requires = {
+			"kevinhwang91/promise-async",
+		},
+	})
+	use({
 		"tpope/vim-fugitive",
 		opt = true,
 		cmd = {

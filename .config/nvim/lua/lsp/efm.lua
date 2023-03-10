@@ -46,6 +46,7 @@ local languages = {
 	css = { prettier },
 	json = { prettier },
 	graphql = { prettier },
+	markdown = { prettier },
 }
 
 local filetype_set = {}
