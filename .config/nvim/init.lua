@@ -1,14 +1,12 @@
-require("plugins")
-
 -- Aliases
 local api = vim.api -- Nvim api
-local cmd = vim.cmd -- Execute vim commands
-local opt = vim.opt -- Helper for vim configurations
+local fn = vim.fn
 local g = vim.g
+local loop = vim.loop
 local o = vim.o
+local opt = vim.opt -- Helper for vim configurations
 
 -- Options
-cmd("colorscheme tokyonight")
 g.mapleader = " "
 g.python3_host_prog = "/home/daniel/.pyenv/versions/neovim/bin/python3"
 opt.clipboard = "unnamedplus"
@@ -41,6 +39,20 @@ o.foldcolumn = "0"
 o.foldlevel = 99
 o.foldlevelstart = 99
 o.foldenable = true
+
+local lazypath = fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not loop.fs_stat(lazypath) then
+	fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+opt.rtp:prepend(lazypath)
+require("lazy").setup("plugins")
 
 local opts = { noremap = true, silent = true }
 
