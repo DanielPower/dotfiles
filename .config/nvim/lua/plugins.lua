@@ -6,6 +6,12 @@ return require("packer").startup(function(use)
 	use("simrat39/rust-tools.nvim")
 	use("arkav/lualine-lsp-progress")
 	use({
+		"m4xshen/autoclose.nvim",
+		config = function()
+			require("setup.autoclose")
+		end,
+	})
+	use({
 		"kevinhwang91/nvim-ufo",
 		config = function()
 			require("setup.ufo")
