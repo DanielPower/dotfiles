@@ -13,7 +13,7 @@ require("ufo").setup({
 	provider_selector = function(_, filetype, _)
 		return filetypeMap[filetype]
 	end,
-	close_fold_kinds = { "imports", "comment" },
+	close_fold_kinds = { "imports" },
 	fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
 		local newVirtText = {}
 		local suffix = ("  %d "):format(endLnum - lnum)
