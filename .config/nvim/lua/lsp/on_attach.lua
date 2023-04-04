@@ -1,16 +1,12 @@
-local wk = require("which-key")
 local tsBuiltin = require("telescope.builtin")
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 	border = "double",
 })
 
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-	vim.lsp.handlers.signature_help,
-	{
-		border = "double",
-	}
-)
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+	border = "double",
+})
 
 vim.diagnostic.config({
 	virtual_text = true,
@@ -22,13 +18,15 @@ vim.diagnostic.config({
 
 return function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-	wk.register({
-		["<leader>K"] = { vim.lsp.buf.signature_help, "Show signature help" },
-		["<leader>ca"] = { vim.lsp.buf.code_action, "Code actions" },
-		["<leader>cd"] = { vim.diagnostic.open_float, "Show line diagnostics" },
-		["<leader>ck"] = { vim.diagnostic.goto_prev, "Previous diagnostic" },
-		["<leader>cj"] = { vim.diagnostic.goto_next, "Next diagnostic" },
-		["<leader>rr"] = { vim.lsp.buf.rename, "Rename symbol" },
+	Keymap({
+		["<leader>"] = {
+			["K"] = { vim.lsp.buf.signature_help, "Show signature help" },
+			["ca"] = { vim.lsp.buf.code_action, "Code actions" },
+			["cd"] = { vim.diagnostic.open_float, "Show line diagnostics" },
+			["ck"] = { vim.diagnostic.goto_prev, "Previous diagnostic" },
+			["cj"] = { vim.diagnostic.goto_next, "Next diagnostic" },
+			["rr"] = { vim.lsp.buf.rename, "Rename symbol" },
+		},
 		["K"] = { vim.lsp.buf.hover, "Show definition" },
 		["gD"] = { vim.lsp.buf.declaration, "Go to declaration" },
 		["gd"] = { vim.lsp.buf.definition, "Go to definition" },

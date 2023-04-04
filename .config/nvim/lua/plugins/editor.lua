@@ -22,12 +22,4 @@ return {
 		"Darazaki/indent-o-matic",
 		lazy = false,
 	},
-	-- Automatic bracket closing
-	{
-		"m4xshen/autoclose.nvim",
-		lazy = false,
-		config = function()
-			require("autoclose").setup()
-		end,
-	},
 }

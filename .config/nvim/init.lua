@@ -6,6 +6,9 @@ local loop = vim.loop
 local o = vim.o
 local opt = vim.opt -- Helper for vim configurations
 
+-- Globals
+Keymap = require("util.keymap")
+
 -- Options
 g.mapleader = " "
 g.python3_host_prog = "/home/daniel/.pyenv/versions/neovim/bin/python3"
@@ -40,6 +43,7 @@ o.foldlevel = 99
 o.foldlevelstart = 99
 o.foldenable = true
 
+-- Setup Lazy.nvim
 local lazypath = fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not loop.fs_stat(lazypath) then
 	fn.system({
@@ -72,9 +76,3 @@ api.nvim_set_keymap("n", "<A-k>", ":m .-2<CR>==", opts)
 
 -- Clear search highlight on Esc
 api.nvim_set_keymap("n", "<esc>", ":noh<CR>", opts)
-
--- Buffer navigation
-api.nvim_set_keymap("n", "<leader>bn", ":bnext<CR>", opts)
-api.nvim_set_keymap("n", "<leader>bp", ":bprevious<CR>", opts)
-api.nvim_set_keymap("n", "<leader>bd", ":bdelete<CR>", opts)
-api.nvim_set_keymap("n", "<leader>bb", ":Telescope buffers<CR>", opts)
