@@ -3,105 +3,105 @@ import sys
 import os
 from subprocess import call
 
-HOME = os.environ['HOME'] + '/'
+HOME = os.environ["HOME"] + "/"
 CWD = os.getcwd()
-DOTFILES = HOME + '.dotfiles/'
+DOTFILES = HOME + ".dotfiles/"
 
 ignored = [
-	'.git',
-	'dotfiles',
+    ".git",
+    "dotfiles",
 ]
 
 
 def install():
-	for i, file in enumerate(listFiles(DOTFILES)):
-		print('['+str(i)+'] '+HOME+file)
-		createPath(HOME+file)
-		createSymlink(HOME + file, DOTFILES + file)
+    for i, file in enumerate(listFiles(DOTFILES)):
+        print("[" + str(i) + "] " + HOME + file)
+        createPath(HOME + file)
+        createSymlink(HOME + file, DOTFILES + file)
 
 
 def add(path):
-	print(path)
-	path = os.path.abspath(path)[len(HOME):]
-	print(path)
-	if os.path.isfile(HOME+path):
-		addFile(path)
-	elif os.path.isdir(HOME+path):
-		for file in listFiles(path):
-			addFile(file)
-	else:
-		print("ERROR: "+path+" does not exist")
-		return False
+    print(path)
+    path = os.path.abspath(path)[len(HOME) :]
+    print(path)
+    if os.path.isfile(HOME + path):
+        addFile(path)
+    elif os.path.isdir(HOME + path):
+        for file in listFiles(path):
+            addFile(file)
+    else:
+        print("ERROR: " + path + " does not exist")
+        return False
 
 
 def createPath(path):
-	print("Creating a path to " +path)
-	directories = path.split('/')
-	print(len(directories))
-	dirstring = ""
-	for directory in directories[:-1]:
-		dirstring += directory + '/'
-		if not os.path.isdir(dirstring):
-			if not os.path.exists(dirstring):
-				print("  Creating directory " + dirstring)
-				os.mkdir(dirstring)
-			else:
-				print("Error: " + dirstring + " is a file. Expected a directory.")
+    print("Creating a path to " + path)
+    directories = path.split("/")
+    print(len(directories))
+    dirstring = ""
+    for directory in directories[:-1]:
+        dirstring += directory + "/"
+        if not os.path.isdir(dirstring):
+            if not os.path.exists(dirstring):
+                print("  Creating directory " + dirstring)
+                os.mkdir(dirstring)
+            else:
+                print("Error: " + dirstring + " is a file. Expected a directory.")
 
 
 def listFiles(path, basepath=None):
-	files = []
-	basepath = basepath or path
-	for file in os.listdir(path):
-		# Skip files in the ignored list
-		if (path + '/' + file)[len(basepath)+1:] in ignored:
-			continue
-		# Add files to our list
-		if os.path.isfile(path+'/'+file):                                                                                                     
-			files.append((path+'/'+file)[len(basepath)+1:])
-		# Recursively check directories
-		elif os.path.isdir(path+'/'+file):
-			files = files + listFiles(path+'/'+file, basepath=basepath)
-	return files
+    files = []
+    basepath = basepath or path
+    for file in os.listdir(path):
+        # Skip files in the ignored list
+        if (path + "/" + file)[len(basepath) + 1 :] in ignored:
+            continue
+        # Add files to our list
+        if os.path.isfile(path + "/" + file):
+            files.append((path + "/" + file)[len(basepath) + 1 :])
+        # Recursively check directories
+        elif os.path.isdir(path + "/" + file):
+            files = files + listFiles(path + "/" + file, basepath=basepath)
+    return files
 
 
 def addFile(path):
-	homepath = HOME + path
-	dfpath = DOTFILES + path
-	createPath(dfpath)
-	call(['mv', homepath, dfpath])
-	call(['ln', '-s', dfpath, homepath])
-	print(path)
-	print(homepath)
-	print(dfpath)
+    homepath = HOME + path
+    dfpath = DOTFILES + path
+    createPath(dfpath)
+    call(["mv", homepath, dfpath])
+    call(["ln", "-s", dfpath, homepath])
+    print(path)
+    print(homepath)
+    print(dfpath)
 
 
 def createSymlink(path, source):
-	print('Removing existing file (if it exists)')
-	call(['rm', path])
-	print('Creating symlink')
-	call(['ln', '-s', source, path])
+    print("Removing existing file (if it exists)")
+    call(["rm", path])
+    print("Creating symlink")
+    call(["ln", "-s", source, path])
 
 
 def showUsage():
-	print("Options:")
-	print("    install")
-	print("    add")
+    print("Options:")
+    print("    install")
+    print("    add")
 
 
 if __name__ == "__main__":
-	try:
-		if sys.argv[1] == 'install':
-			install()
-		elif sys.argv[1] == 'add':
-			try:
-				add(sys.argv[2])
-			except IndexError:
-				print("Usage: dotfile add <file or directory>")
-		else:
-			print("Bad argument")
-			showUsage()
-	except IndexError:
-		print("Missing argument")
-		showUsage()
-		
+    try:
+        if sys.argv[1] == "install":
+            install()
+        elif sys.argv[1] == "add":
+            try:
+                add(sys.argv[2])
+            except IndexError:
+                print("Usage: dotfile add <file or directory>")
+        else:
+            print("Bad argument")
+            showUsage()
+    except IndexError:
+        print("Missing argument")
+        showUsage()
+
