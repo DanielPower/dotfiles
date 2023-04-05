@@ -35,7 +35,7 @@ return function(client, bufnr)
 		["gr"] = { tsBuiltin.lsp_references, "Find references" },
 	}, {
 		buffer = bufnr,
-	})
+	}).bind()
 	if client.server_capabilities.documentFormattingProvider then
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			callback = function()
