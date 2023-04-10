@@ -44,7 +44,6 @@ return {
 	dependencies = {
 		"nvim-lua/popup.nvim",
 		"nvim-lua/plenary.nvim",
-		"stevearc/dressing.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, -- Native fuzzy finder (improves performance)
 	},
 	keys = keymap.lazyKeys,
