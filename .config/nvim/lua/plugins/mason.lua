@@ -17,13 +17,6 @@ return {
 				end
 				require("lspconfig")[server_name].setup(config)
 			end,
-			["rust_analyzer"] = function()
-				require("rust-tools").setup({
-					server = {
-						on_attach = on_attach,
-					},
-				})
-			end,
 		})
 	end,
 }
