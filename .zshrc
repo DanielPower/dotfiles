@@ -47,6 +47,6 @@ function zvm_after_init() {
 
 export PATH="$HOME/.local/bin:$PATH"
 
-[[ -f "$HOME/.local.zsh" ]] && source "$HOME/.local.zsh"
+[[ -f "$HOME/.zlocal" ]] && source "$HOME/.zlocal"
 
 antigen apply
