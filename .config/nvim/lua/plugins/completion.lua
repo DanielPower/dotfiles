@@ -7,6 +7,10 @@ return {
 		"petertriho/cmp-git",
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
+		{
+			"tzachar/cmp-tabnine",
+			build = "./install.sh",
+		},
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -15,12 +19,7 @@ return {
 
 		local has_words_before = function()
 			local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-			return col ~= 0
-					and vim.api
-					.nvim_buf_get_lines(0, line - 1, line, true)[1]
-					:sub(col, col)
-					:match("%s")
-					== nil
+			return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 		end
 
 		local tab_mapping = function(fallback)
@@ -69,6 +68,7 @@ return {
 				{ name = "nvim_lsp" },
 				{ name = "buffer" },
 				{ name = "luasnip" },
+				{ name = "cmp_tabnine" },
 			},
 		})
 
