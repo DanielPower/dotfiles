@@ -7,6 +7,10 @@ return {
 		"petertriho/cmp-git",
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
+		{
+			"tzachar/cmp-tabnine",
+			build = "./install.sh",
+		},
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -64,6 +68,7 @@ return {
 				{ name = "nvim_lsp" },
 				{ name = "buffer" },
 				{ name = "luasnip" },
+				{ name = "cmp_tabnine" },
 			},
 		})
 

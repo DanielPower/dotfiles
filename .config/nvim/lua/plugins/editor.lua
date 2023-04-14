@@ -12,11 +12,6 @@ return {
 			})
 		end,
 	},
-	-- Editorconfig support
-	{
-		"editorconfig/editorconfig-vim",
-		lazy = false,
-	},
 	-- Automatic indentation
 	{
 		"Darazaki/indent-o-matic",
