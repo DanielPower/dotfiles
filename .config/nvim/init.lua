@@ -3,7 +3,6 @@ local api = vim.api -- Nvim api
 local fn = vim.fn
 local g = vim.g
 local loop = vim.loop
-local o = vim.o
 local opt = vim.opt -- Helper for vim configurations
 
 -- Globals
