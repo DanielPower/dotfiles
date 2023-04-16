@@ -12,9 +12,4 @@ return {
 			})
 		end,
 	},
-	-- Automatic indentation
-	{
-		"Darazaki/indent-o-matic",
-		lazy = false,
-	},
 }
