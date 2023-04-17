@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-import sys
 import os
+import argparse
 from subprocess import call
 
 HOME = os.environ["HOME"] + "/"
@@ -20,13 +20,13 @@ def install():
         createSymlink(HOME + file, DOTFILES + file)
 
 
-def add(path):
+def add(path: str):
     print(path)
     path = os.path.abspath(path)[len(HOME) :]
     print(path)
     if os.path.isfile(HOME + path):
         addFile(path)
-    elif os.path.isdir(HOME + path):
+    elif os.path.isdir(path):
         for file in listFiles(path):
             addFile(file)
     else:
@@ -34,10 +34,12 @@ def add(path):
         return False
 
 
+def rm(path: str):
+    print("TODO")
+
+
 def createPath(path):
-    print("Creating a path to " + path)
     directories = path.split("/")
-    print(len(directories))
     dirstring = ""
     for directory in directories[:-1]:
         dirstring += directory + "/"
@@ -71,37 +73,28 @@ def addFile(path):
     createPath(dfpath)
     call(["mv", homepath, dfpath])
     call(["ln", "-s", dfpath, homepath])
-    print(path)
-    print(homepath)
-    print(dfpath)
 
 
 def createSymlink(path, source):
-    print("Removing existing file (if it exists)")
     call(["rm", path])
-    print("Creating symlink")
     call(["ln", "-s", source, path])
 
 
-def showUsage():
-    print("Options:")
-    print("    install")
-    print("    add")
-
-
 if __name__ == "__main__":
-    try:
-        if sys.argv[1] == "install":
-            install()
-        elif sys.argv[1] == "add":
-            try:
-                add(sys.argv[2])
-            except IndexError:
-                print("Usage: dotfile add <file or directory>")
-        else:
-            print("Bad argument")
-            showUsage()
-    except IndexError:
-        print("Missing argument")
-        showUsage()
+    parser = argparse.ArgumentParser(prog="Dotfiles")
+    subparsers = parser.add_subparsers(dest="command")
+    install_parser = subparsers.add_parser("install")
+    add_parser = subparsers.add_parser("add")
+    add_parser.add_argument("path")
+    rm_parser = subparsers.add_parser("rm")
+    rm_parser.add_argument("path")
+    args = parser.parse_args()
 
+    if args.command == "install":
+        install()
+    elif args.command == "add":
+        add(args.path)
+    elif args.command == "rm":
+        rm(args.path)
+    else:
+        parser.print_help()
