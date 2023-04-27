@@ -1,13 +1,33 @@
-local tabnine_plugin = {}
-local tabnine_source = {}
-if not (os.getenv("DISABLE_TABNINE") == "true") then
-  tabnine_plugin = {
+local ai_plugin = {}
+local ai_source = {}
+if os.getenv("NVIM_AI_AUTOCOMPLETE") == "tabnine" then
+  ai_plugin = {
     {
       "tzachar/cmp-tabnine",
       build = "./install.sh",
     },
   }
-  tabnine_source = { { name = "cmp_tabnine" } }
+  ai_source = { { name = "cmp_tabnine" } }
+elseif os.getenv("NVIM_AI_AUTOCOMPLETE") == "copilot" then
+  ai_plugin = {
+    {
+      "zbirenbaum/copilot-cmp",
+      build = { "copilot.lua" },
+      dependencies = {
+        "zbirenbaum/copilot.lua",
+        config = function()
+          require("copilot").setup({
+            suggestion = { enabled = false },
+            panel = { enabled = false },
+          })
+        end,
+      },
+      config = function()
+        require("copilot_cmp").setup()
+      end,
+    },
+  }
+  ai_source = { { name = "copilot" } }
 end
 
 return {
@@ -19,7 +39,7 @@ return {
     "petertriho/cmp-git",
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
-    unpack(tabnine_plugin),
+    unpack(ai_plugin),
   },
   config = function()
     local cmp = require("cmp")
@@ -77,7 +97,7 @@ return {
         { name = "nvim_lsp" },
         { name = "buffer" },
         { name = "luasnip" },
-        unpack(tabnine_source),
+        unpack(ai_source),
       },
     })
 
