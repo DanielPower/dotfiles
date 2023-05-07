@@ -5,4 +5,5 @@ return {
 	jsonls = require("lsp.jsonls"),
 	sumneko_lua = require("lsp.sumneko_lua"),
 	tsserver = require("lsp.tsserver"),
+	yamlls = require("lsp.yamlls"),
 }
