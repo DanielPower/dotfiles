@@ -1,35 +1,3 @@
-local ai_plugin = {}
-local ai_source = {}
-if os.getenv("NVIM_AI_AUTOCOMPLETE") == "tabnine" then
-  ai_plugin = {
-    {
-      "tzachar/cmp-tabnine",
-      build = "./install.sh",
-    },
-  }
-  ai_source = { { name = "cmp_tabnine" } }
-elseif os.getenv("NVIM_AI_AUTOCOMPLETE") == "copilot" then
-  ai_plugin = {
-    {
-      "zbirenbaum/copilot-cmp",
-      build = { "copilot.lua" },
-      dependencies = {
-        "zbirenbaum/copilot.lua",
-        config = function()
-          require("copilot").setup({
-            suggestion = { enabled = false },
-            panel = { enabled = false },
-          })
-        end,
-      },
-      config = function()
-        require("copilot_cmp").setup()
-      end,
-    },
-  }
-  ai_source = { { name = "copilot" } }
-end
-
 return {
   "hrsh7th/nvim-cmp", -- Completion
   dependencies = {
@@ -39,7 +7,6 @@ return {
     "petertriho/cmp-git",
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
-    unpack(ai_plugin),
   },
   config = function()
     local cmp = require("cmp")
@@ -97,7 +64,6 @@ return {
         { name = "nvim_lsp" },
         { name = "buffer" },
         { name = "luasnip" },
-        unpack(ai_source),
       },
     })
 
