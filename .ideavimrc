@@ -11,6 +11,8 @@ set scrolloff=5
 set incsearch
 set nooldundo
 set NERDTree
+set visualbell
+set noerrorbells
 
 nnoremap \e :e ~/.ideavimrc<CR>
 nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
@@ -35,5 +37,5 @@ nnoremap <leader>gg :action Git.Menu<CR>
 nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
 
 nnoremap <C-t> :action ActivateTerminalToolWindow<CR>
-nnoremap <C-/> :NERDTreeToggle<CR>
 nnoremap <leader>t :action Terminal.OpenInTerminal<CR>
+nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
