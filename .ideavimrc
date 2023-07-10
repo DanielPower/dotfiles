@@ -1,0 +1,39 @@
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-commentary'
+Plug 'preservim/nerdtree`
+
+let mapleader=' '
+set clipboard+=unnamed
+set clipboard+=ideaput
+set number
+set relativenumber
+set scrolloff=5
+set incsearch
+set nooldundo
+set NERDTree
+
+nnoremap \e :e ~/.ideavimrc<CR>
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-c> :q<CR>
+
+nnoremap <leader>cd :action ShowErrorDescription<CR>
+
+nnoremap <leader>dd :action Debug<CR>
+nnoremap <leader>db :action ToggleLineBreakpoint<CR>
+
+nnoremap <leader>ff :action SearchEverywhere<CR>
+nnoremap <leader>fr :action FindUsages<CR>
+
+nnoremap <leader>gb :action Git.Branches<CR>
+nnoremap <leader>gg :action Git.Menu<CR>
+
+nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
+
+nnoremap <C-t> :action ActivateTerminalToolWindow<CR>
+nnoremap <C-/> :NERDTreeToggle<CR>
+nnoremap <leader>t :action Terminal.OpenInTerminal<CR>
