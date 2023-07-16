@@ -13,7 +13,7 @@ return {
 			enable_git_status = true,
 			enable_diagnostics = true,
 			open_files_do_not_replace_types = { "terminal", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
-			sort_case_insensitive = true,                        -- used when sorting files and directories in the tree
+			sort_case_insensitive = true, -- used when sorting files and directories in the tree
 			default_component_configs = {
 				container = {
 					enable_character_fade = true,
@@ -38,7 +38,7 @@ return {
 					folder_empty = "ﰊ",
 					-- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
 					-- then these will never be used.
-					default = "*",
+					default = "",
 					highlight = "NeoTreeFileIcon",
 				},
 				modified = {
@@ -132,9 +132,9 @@ return {
 						--".null-ls_*",
 					},
 				},
-				follow_current_file = true,         -- This will find and focus the file in the active buffer every
+				follow_current_file = true, -- This will find and focus the file in the active buffer every
 				-- time the current file is changed while the tree is open.
-				group_empty_dirs = false,           -- when true, empty folders will be grouped together
+				group_empty_dirs = false, -- when true, empty folders will be grouped together
 				hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
 				-- in whatever position is specified in window.position
 				-- "open_current",  -- netrw disabled, opening a directory opens within the
