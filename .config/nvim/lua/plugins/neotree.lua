@@ -2,7 +2,8 @@ return {
 	"nvim-neo-tree/neo-tree.nvim",
 	lazy = true,
 	cmd = { "Neotree" },
-	dependencies = { "kyazdani42/nvim-web-devicons" }, -- Pretty icons
+	branch = "v2.x",
+	dependencies = { "kyazdani42/nvim-web-devicons", "nvim-lua/plenary.nvim", "MunifTanjim/nui.nvim" },
 	init = function()
 		vim.api.nvim_set_keymap("n", "<C-/>", ":Neotree toggle<CR>", { noremap = true, silent = true })
 	end,
