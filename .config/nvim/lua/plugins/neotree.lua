@@ -3,9 +3,18 @@ return {
 	lazy = true,
 	cmd = { "Neotree" },
 	branch = "v2.x",
-	dependencies = { "kyazdani42/nvim-web-devicons", "nvim-lua/plenary.nvim", "MunifTanjim/nui.nvim" },
+	dependencies = {
+		"kyazdani42/nvim-web-devicons",
+		"nvim-lua/plenary.nvim",
+		"MunifTanjim/nui.nvim",
+	},
 	init = function()
-		vim.api.nvim_set_keymap("n", "<C-/>", ":Neotree toggle<CR>", { noremap = true, silent = true })
+		vim.api.nvim_set_keymap(
+			"n",
+			"<C-/>",
+			":Neotree toggle<CR>",
+			{ noremap = true, silent = true }
+		)
 	end,
 	config = function()
 		require("neo-tree").setup({
