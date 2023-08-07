@@ -2,9 +2,14 @@ return {
 	"nvim-neo-tree/neo-tree.nvim",
 	lazy = true,
 	cmd = { "Neotree" },
-	dependencies = { "kyazdani42/nvim-web-devicons" }, -- Pretty icons
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"kyazdani42/nvim-web-devicons",
+		"MunifTanjim/nui.nvim",
+	},
+	branch = "v3.x",
 	init = function()
-		vim.api.nvim_set_keymap("n", "<C-/>", ":Neotree toggle<CR>", { noremap = true, silent = true })
+		vim.api.nvim_set_keymap("n", "<C-/>", ":Neotree reveal<CR>", { noremap = true, silent = true })
 	end,
 	config = function()
 		require("neo-tree").setup({
@@ -13,7 +18,7 @@ return {
 			enable_git_status = true,
 			enable_diagnostics = true,
 			open_files_do_not_replace_types = { "terminal", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
-			sort_case_insensitive = true,                        -- used when sorting files and directories in the tree
+			sort_case_insensitive = true, -- used when sorting files and directories in the tree
 			default_component_configs = {
 				container = {
 					enable_character_fade = true,
@@ -35,7 +40,7 @@ return {
 				icon = {
 					folder_closed = "",
 					folder_open = "",
-					folder_empty = "ﰊ",
+					folder_empty = "󰜌",
 					-- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
 					-- then these will never be used.
 					default = "*",
@@ -55,10 +60,10 @@ return {
 						added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
 						modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
 						deleted = "✖", -- this can only be used in the git_status source
-						renamed = "", -- this can only be used in the git_status source
+						renamed = "󰁕", -- this can only be used in the git_status source
 						untracked = "",
 						ignored = "",
-						unstaged = "",
+						unstaged = "󰄱",
 						staged = "",
 						conflict = "",
 					},
@@ -132,9 +137,12 @@ return {
 						--".null-ls_*",
 					},
 				},
-				follow_current_file = true,         -- This will find and focus the file in the active buffer every
+				follow_current_file = {
+					enabled = true,
+					leave_dirs_open = false,
+				}, -- This will find and focus the file in the active buffer every
 				-- time the current file is changed while the tree is open.
-				group_empty_dirs = false,           -- when true, empty folders will be grouped together
+				group_empty_dirs = false, -- when true, empty folders will be grouped together
 				hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
 				-- in whatever position is specified in window.position
 				-- "open_current",  -- netrw disabled, opening a directory opens within the
@@ -159,7 +167,10 @@ return {
 				},
 			},
 			buffers = {
-				follow_current_file = true, -- This will find and focus the file in the active buffer every
+				follow_current_file = {
+					enabled = true,
+					leave_dirs_open = false,
+				},
 				-- time the current file is changed while the tree is open.
 				group_empty_dirs = true, -- when true, empty folders will be grouped together
 				show_unloaded = true,
