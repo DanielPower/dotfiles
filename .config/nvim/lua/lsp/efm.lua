@@ -45,6 +45,7 @@ local languages = {
 	scss = { prettier },
 	css = { prettier },
 	json = { prettier },
+	jsonc = { prettier },
 	graphql = { prettier },
 	markdown = { prettier },
 	html = { prettier },
