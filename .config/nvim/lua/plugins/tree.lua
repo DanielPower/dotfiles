@@ -24,7 +24,6 @@ return {
 				cursorline = true,
 				debounce_delay = 15,
 				width = 30,
-				hide_root_folder = false,
 				side = "left",
 				preserve_window_proportions = false,
 				number = false,
@@ -36,8 +35,8 @@ return {
 					open_win_config = function()
 						local screen_w = vim.opt.columns:get()
 						local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
-						local window_w = math.floor(screen_w * 0.5)
-						local window_h = math.floor(screen_h * 0.8)
+						local window_w = math.min(screen_w - 2, 80)
+						local window_h = screen_h - 4
 						local center_x = (screen_w - window_w) / 2
 						local center_y = ((vim.opt.lines:get() - window_h) / 2) - vim.opt.cmdheight:get()
 						return {
