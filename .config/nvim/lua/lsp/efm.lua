@@ -1,76 +1,65 @@
 local prettier = {
-	formatCommand = vim.fn.stdpath("data") .. "/mason/bin/prettierd ${INPUT}",
-	formatStdin = true,
-}
-
-local flake8 = {
-	lintCommand = "flake8 --stdin-display-name ${INPUT} -",
-	lintStdin = true,
-	lintFormats = { "%f:%l:%c: %m" },
+  formatCommand = vim.fn.stdpath("data") .. "/mason/bin/prettierd ${INPUT}",
+  formatStdin = true,
 }
 
 local black = {
-	formatCommand = "black --quiet -",
-	formatStdin = true,
+  formatCommand = "black --quiet -",
+  formatStdin = true,
 }
 
 local isort = {
-	formatCommand = "isort --quiet -",
-	formatStdin = true,
+  formatCommand = "isort --quiet -",
+  formatStdin = true,
 }
 
 local stylua = {
-	formatCommand = "stylua -",
-	formatStdin = true,
+  formatCommand = "stylua -",
+  formatStdin = true,
 }
 
-local renpy_lint = {
-	lintCommand = "renpy . lint",
-	lintStdin = true,
-	lintFormats = {
-		'File "%f", line %l: %m',
-		"%f:%l %m",
-	},
+local ruff = {
+  lintCommand = "ruff check -",
+  lint = true,
 }
 
 local languages = {
-	javascript = { prettier },
-	javascriptreact = { prettier },
-	typescript = { prettier },
-	typescriptreact = { prettier },
-	python = { flake8, isort, black },
-	yaml = { prettier },
-	lua = { stylua },
-	renpy = { renpy_lint },
-	scss = { prettier },
-	css = { prettier },
-	json = { prettier },
-	jsonc = { prettier },
-	graphql = { prettier },
-	markdown = { prettier },
-	html = { prettier },
+  javascript = { prettier },
+  javascriptreact = { prettier },
+  typescript = { prettier },
+  typescriptreact = { prettier },
+  python = { ruff, isort, black },
+  yaml = { prettier },
+  lua = { stylua },
+  scss = { prettier },
+  css = { prettier },
+  json = { prettier },
+  jsonc = { prettier },
+  graphql = { prettier },
+  markdown = { prettier },
+  html = { prettier },
 }
 
 local filetype_set = {}
 for key, _ in pairs(languages) do
-	filetype_set[key] = true
+  filetype_set[key] = true
 end
 
 local filetypes = {}
 for key, _ in pairs(filetype_set) do
-	table.insert(filetypes, key)
+  table.insert(filetypes, key)
 end
 
 return {
-	cmd = {
-		vim.fn.stdpath("data") .. "/mason/bin/efm-langserver",
-		"-logfile",
-		vim.fn.stdpath("data") .. "/efm.log",
-	},
-	root_dir = require("lspconfig").util.root_pattern({ "." }),
-	init_options = { documentFormatting = true },
-	settings = {
-		languages = languages,
-	},
-	filetypes = filetypes,
+  cmd = {
+    vim.fn.stdpath("data") .. "/mason/bin/efm-langserver",
+    "-logfile",
+    vim.fn.stdpath("data") .. "/efm.log",
+  },
+  root_dir = require("lspconfig").util.root_pattern({ "." }),
+  init_options = { documentFormatting = true },
+  settings = {
+    languages = languages,
+  },
+  filetypes = filetypes,
 }
