@@ -16,6 +16,8 @@ local stylua = {
 local ruff = {
 	lintCommand = "ruff check -",
 	lint = true,
+	formatCommand = "ruff check - --fix",
+	formatStdin = true,
 }
 
 local languages = {
