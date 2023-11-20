@@ -48,9 +48,9 @@ end
 
 local function keymap(mapTree, opts)
 	local mappings = parseMapTree(mapTree, opts, "")
-	local lazyKeys = {}
+	local keys = {}
 	for _, mapping in ipairs(mappings) do
-		table.insert(lazyKeys, { mapping.sequence })
+		table.insert(keys, { mapping.sequence })
 	end
 	return {
 		bind = function(context)
@@ -58,7 +58,7 @@ local function keymap(mapTree, opts)
 				bind(mapping, context)
 			end
 		end,
-		keys = lazyKeys,
+		keys = keys,
 	}
 end
 

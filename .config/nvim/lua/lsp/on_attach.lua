@@ -1,13 +1,10 @@
-local tsBuiltin = require("telescope.builtin")
-
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 	border = "double",
 })
 
-vim.lsp.handlers["textDocument/signatureHelp"] =
-	vim.lsp.with(vim.lsp.handlers.signature_help, {
-		border = "double",
-	})
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+	border = "double",
+})
 
 vim.diagnostic.config({
 	virtual_text = true,
@@ -33,7 +30,7 @@ return function(client, bufnr)
 		["gd"] = { vim.lsp.buf.definition, "Go to definition" },
 		["gi"] = { vim.lsp.buf.implementation, "Go to implementation" },
 		["gt"] = { vim.lsp.buf.type_definition, "Go to type definition" },
-		["gr"] = { tsBuiltin.lsp_references, "Find references" },
+		["gr"] = { require("telescope.builtin").lsp_references, "Find references" },
 	}, {
 		buffer = bufnr,
 	}).bind()

@@ -1,8 +1,21 @@
+local keymap = Keymap({
+	["<C-/>"] = {
+		function(nvimtree)
+			nvimtree.toggle()
+		end,
+		"Toggle file tree",
+	},
+})
+
 return {
 	"nvim-tree/nvim-tree.lua",
 	dependencies = { "kyazdani42/nvim-web-devicons" },
+	lazy = true,
+	keys = keymap.keys,
 	config = function()
-		require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
+		local nvimtree = require("nvim-tree")
+		keymap.bind(nvimtree)
+		nvimtree.setup({ -- BEGIN_DEFAULT_OPTS
 			auto_reload_on_write = true,
 			disable_netrw = false,
 			hijack_cursor = false,
