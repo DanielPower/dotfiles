@@ -1,7 +1,6 @@
 return {
-	"folke/tokyonight.nvim",
-	lazy = false,
-	config = function()
-		vim.cmd("colorscheme tokyonight")
-	end,
+  { "folke/tokyonight.nvim", lazy = true },
+  { "rebelot/kanagawa.nvim", lazy = true },
+  { "rmehri01/onenord.nvim", lazy = true },
+  { "catppuccin/nvim",       lazy = true },
 }
