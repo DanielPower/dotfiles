@@ -3,20 +3,20 @@ local prettier = {
 	formatStdin = true,
 }
 
-local black = {
-	formatCommand = "black --quiet -",
-	formatStdin = true,
-}
-
 local stylua = {
 	formatCommand = "stylua -",
 	formatStdin = true,
 }
 
-local ruff = {
+local ruffLinter = {
 	lintCommand = "ruff check -",
 	lint = true,
 	formatCommand = "ruff check - --fix",
+	formatStdin = true,
+}
+
+local ruffFormatter = {
+	formatCommand = "ruff format -",
 	formatStdin = true,
 }
 
@@ -25,7 +25,7 @@ local languages = {
 	javascriptreact = { prettier },
 	typescript = { prettier },
 	typescriptreact = { prettier },
-	python = { ruff, black },
+	python = { ruffLinter, ruffFormatter },
 	yaml = { prettier },
 	lua = { stylua },
 	scss = { prettier },
