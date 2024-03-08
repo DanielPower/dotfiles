@@ -8,16 +8,9 @@ local stylua = {
 	formatStdin = true,
 }
 
-local ruffLinter = {
-	lintCommand = "ruff check -",
+local mypy = {
+	lintCommand = "mypy ${INPUT} --show-column-numbers --show-error-codes --no-error-summary",
 	lint = true,
-	formatCommand = "ruff check - --fix",
-	formatStdin = true,
-}
-
-local ruffFormatter = {
-	formatCommand = "ruff format -",
-	formatStdin = true,
 }
 
 local languages = {
@@ -25,7 +18,7 @@ local languages = {
 	javascriptreact = { prettier },
 	typescript = { prettier },
 	typescriptreact = { prettier },
-	python = { ruffLinter, ruffFormatter },
+	python = { mypy },
 	yaml = { prettier },
 	lua = { stylua },
 	scss = { prettier },
@@ -53,7 +46,7 @@ return {
 		"-logfile",
 		vim.fn.stdpath("data") .. "/efm.log",
 	},
-	root_dir = require("lspconfig").util.root_pattern({ "." }),
+	root_dir = require("lspconfig").util.root_pattern({ ".git" }),
 	init_options = { documentFormatting = true },
 	settings = {
 		languages = languages,
