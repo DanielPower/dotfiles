@@ -36,18 +36,19 @@ opt.termguicolors = true
 opt.wrap = false
 opt.laststatus = 3
 opt.winbar = "%{&modified?'[+] ':''}%f"
+opt.mousemodel = "extend"
 
 -- Setup Lazy.nvim
 local lazypath = fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not loop.fs_stat(lazypath) then
-  fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+	fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
@@ -72,16 +73,7 @@ api.nvim_set_keymap("n", "<A-k>", ":m .-2<CR>==", opts)
 -- Clear search highlight on Esc
 api.nvim_set_keymap("n", "<esc>", ":noh<CR>", opts)
 
-vim.fn.sign_define(
-  "DiagnosticSignError",
-  { text = " ", texthl = "DiagnosticSignError" }
-)
-vim.fn.sign_define(
-  "DiagnosticSignWarn",
-  { text = " ", texthl = "DiagnosticSignWarn" }
-)
-vim.fn.sign_define(
-  "DiagnosticSignInfo",
-  { text = " ", texthl = "DiagnosticSignInfo" }
-)
+vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
+vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
+vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
 vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
