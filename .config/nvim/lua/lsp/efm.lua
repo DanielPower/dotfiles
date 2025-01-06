@@ -13,13 +13,18 @@ local mypy = {
 	lint = true,
 }
 
+local actionlint = {
+	lintCommand = vim.fn.stdpath("data") .. "/mason/bin/actionlint -",
+	lintStdin = true,
+}
+
 local languages = {
 	javascript = { prettier },
 	javascriptreact = { prettier },
 	typescript = { prettier },
 	typescriptreact = { prettier },
 	python = { mypy },
-	yaml = { prettier },
+	yaml = { actionlint },
 	lua = { stylua },
 	scss = { prettier },
 	css = { prettier },
