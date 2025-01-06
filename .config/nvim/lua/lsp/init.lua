@@ -4,6 +4,6 @@ return {
 	html = require("lsp.html"),
 	jsonls = require("lsp.jsonls"),
 	sumneko_lua = require("lsp.sumneko_lua"),
-	tsserver = require("lsp.tsserver"),
+	ts_ls = require("lsp.ts_ls"),
 	yamlls = require("lsp.yamlls"),
 }
