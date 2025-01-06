@@ -39,4 +39,4 @@ nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
 
 nnoremap <C-t> :action ActivateTerminalToolWindow<CR>
 nnoremap <leader>t :action Terminal.OpenInTerminal<CR>
-nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
+nnoremap <leader>z :action ToggleDistractionFreeMode<CR>:set number<CR>
