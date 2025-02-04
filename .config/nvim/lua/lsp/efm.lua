@@ -1,5 +1,5 @@
 local prettier = {
-	formatCommand = vim.fn.stdpath("data") .. "/mason/bin/prettierd ${INPUT}",
+	formatCommand = "prettierd ${INPUT}",
 	formatStdin = true,
 }
 
@@ -14,7 +14,7 @@ local mypy = {
 }
 
 local actionlint = {
-	lintCommand = vim.fn.stdpath("data") .. "/mason/bin/actionlint -",
+	lintCommand = "actionlint -",
 	lintStdin = true,
 }
 
@@ -47,7 +47,7 @@ end
 
 return {
 	cmd = {
-		vim.fn.stdpath("data") .. "/mason/bin/efm-langserver",
+		"efm-langserver",
 		"-logfile",
 		vim.fn.stdpath("data") .. "/efm.log",
 	},

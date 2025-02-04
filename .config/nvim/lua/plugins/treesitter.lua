@@ -1,4 +1,6 @@
 return {
+  lazy = true,
+  event = "VeryLazy",
 	"nvim-treesitter/nvim-treesitter", -- Used for highlighting and indentation
 	build = ":TSUpdate",
 	config = function()
