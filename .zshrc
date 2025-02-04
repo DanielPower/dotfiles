@@ -30,7 +30,6 @@ source $HOME/.antigen/antigen.zsh
 antigen bundle zdharma-continuum/fast-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle reobin/typewritten@main
-antigen bundle jeffreytse/zsh-vi-mode
 
 export PATH="$HOME/.local/bin:$PATH"
 
