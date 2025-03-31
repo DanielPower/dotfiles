@@ -36,8 +36,3 @@ export PATH="$HOME/.local/bin:$PATH"
 [[ -f "$HOME/.zlocal" ]] && source "$HOME/.zlocal"
 
 antigen apply
-
-. "$HOME/.local/share/../bin/env"
-
-# bun completions
-[ -s "/Users/daniel/.bun/_bun" ] && source "/Users/daniel/.bun/_bun"
