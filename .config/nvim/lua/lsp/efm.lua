@@ -24,6 +24,7 @@ local black = {
 }
 
 local languages = {
+  astro = { prettier },
 	javascript = { prettier },
 	javascriptreact = { prettier },
 	typescript = { prettier },

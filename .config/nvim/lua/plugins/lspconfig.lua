@@ -17,6 +17,9 @@ return {
 			yamlls = require("lsp.yamlls"),
 			pyright = require("lsp.pyright"),
 			terraformls = require("lsp.terraformls"),
+			svelte = require("lsp.svelte"),
+			tailwindcss = require("lsp.tailwindcss"),
+			ols = require("lsp.ols"),
 		}) do
 			local merged_config = vim.tbl_extend("force", base_config, config)
 			require("lspconfig")[server].setup(merged_config)
