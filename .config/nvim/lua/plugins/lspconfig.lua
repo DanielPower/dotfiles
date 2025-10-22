@@ -20,7 +20,8 @@ return {
 			ruff = {},
 		}) do
 			local merged_config = vim.tbl_extend("force", base_config, config)
-			require("lspconfig")[server].setup(merged_config)
+			vim.lsp.config(server, merged_config)
+			vim.lsp.enable(server)
 		end
 	end,
 }
