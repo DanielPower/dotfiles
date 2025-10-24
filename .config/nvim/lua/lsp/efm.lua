@@ -57,7 +57,6 @@ return {
 		"-logfile",
 		vim.fn.stdpath("data") .. "/efm.log",
 	},
-	root_dir = require("lspconfig").util.root_pattern({ ".git" }),
 	init_options = { documentFormatting = true, documentRangeFormatting = true },
 	settings = {
 		languages = languages,
