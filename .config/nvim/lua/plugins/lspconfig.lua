@@ -16,7 +16,7 @@ return {
 			ts_ls = require("lsp.ts_ls"),
 			yamlls = require("lsp.yamlls"),
 			pyright = require("lsp.pyright"),
-			terraformls = require("lsp.terraformls"),
+      tofu_ls = require("lsp.tofu_ls"),
 			ruff = {},
 		}) do
 			local merged_config = vim.tbl_extend("force", base_config, config)
