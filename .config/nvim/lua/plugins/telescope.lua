@@ -42,7 +42,6 @@ local keymap = Keymap({
 return {
   "nvim-telescope/telescope.nvim", -- Fuzzy find + UI
   dependencies = {
-    "nvim-lua/popup.nvim",
     "nvim-lua/plenary.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, -- Native fuzzy finder (improves performance)
   },

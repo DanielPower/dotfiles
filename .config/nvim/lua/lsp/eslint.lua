@@ -2,7 +2,7 @@ local on_attach = require("lsp.on_attach")
 
 return {
 	on_attach = function(client, bufnr)
-    vim.lsp.config.eslint.on_attach(client, bufnr)
+		vim.lsp.config.eslint.on_attach(client, bufnr)
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			buffer = bufnr,
 			command = "LspEslintFixAll",
@@ -18,5 +18,6 @@ return {
 		"typescript.tsx",
 		"vue",
 		"graphql",
+		"svelte",
 	},
 }

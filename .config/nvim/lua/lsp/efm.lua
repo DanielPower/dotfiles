@@ -23,8 +23,13 @@ local black = {
 	formatStdin = true,
 }
 
+local rustfmt = {
+	formatCommand = "rustfmt --emit=stdout",
+	formatStdin = true,
+}
+
 local languages = {
-  astro = { prettier },
+	astro = { prettier },
 	javascript = { prettier },
 	javascriptreact = { prettier },
 	typescript = { prettier },
@@ -39,6 +44,8 @@ local languages = {
 	graphql = { prettier },
 	markdown = { prettier },
 	html = { prettier },
+	svelte = { prettier },
+	rust = { rustfmt },
 }
 
 local filetype_set = {}

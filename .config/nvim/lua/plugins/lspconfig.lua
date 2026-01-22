@@ -16,8 +16,9 @@ return {
 			ts_ls = require("lsp.ts_ls"),
 			yamlls = require("lsp.yamlls"),
 			pyright = require("lsp.pyright"),
-      tofu_ls = require("lsp.tofu_ls"),
+			tofu_ls = require("lsp.tofu_ls"),
 			ruff = {},
+			svelte = {},
 		}) do
 			local merged_config = vim.tbl_extend("force", base_config, config)
 			vim.lsp.config(server, merged_config)
