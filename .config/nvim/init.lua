@@ -38,23 +38,12 @@ vim.keymap.set("n", "<C-l>", ":wincmd l<CR>", { desc = "Move to right split" })
 vim.keymap.set("n", "<C-C>", ":close<CR>", { desc = "Close current split" })
 vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
 vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
-vim.keymap.set("n", "<esc>", ":noh<CR>", { desc = "Clear search highlight", silent = true })
-
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.uv.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable",
-		lazypath,
-	})
-end
-vim.opt.rtp:prepend(lazypath)
-require("lazy").setup("plugins")
-
-vim.cmd("colorscheme tokyonight")
+vim.keymap.set(
+	"n",
+	"<esc>",
+	":noh<CR>",
+	{ desc = "Clear search highlight", silent = true }
+)
 
 vim.diagnostic.config({
 	virtual_text = true,

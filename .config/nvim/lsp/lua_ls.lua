@@ -1,10 +1,6 @@
-local on_attach = require("lsp.on_attach")
-
 return {
-	on_attach = function(client, bufnr)
-		client.server_capabilities.documentFormattingProvider = false
-		on_attach(client, bufnr)
-	end,
+	cmd = { "lua-language-server" },
+	filetypes = { "lua" },
 	settings = {
 		Lua = {
 			runtime = {
@@ -21,6 +17,9 @@ return {
 				},
 			},
 			telemetry = {
+				enable = false,
+			},
+			format = {
 				enable = false,
 			},
 		},
