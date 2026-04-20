@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 vim.opt.autoread = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.colorcolumn = { 88, 100 }
-vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.completeopt = { "menuone", "noselect", "popup" }
 vim.opt.cursorline = true
 vim.opt.diffopt:append({ "linematch:60" })
 vim.opt.expandtab = true
