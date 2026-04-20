@@ -18,8 +18,11 @@ local actionlint = {
 	lintStdin = true,
 }
 
-local black = {
-	formatCommand = "black --quiet -",
+local ruff = {
+	lintCommand = "ruff check --stdin-filename ${INPUT} --output-format concise --quiet -",
+	lintStdin = true,
+	lintFormats = { "%f:%l:%c: %m" },
+	formatCommand = "ruff format --stdin-filename ${INPUT} --quiet -",
 	formatStdin = true,
 }
 
@@ -34,7 +37,7 @@ local languages = {
 	javascriptreact = { prettier },
 	typescript = { prettier },
 	typescriptreact = { prettier },
-	python = { mypy, black },
+	python = { mypy, ruff },
 	yaml = { actionlint, prettier },
 	lua = { stylua },
 	scss = { prettier },
