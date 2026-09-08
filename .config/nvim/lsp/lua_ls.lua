@@ -1,6 +1,10 @@
 return {
 	cmd = { "lua-language-server" },
 	filetypes = { "lua" },
+	on_init = function(client)
+		client.server_capabilities.documentFormattingProvider = nil
+		client.server_capabilities.documentRangeFormattingProvider = nil
+	end,
 	settings = {
 		Lua = {
 			runtime = {
@@ -15,12 +19,6 @@ return {
 					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
 					[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
 				},
-			},
-			telemetry = {
-				enable = false,
-			},
-			format = {
-				enable = false,
 			},
 		},
 	},

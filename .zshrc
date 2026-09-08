@@ -21,18 +21,12 @@ export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep"
 # ZSH Options
 setopt HISTIGNORESPACE
 HISTFILE=$HOME/.zhistory
+COMPLETION_WAITING_DOTS="true"
+HIST_STAMPS="yyyy-mm-dd"
 HYPHEN_INSENSITIVE="true"
 SAVEHIST=1000000
-TYPEWRITTEN_PROMPT_LAYOUT="pure"
-
-# ZSH Plugins
-source $HOME/.antigen/antigen.zsh
-antigen bundle zdharma-continuum/fast-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle reobin/typewritten@main
+PROMPT='%F{cyan}%~%f %(?.%F{cyan}.%F{red}%? )❯%f '
 
 export PATH="$HOME/.local/bin:$PATH"
 
-[[ -f "$HOME/.zlocal" ]] && source "$HOME/.zlocal"
-
-antigen apply
+[[ -f "$HOME/.zlocal" ]] && source "$HOME/.zlocal.zsh"

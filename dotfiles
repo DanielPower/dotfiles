@@ -17,7 +17,9 @@ def install():
     for i, file in enumerate(listFiles(DOTFILES)):
         print("[" + str(i) + "] " + HOME + file)
         createPath(HOME + file)
-        createSymlink(HOME + file, DOTFILES + file)
+        if not createSymlink(HOME + file, DOTFILES + file):
+            print("Aborted. Remaining files were not linked.")
+            return False
 
 
 def add(path: str):
@@ -75,9 +77,55 @@ def addFile(path):
     call(["ln", "-s", dfpath, homepath])
 
 
+def prompt(question, options):
+    for key, label in options:
+        print("    [" + key + "] " + label)
+    keys = "/".join([key for key, _ in options])
+    while True:
+        try:
+            answer = input("  " + question + " (" + keys + ") ").strip().lower()
+        except (EOFError, KeyboardInterrupt):
+            print()
+            return options[-1][0]
+        for key, _ in options:
+            if answer == key:
+                return key
+        print("  Not an option: " + answer)
+
+
+def backupPath(path):
+    backup = path + ".bak"
+    i = 1
+    while os.path.lexists(backup):
+        backup = path + ".bak." + str(i)
+        i += 1
+    print("  Backing up " + path + " to " + backup)
+    call(["mv", path, backup])
+
+
+# Returns False if the user chose to abort, True otherwise
 def createSymlink(path, source):
-    call(["rm", path])
+    if os.path.lexists(path):
+        if os.path.islink(path) and os.path.realpath(path) == os.path.realpath(source):
+            print("  Already linked")
+            return True
+        print("  " + path + " already exists")
+        choice = prompt(
+            "What would you like to do?",
+            [
+                ("b", "Back up the existing file and continue"),
+                ("s", "Skip this file"),
+                ("a", "Abort the install"),
+            ],
+        )
+        if choice == "a":
+            return False
+        if choice == "s":
+            print("  Skipping " + path)
+            return True
+        backupPath(path)
     call(["ln", "-s", source, path])
+    return True
 
 
 if __name__ == "__main__":
