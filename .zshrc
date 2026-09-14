@@ -29,4 +29,4 @@ PROMPT='%F{cyan}%~%f %(?.%F{cyan}.%F{red}%? )❯%f '
 
 export PATH="$HOME/.local/bin:$PATH"
 
-[[ -f "$HOME/.zlocal" ]] && source "$HOME/.zlocal.zsh"
+[[ -f "$HOME/.zlocal.zsh" ]] && source "$HOME/.zlocal.zsh"
